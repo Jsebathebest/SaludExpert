@@ -3,14 +3,20 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package Vista;
-
+import Modelo.RegistrarseDB;
+import Controlador.ControladorRegistroPaciente;
+import Modelo.DatabaseConnection;
 import javax.swing.JOptionPane;
+import java.sql.SQLException;
+import Controlador.ControladorRegistroPaciente;
 
 /**
  *
  * @author o.o
  */
 public class PantallaRegistrarse extends javax.swing.JFrame {
+
+    private RegistrarseDB pacienteModelo;
 
     /**
      * Creates new form PantallaRegistrarse
@@ -49,25 +55,20 @@ public class PantallaRegistrarse extends javax.swing.JFrame {
         CorreoD = new javax.swing.JTextField();
         jLabel16 = new javax.swing.JLabel();
         TelefonoD = new javax.swing.JTextField();
-        jLabel17 = new javax.swing.JLabel();
-        especialidad = new javax.swing.JComboBox<>();
         CedulaD = new javax.swing.JTextField();
         jLabel20 = new javax.swing.JLabel();
         apellidoD = new javax.swing.JTextField();
         jLabel21 = new javax.swing.JLabel();
-        DatosDoctor = new javax.swing.JButton();
-        Consultorio = new javax.swing.JTextField();
-        jLabel22 = new javax.swing.JLabel();
+        CapturarD = new javax.swing.JButton();
         MasculinoD = new javax.swing.JRadioButton();
         femeninoD = new javax.swing.JRadioButton();
-        turnoD = new javax.swing.JComboBox<>();
-        jLabel18 = new javax.swing.JLabel();
         jLabel30 = new javax.swing.JLabel();
-        contraseña1 = new javax.swing.JTextField();
         jLabel31 = new javax.swing.JLabel();
         jLabel32 = new javax.swing.JLabel();
         jLabel33 = new javax.swing.JLabel();
         contraseña2 = new javax.swing.JTextField();
+        contraseña1 = new javax.swing.JTextField();
+        jLabel12 = new javax.swing.JLabel();
         FormularioRecepcionista = new javax.swing.JPanel();
         jLabel24 = new javax.swing.JLabel();
         nombre = new javax.swing.JTextField();
@@ -94,13 +95,11 @@ public class PantallaRegistrarse extends javax.swing.JFrame {
         confirmarContraseña = new javax.swing.JTextField();
         jLabel29 = new javax.swing.JLabel();
         BotonRecepcion = new javax.swing.JButton();
-        botonDoctor = new javax.swing.JButton();
         botonIniciarSesion1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(930, 670));
         setMinimumSize(new java.awt.Dimension(930, 670));
-        setPreferredSize(new java.awt.Dimension(930, 670));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
@@ -162,10 +161,10 @@ public class PantallaRegistrarse extends javax.swing.JFrame {
         FormularioDoctor.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/imagenes/email.png"))); // NOI18N
-        FormularioDoctor.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, 70, 60));
+        FormularioDoctor.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 70, 60));
 
         jLabel23.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/imagenes/usuario.png"))); // NOI18N
-        FormularioDoctor.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 70, 60));
+        FormularioDoctor.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, -10, 70, 60));
 
         NombreD.setBackground(new java.awt.Color(235, 235, 234));
         NombreD.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
@@ -186,7 +185,7 @@ public class PantallaRegistrarse extends javax.swing.JFrame {
         FormularioDoctor.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 80, 130, 20));
 
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/imagenes/telefono.png"))); // NOI18N
-        FormularioDoctor.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, 70, 60));
+        FormularioDoctor.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 170, 70, 60));
 
         CorreoD.setBackground(new java.awt.Color(235, 235, 234));
         CorreoD.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
@@ -208,17 +207,6 @@ public class PantallaRegistrarse extends javax.swing.JFrame {
         TelefonoD.setMargin(new java.awt.Insets(0, 25, 0, 0));
         TelefonoD.setMaximumSize(new java.awt.Dimension(15, 24));
         FormularioDoctor.add(TelefonoD, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 180, 250, 40));
-
-        jLabel17.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
-        jLabel17.setForeground(new java.awt.Color(153, 153, 153));
-        jLabel17.setText("Especialidad");
-        FormularioDoctor.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 240, 130, 20));
-
-        especialidad.setBackground(new java.awt.Color(235, 235, 234));
-        especialidad.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
-        especialidad.setForeground(new java.awt.Color(102, 102, 102));
-        especialidad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Medicina General ", "Pediatría", "Ginecoobstetricia", "Cardiología", "Neurología", "Oncología", "Dermatología", "Urología", "Reumatología", "Endocrinología" }));
-        FormularioDoctor.add(especialidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 260, 180, 40));
 
         CedulaD.setBackground(new java.awt.Color(235, 235, 234));
         CedulaD.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
@@ -251,40 +239,22 @@ public class PantallaRegistrarse extends javax.swing.JFrame {
         jLabel21.setText("Apellido ");
         FormularioDoctor.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 10, 130, 20));
 
-        DatosDoctor.setBackground(new java.awt.Color(204, 51, 255));
-        DatosDoctor.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        DatosDoctor.setForeground(new java.awt.Color(255, 255, 255));
-        DatosDoctor.setText("Capturar Datos");
-        DatosDoctor.setBorder(null);
-        DatosDoctor.addActionListener(new java.awt.event.ActionListener() {
+        CapturarD.setBackground(new java.awt.Color(204, 51, 255));
+        CapturarD.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        CapturarD.setForeground(new java.awt.Color(255, 255, 255));
+        CapturarD.setText("Capturar Datos");
+        CapturarD.setBorder(null);
+        CapturarD.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                DatosDoctorActionPerformed(evt);
+                CapturarDActionPerformed(evt);
             }
         });
-        FormularioDoctor.add(DatosDoctor, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 460, 250, 60));
-
-        Consultorio.setBackground(new java.awt.Color(235, 235, 234));
-        Consultorio.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
-        Consultorio.setForeground(new java.awt.Color(102, 102, 102));
-        Consultorio.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(235, 235, 234), 4));
-        Consultorio.setMargin(new java.awt.Insets(0, 15, 0, 0));
-        Consultorio.setMaximumSize(new java.awt.Dimension(15, 24));
-        Consultorio.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ConsultorioActionPerformed(evt);
-            }
-        });
-        FormularioDoctor.add(Consultorio, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 260, 210, 40));
-
-        jLabel22.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
-        jLabel22.setForeground(new java.awt.Color(153, 153, 153));
-        jLabel22.setText("Número de Consultorio");
-        FormularioDoctor.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 240, 170, 20));
+        FormularioDoctor.add(CapturarD, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 460, 250, 60));
 
         MasculinoD.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         MasculinoD.setForeground(new java.awt.Color(102, 102, 102));
         MasculinoD.setText("Masculino");
-        FormularioDoctor.add(MasculinoD, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 340, 90, -1));
+        FormularioDoctor.add(MasculinoD, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 380, 90, -1));
 
         femeninoD.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         femeninoD.setForeground(new java.awt.Color(102, 102, 102));
@@ -294,46 +264,39 @@ public class PantallaRegistrarse extends javax.swing.JFrame {
                 femeninoDActionPerformed(evt);
             }
         });
-        FormularioDoctor.add(femeninoD, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 340, 90, -1));
-
-        turnoD.setBackground(new java.awt.Color(235, 235, 234));
-        turnoD.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
-        turnoD.setForeground(new java.awt.Color(102, 102, 102));
-        turnoD.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Matutino", "Vespertino", "Nocturno", " " }));
-        FormularioDoctor.add(turnoD, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 330, 180, 40));
-
-        jLabel18.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
-        jLabel18.setForeground(new java.awt.Color(153, 153, 153));
-        jLabel18.setText("Turno");
-        FormularioDoctor.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 310, 130, 20));
+        FormularioDoctor.add(femeninoD, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 380, 90, -1));
 
         jLabel30.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/imagenes/password.png"))); // NOI18N
-        FormularioDoctor.add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 390, 70, 60));
-
-        contraseña1.setBackground(new java.awt.Color(235, 235, 234));
-        contraseña1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(235, 235, 234), 4));
-        contraseña1.setMargin(new java.awt.Insets(0, 25, 0, 0));
-        contraseña1.setMaximumSize(new java.awt.Dimension(15, 24));
-        FormularioDoctor.add(contraseña1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 400, 230, 40));
+        FormularioDoctor.add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 260, 70, 60));
 
         jLabel31.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         jLabel31.setForeground(new java.awt.Color(153, 153, 153));
         jLabel31.setText("Contraseña");
-        FormularioDoctor.add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 380, 130, 20));
+        FormularioDoctor.add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 240, 130, 20));
 
         jLabel32.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/imagenes/password.png"))); // NOI18N
-        FormularioDoctor.add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 390, 70, 60));
+        FormularioDoctor.add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 260, 70, 60));
 
         jLabel33.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         jLabel33.setForeground(new java.awt.Color(153, 153, 153));
         jLabel33.setText("Confirmar contraseña");
-        FormularioDoctor.add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 380, 130, 20));
+        FormularioDoctor.add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 250, 130, 20));
 
         contraseña2.setBackground(new java.awt.Color(235, 235, 234));
         contraseña2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(235, 235, 234), 4));
         contraseña2.setMargin(new java.awt.Insets(0, 25, 0, 0));
         contraseña2.setMaximumSize(new java.awt.Dimension(15, 24));
-        FormularioDoctor.add(contraseña2, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 400, 230, 40));
+        FormularioDoctor.add(contraseña2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 270, 230, 40));
+
+        contraseña1.setBackground(new java.awt.Color(235, 235, 234));
+        contraseña1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(235, 235, 234), 4));
+        contraseña1.setMargin(new java.awt.Insets(0, 25, 0, 0));
+        contraseña1.setMaximumSize(new java.awt.Dimension(15, 24));
+        FormularioDoctor.add(contraseña1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 270, 230, 40));
+
+        jLabel12.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
+        jLabel12.setText("Género");
+        FormularioDoctor.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 330, 120, 30));
 
         TablaOpciones.addTab("tab2", FormularioDoctor);
 
@@ -489,25 +452,13 @@ public class PantallaRegistrarse extends javax.swing.JFrame {
         BotonRecepcion.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         BotonRecepcion.setForeground(new java.awt.Color(102, 102, 102));
         BotonRecepcion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/imagenes/recepcion1.png"))); // NOI18N
-        BotonRecepcion.setText("Recepcionista");
+        BotonRecepcion.setText("Paciente");
         BotonRecepcion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BotonRecepcionActionPerformed(evt);
             }
         });
-        jPanel1.add(BotonRecepcion, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 40, 140, 40));
-
-        botonDoctor.setBackground(new java.awt.Color(204, 204, 204));
-        botonDoctor.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
-        botonDoctor.setForeground(new java.awt.Color(102, 102, 102));
-        botonDoctor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/imagenes/doctor1.png"))); // NOI18N
-        botonDoctor.setText("Doctor");
-        botonDoctor.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botonDoctorActionPerformed(evt);
-            }
-        });
-        jPanel1.add(botonDoctor, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 40, 130, 40));
+        jPanel1.add(BotonRecepcion, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 40, 170, 50));
 
         botonIniciarSesion1.setBackground(new java.awt.Color(51, 102, 255));
         botonIniciarSesion1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
@@ -538,10 +489,6 @@ public class PantallaRegistrarse extends javax.swing.JFrame {
         TablaOpciones.setSelectedIndex(1);
     }//GEN-LAST:event_BotonRecepcionActionPerformed
 
-    private void botonDoctorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonDoctorActionPerformed
-        TablaOpciones.setSelectedIndex(0);
-    }//GEN-LAST:event_botonDoctorActionPerformed
-
     private void cedulaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cedulaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cedulaActionPerformed
@@ -549,10 +496,6 @@ public class PantallaRegistrarse extends javax.swing.JFrame {
     private void CedulaDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CedulaDActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_CedulaDActionPerformed
-
-    private void ConsultorioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsultorioActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ConsultorioActionPerformed
 
     private void femeninoDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_femeninoDActionPerformed
         // TODO add your handling code here:
@@ -566,18 +509,49 @@ public class PantallaRegistrarse extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_femeninoActionPerformed
 
-    private void DatosDoctorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DatosDoctorActionPerformed
-       JOptionPane.showMessageDialog(null, 
-                    "Datos capturados exitosamente!", 
-                    "Confirmación", 
-                    JOptionPane.INFORMATION_MESSAGE);
-    }//GEN-LAST:event_DatosDoctorActionPerformed
+    private void CapturarDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CapturarDActionPerformed
+
+        
+        CapturarD.addActionListener(e -> {
+    String nombre = NombreD.getText();
+    String apellido = apellidoD.getText();
+    String correo = CorreoD.getText();
+    String numero_telefono = TelefonoD.getText();
+    String cedula = CedulaD.getText();
+    String contraseña = contraseña1.getText();
+    String genero = femeninoD.isSelected() ? "Femenino" : "Masculino";
+    
+
+
+DatabaseConnection dbConnection = new DatabaseConnection();
+dbConnection.conectar();  // Establece la conexión
+
+RegistrarseDB pacienteModelo = new RegistrarseDB(dbConnection);  // Pasa la conexión al modelo
+
+// Ahora puedes usar el modelo para registrar un usuario
+ControladorRegistroPaciente controlador = new ControladorRegistroPaciente(pacienteModelo);
+controlador.registrarPacienteDesdeVista(nombre, apellido, correo, numero_telefono, cedula, contraseña, genero); 
+//ControladorRegistroPaciente controlador = new ControladorRegistroPaciente(new RegistrarseDB(new DatabaseConnection()));
+//controlador.registrarPacienteDesdeVista(nombre, apellido, correo, numero_telefono, cedula, contraseña, genero);
+});
+        
+        
+        
+        
+        
+        
+        
+//                    JOptionPane.showMessageDialog(null, 
+//                    "Datos capturados exitosamente!", 
+//                    "Confirmación", 
+//                    JOptionPane.INFORMATION_MESSAGE);
+    }//GEN-LAST:event_CapturarDActionPerformed
 
     private void DatosRecepcionistaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DatosRecepcionistaActionPerformed
-        JOptionPane.showMessageDialog(null, 
-                    "Datos capturados exitosamente!", 
-                    "Confirmación", 
-                    JOptionPane.INFORMATION_MESSAGE);
+        JOptionPane.showMessageDialog(null,
+                "Datos capturados exitosamente!",
+                "Confirmación",
+                JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_DatosRecepcionistaActionPerformed
 
     /**
@@ -617,11 +591,10 @@ public class PantallaRegistrarse extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BotonRecepcion;
+    private javax.swing.JButton CapturarD;
     private javax.swing.JTextField CedulaD;
-    private javax.swing.JTextField Consultorio;
     private javax.swing.JPanel Contenedor;
     private javax.swing.JTextField CorreoD;
-    private javax.swing.JButton DatosDoctor;
     private javax.swing.JButton DatosRecepcionista;
     private javax.swing.JLabel Doctoresimg;
     private javax.swing.JLabel Fondo;
@@ -633,7 +606,6 @@ public class PantallaRegistrarse extends javax.swing.JFrame {
     private javax.swing.JTextField TelefonoD;
     private javax.swing.JTextField apellido;
     private javax.swing.JTextField apellidoD;
-    private javax.swing.JButton botonDoctor;
     private javax.swing.JButton botonIniciarSesion;
     private javax.swing.JButton botonIniciarSesion1;
     private javax.swing.JTextField cedula;
@@ -642,24 +614,21 @@ public class PantallaRegistrarse extends javax.swing.JFrame {
     private javax.swing.JTextField contraseña1;
     private javax.swing.JTextField contraseña2;
     private javax.swing.JTextField correo;
-    private javax.swing.JComboBox<String> especialidad;
     private javax.swing.JRadioButton femenino;
     private javax.swing.JRadioButton femeninoD;
     private javax.swing.JLabel inicio1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
-    private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
@@ -683,6 +652,5 @@ public class PantallaRegistrarse extends javax.swing.JFrame {
     private javax.swing.JTextField nombre;
     private javax.swing.JTextField telefono;
     private javax.swing.JComboBox<String> turno;
-    private javax.swing.JComboBox<String> turnoD;
     // End of variables declaration//GEN-END:variables
 }
