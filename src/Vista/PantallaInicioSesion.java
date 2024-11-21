@@ -91,7 +91,6 @@ public class PantallaInicioSesion extends javax.swing.JFrame {
         Recuerdame.setFont(new java.awt.Font("Dialog", 3, 12)); // NOI18N
         Recuerdame.setForeground(new java.awt.Color(153, 153, 153));
         Recuerdame.setText("Recuérdame.");
-        Recuerdame.setOpaque(false);
         Recuerdame.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 RecuerdameActionPerformed(evt);
