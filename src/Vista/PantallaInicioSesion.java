@@ -1,22 +1,23 @@
-
 package Vista;
 
+import Modelo.IniciarSesionDAO;
+import Modelo.UsuarioDB;
+import Modelo.Usuarios;
 import java.awt.Insets;
-
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Connection;
+import java.awt.Component;
+import javax.swing.JOptionPane;
+import java.awt.event.ActionListener;
 
 public class PantallaInicioSesion extends javax.swing.JFrame {
 
-
     public PantallaInicioSesion() {
         initComponents();
-        
-       
-        
-        
-      
+
     }
 
-   
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -41,12 +42,11 @@ public class PantallaInicioSesion extends javax.swing.JFrame {
         OpcionDoctor = new javax.swing.JRadioButton();
         OpcionRecepcionista = new javax.swing.JRadioButton();
         Usuario = new javax.swing.JTextField();
-        Contraseña = new javax.swing.JPasswordField();
-        Email = new javax.swing.JTextField();
+        lblContraseña = new javax.swing.JPasswordField();
+        lblCorreo = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(930, 670));
         setMinimumSize(new java.awt.Dimension(930, 670));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
@@ -111,6 +111,11 @@ public class PantallaInicioSesion extends javax.swing.JFrame {
         botoninicio.setForeground(new java.awt.Color(255, 255, 255));
         botoninicio.setText(" Iniciar sesión");
         botoninicio.setBorder(null);
+        botoninicio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botoninicioActionPerformed(evt);
+            }
+        });
         jPanel1.add(botoninicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 550, 270, 60));
 
         jLabel1.setFont(new java.awt.Font("Microsoft YaHei Light", 1, 18)); // NOI18N
@@ -165,24 +170,24 @@ public class PantallaInicioSesion extends javax.swing.JFrame {
         Usuario.setMaximumSize(new java.awt.Dimension(15, 24));
         jPanel1.add(Usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 150, 410, 50));
 
-        Contraseña.setBackground(new java.awt.Color(235, 235, 234));
-        Contraseña.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(235, 235, 234), 4));
-        Contraseña.setMargin(new java.awt.Insets(0, 15, 0, 0));
-        Contraseña.setMaximumSize(new java.awt.Dimension(15, 24));
-        Contraseña.setMinimumSize(new java.awt.Dimension(15, 24));
-        Contraseña.setPreferredSize(new java.awt.Dimension(15, 24));
-        Contraseña.addActionListener(new java.awt.event.ActionListener() {
+        lblContraseña.setBackground(new java.awt.Color(235, 235, 234));
+        lblContraseña.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(235, 235, 234), 4));
+        lblContraseña.setMargin(new java.awt.Insets(0, 15, 0, 0));
+        lblContraseña.setMaximumSize(new java.awt.Dimension(15, 24));
+        lblContraseña.setMinimumSize(new java.awt.Dimension(15, 24));
+        lblContraseña.setPreferredSize(new java.awt.Dimension(15, 24));
+        lblContraseña.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ContraseñaActionPerformed(evt);
+                lblContraseñaActionPerformed(evt);
             }
         });
-        jPanel1.add(Contraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 340, 400, 50));
+        jPanel1.add(lblContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 340, 400, 50));
 
-        Email.setBackground(new java.awt.Color(235, 235, 234));
-        Email.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(235, 235, 234), 4));
-        Email.setMargin(new java.awt.Insets(0, 15, 0, 0));
-        Email.setMaximumSize(new java.awt.Dimension(15, 24));
-        jPanel1.add(Email, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 250, 410, 50));
+        lblCorreo.setBackground(new java.awt.Color(235, 235, 234));
+        lblCorreo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(235, 235, 234), 4));
+        lblCorreo.setMargin(new java.awt.Insets(0, 15, 0, 0));
+        lblCorreo.setMaximumSize(new java.awt.Dimension(15, 24));
+        jPanel1.add(lblCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 250, 410, 50));
 
         jLabel7.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(153, 153, 153));
@@ -219,11 +224,74 @@ public class PantallaInicioSesion extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_OpcionRecepcionistaActionPerformed
 
-    private void ContraseñaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ContraseñaActionPerformed
+    private void lblContraseñaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lblContraseñaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_ContraseñaActionPerformed
+    }//GEN-LAST:event_lblContraseñaActionPerformed
 
-    
+    private void botoninicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botoninicioActionPerformed
+
+        // codigo que permite el login y la validacion 
+        IniciarSesionDAO login = new IniciarSesionDAO();
+//        Usuarios u = new Usuarios();
+//        login.addActionListener(iniciarSesion);
+        String correo = lblCorreo.getText();
+        String contraseña = lblContraseña.getText();
+        login.iniciarSesion(correo, contraseña);
+
+//    botoninicio.addActionListener(e -> {
+//    String correo = lblCorreo.getText();
+//    String contraseña = lblContraseña.getText();
+//
+//    // Instnacamos desde la capa modelo a UsuarioDB
+//    IniciarSesionDAO usuarioDAO = new IniciarSesionDAO();
+    boolean esValido = login.iniciarSesion(correo, contraseña);
+//
+    if (esValido) {
+        JOptionPane.showMessageDialog(null, "Inicio de sesión exitoso.");
+        dispose(); 
+        
+        Homepage hpage = new Homepage(); 
+        hpage.show();
+    } else {
+        JOptionPane.showMessageDialog(null, "Usuario o contraseña incorrectos.");
+          Usuario.setText ("");
+          lblContraseña.setText ("");
+    }
+//});
+//         try {
+//             Class.forName("com.mysql.jdbc.Driver");
+//            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3307/RecetasElectronicas1?useSSL=false","JSABF","noretiren2024"); 
+//            
+//            String usuario = Usuario.getText();
+//            String contrasena = Contrasena.getText();
+//            
+//            Statement stm = con.createStatement();
+//            
+//            //esta es el query SQL p
+//            String sql =  " select * from usuario where usuario = '" +usuario+"' and contrasena= '"+contrasena+"'";
+//            ResultSet rs = stm.executeQuery(sql);
+//            
+//            if (rs.next()){
+//            // validacion por si el user y el password no son corretos pero si es true que vaya al home page
+//            
+//            dispose ();
+//            Homepage hpage = new Homepage();
+//            hpage.show();
+//            
+//            } else {
+//            JOptionPane.showMessageDialog(this, " Usuario o contraseña incorrecto.....");
+//            Usuario.setText (" ");
+//            Contrasena.setText (" ");
+//            
+//            }
+//            
+//            con.close();
+//        } catch (SQLException e) {
+//            System.out.println(e.getMessage());
+//          
+//        }
+    }//GEN-LAST:event_botoninicioActionPerformed
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -249,22 +317,17 @@ public class PantallaInicioSesion extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        
-        
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new PantallaInicioSesion().setVisible(true);
             }
         });
     }
-    
-   
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPasswordField Contraseña;
     private javax.swing.JLabel Degradado;
     private javax.swing.JLabel Doctoresimg;
-    private javax.swing.JTextField Email;
     private javax.swing.JLabel OlvidastePassword;
     private javax.swing.JRadioButton OpcionDoctor;
     private javax.swing.JRadioButton OpcionRecepcionista;
@@ -284,5 +347,7 @@ public class PantallaInicioSesion extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPasswordField lblContraseña;
+    private javax.swing.JTextField lblCorreo;
     // End of variables declaration//GEN-END:variables
 }
