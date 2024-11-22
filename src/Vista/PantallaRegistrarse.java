@@ -4,6 +4,9 @@ import Modelo.RegistrarseDB;
 import javax.swing.JOptionPane;
 import Modelo.Usuarios;
 import Modelo.UsuariosDAO;
+import java.awt.Color;
+import javax.swing.BorderFactory;
+import javax.swing.border.TitledBorder;
 
 /**
  *
@@ -17,7 +20,18 @@ public class PantallaRegistrarse extends javax.swing.JFrame {
      * Creates new form PantallaRegistrarse
      */
     public PantallaRegistrarse() {
+        
+       setUndecorated(true);  
+       setLocationRelativeTo(null);
+       
         initComponents();
+        
+        try {
+            javax.swing.UIManager.setLookAndFeel(javax.swing.UIManager.getSystemLookAndFeelClassName());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
     }
 
     /**
@@ -30,6 +44,7 @@ public class PantallaRegistrarse extends javax.swing.JFrame {
     private void initComponents() {
 
         btngGenero = new javax.swing.ButtonGroup();
+        jLabel2 = new javax.swing.JLabel();
         plBackground = new javax.swing.JPanel();
         lblNombrePantalla = new javax.swing.JLabel();
         lblMensaje1 = new javax.swing.JLabel();
@@ -38,34 +53,26 @@ public class PantallaRegistrarse extends javax.swing.JFrame {
         lblDoctoresImg = new javax.swing.JLabel();
         lblMensaje4 = new javax.swing.JLabel();
         btnIniciarSesion = new javax.swing.JButton();
-        Fondo = new javax.swing.JLabel();
-        Contenedor = new javax.swing.JPanel();
-        plFormularioRegistro = new javax.swing.JPanel();
-        lblNombre = new javax.swing.JLabel();
-        iconUsuario = new javax.swing.JLabel();
-        txtNombre = new javax.swing.JTextField();
-        lblApellido = new javax.swing.JLabel();
-        txtApellido = new javax.swing.JTextField();
-        lblCorreo = new javax.swing.JLabel();
-        iconEmail = new javax.swing.JLabel();
+        Logo = new javax.swing.JLabel();
+        eslogan = new javax.swing.JLabel();
         txtCorreo = new javax.swing.JTextField();
-        lblTelefono = new javax.swing.JLabel();
-        iconTelefono = new javax.swing.JLabel();
-        txtTelefono = new javax.swing.JTextField();
-        lblCedula = new javax.swing.JLabel();
-        txtCedula = new javax.swing.JTextField();
-        lblContraseña = new javax.swing.JLabel();
-        iconPassword = new javax.swing.JLabel();
         iconEye = new javax.swing.JLabel();
-        txtPassword = new javax.swing.JPasswordField();
         lblGenero = new javax.swing.JLabel();
         rbtnFemenino = new javax.swing.JRadioButton();
         rbtnMasculino = new javax.swing.JRadioButton();
-        btnCapturarDatos = new javax.swing.JButton();
-        btnPaciente = new javax.swing.JButton();
+        btnRegistrarse = new javax.swing.JButton();
+        txtApellido = new javax.swing.JTextField();
+        txtNombre = new javax.swing.JTextField();
+        txtTelefono = new javax.swing.JTextField();
+        txtCedula = new javax.swing.JTextField();
+        txtPassword = new javax.swing.JPasswordField();
+        lblSalir = new javax.swing.JLabel();
+        Fondo = new javax.swing.JLabel();
 
         btngGenero.add(rbtnFemenino);
         btngGenero.add(rbtnMasculino);
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/imagenes/circulo.png"))); // NOI18N
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(930, 670));
@@ -75,203 +82,281 @@ public class PantallaRegistrarse extends javax.swing.JFrame {
         plBackground.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lblNombrePantalla.setFont(new java.awt.Font("Dialog", 1, 32)); // NOI18N
-        lblNombrePantalla.setForeground(new java.awt.Color(204, 51, 255));
+        lblNombrePantalla.setForeground(new java.awt.Color(83, 121, 235));
         lblNombrePantalla.setText("Regístrate");
-        plBackground.add(lblNombrePantalla, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, 190, 60));
+        plBackground.add(lblNombrePantalla, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, 190, 60));
 
         lblMensaje1.setFont(new java.awt.Font("Microsoft YaHei UI Light", 1, 35)); // NOI18N
         lblMensaje1.setForeground(new java.awt.Color(255, 255, 255));
         lblMensaje1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblMensaje1.setText("¡Crea tu cuenta!");
-        plBackground.add(lblMensaje1, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 120, -1, 50));
+        plBackground.add(lblMensaje1, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 490, -1, 50));
 
         lblMensaje2.setFont(new java.awt.Font("Microsoft YaHei Light", 1, 18)); // NOI18N
         lblMensaje2.setForeground(new java.awt.Color(255, 255, 255));
         lblMensaje2.setText("y organiza citas eficientes");
-        plBackground.add(lblMensaje2, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 150, 270, 50));
+        plBackground.add(lblMensaje2, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 520, 270, 50));
 
         lblMensaje3.setFont(new java.awt.Font("Microsoft YaHei Light", 1, 18)); // NOI18N
         lblMensaje3.setForeground(new java.awt.Color(255, 255, 255));
         lblMensaje3.setText("desde el primer momento.");
-        plBackground.add(lblMensaje3, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 180, 290, 40));
+        plBackground.add(lblMensaje3, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 550, 290, 40));
 
-        lblDoctoresImg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/imagenes/doctores.png"))); // NOI18N
-        plBackground.add(lblDoctoresImg, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 240, 310, 220));
+        lblDoctoresImg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/imagenes/doctoresprueb.png"))); // NOI18N
+        plBackground.add(lblDoctoresImg, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 210, 380, 250));
 
         lblMensaje4.setFont(new java.awt.Font("Dialog", 3, 12)); // NOI18N
-        lblMensaje4.setForeground(new java.awt.Color(255, 255, 255));
+        lblMensaje4.setForeground(new java.awt.Color(153, 153, 153));
         lblMensaje4.setText("¿Ya tienes una cuenta? ");
-        plBackground.add(lblMensaje4, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 480, -1, -1));
+        plBackground.add(lblMensaje4, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 596, -1, 20));
 
-        btnIniciarSesion.setBackground(new java.awt.Color(51, 102, 255));
-        btnIniciarSesion.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        btnIniciarSesion.setForeground(new java.awt.Color(255, 255, 255));
+        btnIniciarSesion.setBackground(new java.awt.Color(255, 255, 255));
+        btnIniciarSesion.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
+        btnIniciarSesion.setForeground(new java.awt.Color(59, 105, 240));
         btnIniciarSesion.setText(" Iniciar sesión");
         btnIniciarSesion.setBorder(null);
+        btnIniciarSesion.setBorderPainted(false);
+        btnIniciarSesion.setContentAreaFilled(false);
+        btnIniciarSesion.setFocusable(false);
+        btnIniciarSesion.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnIniciarSesionMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnIniciarSesionMouseExited(evt);
+            }
+        });
         btnIniciarSesion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnIniciarSesionActionPerformed(evt);
             }
         });
-        plBackground.add(btnIniciarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 510, 180, 60));
+        plBackground.add(btnIniciarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 590, 80, 30));
 
-        Fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/imagenes/fondo.png"))); // NOI18N
-        Fondo.setMaximumSize(new java.awt.Dimension(390, 670));
-        Fondo.setMinimumSize(new java.awt.Dimension(390, 670));
-        Fondo.setPreferredSize(new java.awt.Dimension(390, 670));
-        plBackground.add(Fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 10, 390, 670));
+        Logo.setFont(new java.awt.Font("Segoe UI Emoji", 1, 55)); // NOI18N
+        Logo.setForeground(new java.awt.Color(255, 255, 255));
+        Logo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Logo.setText("SaludXpert");
+        plBackground.add(Logo, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 140, -1, 70));
 
-        Contenedor.setBackground(new java.awt.Color(255, 255, 255));
-        Contenedor.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        eslogan.setFont(new java.awt.Font("Dialog", 3, 12)); // NOI18N
+        eslogan.setForeground(new java.awt.Color(255, 255, 255));
+        eslogan.setText("Citas rápidas, salud eficiente. ");
+        plBackground.add(eslogan, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 160, -1, 70));
 
-        plFormularioRegistro.setBackground(new java.awt.Color(255, 255, 255));
-        plFormularioRegistro.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        lblNombre.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
-        lblNombre.setForeground(new java.awt.Color(153, 153, 153));
-        lblNombre.setText("Nombre");
-        plFormularioRegistro.add(lblNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 10, 130, 20));
-
-        iconUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/imagenes/usuario.png"))); // NOI18N
-        plFormularioRegistro.add(iconUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, -10, 30, 50));
-
-        txtNombre.setBackground(new java.awt.Color(235, 235, 234));
-        txtNombre.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
-        txtNombre.setForeground(new java.awt.Color(102, 102, 102));
-        txtNombre.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(235, 235, 234), 4));
-        txtNombre.setMargin(new java.awt.Insets(0, 25, 0, 0));
-        txtNombre.setMaximumSize(new java.awt.Dimension(15, 24));
-        plFormularioRegistro.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, 200, 40));
-
-        lblApellido.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
-        lblApellido.setForeground(new java.awt.Color(153, 153, 153));
-        lblApellido.setText("Apellido ");
-        plFormularioRegistro.add(lblApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 10, 130, 20));
-
-        txtApellido.setBackground(new java.awt.Color(235, 235, 234));
-        txtApellido.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
-        txtApellido.setForeground(new java.awt.Color(102, 102, 102));
-        txtApellido.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(235, 235, 234), 4));
-        txtApellido.setMargin(new java.awt.Insets(0, 15, 0, 0));
-        txtApellido.setMaximumSize(new java.awt.Dimension(15, 24));
-        plFormularioRegistro.add(txtApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 30, 230, 40));
-
-        lblCorreo.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
-        lblCorreo.setForeground(new java.awt.Color(153, 153, 153));
-        lblCorreo.setText("Correo Electrónico");
-        plFormularioRegistro.add(lblCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 80, 130, 20));
-
-        iconEmail.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/imagenes/email.png"))); // NOI18N
-        plFormularioRegistro.add(iconEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 80, 30, 20));
-
-        txtCorreo.setBackground(new java.awt.Color(235, 235, 234));
-        txtCorreo.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
-        txtCorreo.setForeground(new java.awt.Color(102, 102, 102));
-        txtCorreo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(235, 235, 234), 4));
-        txtCorreo.setMargin(new java.awt.Insets(0, 25, 0, 0));
+        txtCorreo.setBackground(new java.awt.Color(255, 255, 255));
+        txtCorreo.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        txtCorreo.setForeground(new java.awt.Color(51, 51, 51));
+        txtCorreo.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(51, 51, 51), 4, true), "Correo ", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 14), new java.awt.Color(51, 51, 51))); // NOI18N
+        txtCorreo.setMargin(new java.awt.Insets(0, 35, 0, 0));
         txtCorreo.setMaximumSize(new java.awt.Dimension(15, 24));
-        plFormularioRegistro.add(txtCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, 440, 40));
-
-        lblTelefono.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
-        lblTelefono.setForeground(new java.awt.Color(153, 153, 153));
-        lblTelefono.setText("Teléfono");
-        plFormularioRegistro.add(lblTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 160, 130, 20));
-
-        iconTelefono.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/imagenes/telefono.png"))); // NOI18N
-        plFormularioRegistro.add(iconTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 156, 30, -1));
-
-        txtTelefono.setBackground(new java.awt.Color(235, 235, 234));
-        txtTelefono.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
-        txtTelefono.setForeground(new java.awt.Color(102, 102, 102));
-        txtTelefono.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(235, 235, 234), 4));
-        txtTelefono.setMargin(new java.awt.Insets(0, 25, 0, 0));
-        txtTelefono.setMaximumSize(new java.awt.Dimension(15, 24));
-        plFormularioRegistro.add(txtTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 180, 250, 40));
-
-        lblCedula.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
-        lblCedula.setForeground(new java.awt.Color(153, 153, 153));
-        lblCedula.setText("Número de Cédula");
-        plFormularioRegistro.add(lblCedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 160, 170, 20));
-
-        txtCedula.setBackground(new java.awt.Color(235, 235, 234));
-        txtCedula.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
-        txtCedula.setForeground(new java.awt.Color(102, 102, 102));
-        txtCedula.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(235, 235, 234), 4));
-        txtCedula.setMargin(new java.awt.Insets(0, 15, 0, 0));
-        txtCedula.setMaximumSize(new java.awt.Dimension(15, 24));
-        txtCedula.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtCedulaActionPerformed(evt);
+        txtCorreo.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtCorreoFocusLost(evt);
             }
         });
-        plFormularioRegistro.add(txtCedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 180, 180, 40));
-
-        lblContraseña.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
-        lblContraseña.setForeground(new java.awt.Color(153, 153, 153));
-        lblContraseña.setText("Contraseña");
-        plFormularioRegistro.add(lblContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 240, 130, 30));
-
-        iconPassword.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/imagenes/password.png"))); // NOI18N
-        plFormularioRegistro.add(iconPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 240, 30, 30));
+        txtCorreo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtCorreoMouseClicked(evt);
+            }
+        });
+        txtCorreo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCorreoActionPerformed(evt);
+            }
+        });
+        plBackground.add(txtCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 220, 460, 70));
 
         iconEye.setForeground(java.awt.Color.white);
-        iconEye.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/imagenes/eye_24.png"))); // NOI18N
+        iconEye.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/imagenes/ojito.png"))); // NOI18N
         iconEye.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 iconEyeMouseClicked(evt);
             }
         });
-        plFormularioRegistro.add(iconEye, new org.netbeans.lib.awtextra.AbsoluteConstraints(274, 270, 30, 40));
-        plFormularioRegistro.add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 270, 230, 40));
+        plBackground.add(iconEye, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 440, 30, 20));
 
-        lblGenero.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
+        lblGenero.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        lblGenero.setForeground(new java.awt.Color(51, 51, 51));
         lblGenero.setText("Género");
-        plFormularioRegistro.add(lblGenero, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 320, 120, 30));
+        plBackground.add(lblGenero, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 410, 120, 30));
 
+        rbtnFemenino.setBackground(new java.awt.Color(255, 255, 255));
         rbtnFemenino.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
-        rbtnFemenino.setForeground(new java.awt.Color(102, 102, 102));
+        rbtnFemenino.setForeground(new java.awt.Color(51, 51, 51));
         rbtnFemenino.setText("Femenino");
         rbtnFemenino.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 rbtnFemeninoActionPerformed(evt);
             }
         });
-        plFormularioRegistro.add(rbtnFemenino, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 350, 90, -1));
+        plBackground.add(rbtnFemenino, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 440, 90, 40));
 
+        rbtnMasculino.setBackground(new java.awt.Color(255, 255, 255));
         rbtnMasculino.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
-        rbtnMasculino.setForeground(new java.awt.Color(102, 102, 102));
+        rbtnMasculino.setForeground(new java.awt.Color(51, 51, 51));
         rbtnMasculino.setText("Masculino");
-        plFormularioRegistro.add(rbtnMasculino, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 350, 90, -1));
-
-        btnCapturarDatos.setBackground(new java.awt.Color(204, 51, 255));
-        btnCapturarDatos.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        btnCapturarDatos.setForeground(new java.awt.Color(255, 255, 255));
-        btnCapturarDatos.setText("Capturar Datos");
-        btnCapturarDatos.setBorder(null);
-        btnCapturarDatos.addActionListener(new java.awt.event.ActionListener() {
+        rbtnMasculino.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCapturarDatosActionPerformed(evt);
+                rbtnMasculinoActionPerformed(evt);
             }
         });
-        plFormularioRegistro.add(btnCapturarDatos, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 460, 250, 60));
+        plBackground.add(rbtnMasculino, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 440, 90, 40));
 
-        Contenedor.add(plFormularioRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 540, 530));
-
-        plBackground.add(Contenedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 540, 570));
-
-        btnPaciente.setBackground(new java.awt.Color(204, 204, 204));
-        btnPaciente.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
-        btnPaciente.setForeground(new java.awt.Color(102, 102, 102));
-        btnPaciente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/imagenes/recepcion1.png"))); // NOI18N
-        btnPaciente.setText("Paciente");
-        btnPaciente.setFocusPainted(false);
-        btnPaciente.setFocusable(false);
-        btnPaciente.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnPacienteActionPerformed(evt);
+        btnRegistrarse.setBackground(new java.awt.Color(204, 51, 255));
+        btnRegistrarse.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        btnRegistrarse.setForeground(new java.awt.Color(255, 255, 255));
+        btnRegistrarse.setText("Registrarse");
+        btnRegistrarse.setBorder(null);
+        btnRegistrarse.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnRegistrarseMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnRegistrarseMouseExited(evt);
             }
         });
-        plBackground.add(btnPaciente, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 40, 170, 50));
+        btnRegistrarse.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegistrarseActionPerformed(evt);
+            }
+        });
+        plBackground.add(btnRegistrarse, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 520, 200, 60));
+
+        txtApellido.setBackground(new java.awt.Color(255, 255, 255));
+        txtApellido.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        txtApellido.setForeground(new java.awt.Color(51, 51, 51));
+        txtApellido.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(51, 51, 51), 4, true), "Apellido ", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 14), new java.awt.Color(51, 51, 51))); // NOI18N
+        txtApellido.setMargin(new java.awt.Insets(0, 35, 0, 0));
+        txtApellido.setMaximumSize(new java.awt.Dimension(15, 24));
+        txtApellido.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtApellidoFocusLost(evt);
+            }
+        });
+        txtApellido.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtApellidoMouseClicked(evt);
+            }
+        });
+        txtApellido.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtApellidoActionPerformed(evt);
+            }
+        });
+        plBackground.add(txtApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 130, 230, 60));
+
+        txtNombre.setBackground(new java.awt.Color(255, 255, 255));
+        txtNombre.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        txtNombre.setForeground(new java.awt.Color(51, 51, 51));
+        txtNombre.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(51, 51, 51), 4, true), "Nombre ", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 14), new java.awt.Color(51, 51, 51))); // NOI18N
+        txtNombre.setMargin(new java.awt.Insets(0, 35, 0, 0));
+        txtNombre.setMaximumSize(new java.awt.Dimension(15, 24));
+        txtNombre.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtNombreFocusLost(evt);
+            }
+        });
+        txtNombre.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtNombreMouseClicked(evt);
+            }
+        });
+        txtNombre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNombreActionPerformed(evt);
+            }
+        });
+        plBackground.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, 220, 60));
+
+        txtTelefono.setBackground(new java.awt.Color(255, 255, 255));
+        txtTelefono.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        txtTelefono.setForeground(new java.awt.Color(51, 51, 51));
+        txtTelefono.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(51, 51, 51), 4, true), "Telefono ", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 14), new java.awt.Color(51, 51, 51))); // NOI18N
+        txtTelefono.setMargin(new java.awt.Insets(0, 35, 0, 0));
+        txtTelefono.setMaximumSize(new java.awt.Dimension(15, 24));
+        txtTelefono.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtTelefonoFocusLost(evt);
+            }
+        });
+        txtTelefono.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtTelefonoMouseClicked(evt);
+            }
+        });
+        txtTelefono.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtTelefonoActionPerformed(evt);
+            }
+        });
+        plBackground.add(txtTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 320, 220, 70));
+
+        txtCedula.setBackground(new java.awt.Color(255, 255, 255));
+        txtCedula.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        txtCedula.setForeground(new java.awt.Color(51, 51, 51));
+        txtCedula.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(51, 51, 51), 4, true), " Cedula ", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 14), new java.awt.Color(51, 51, 51))); // NOI18N
+        txtCedula.setMargin(new java.awt.Insets(0, 35, 0, 0));
+        txtCedula.setMaximumSize(new java.awt.Dimension(15, 24));
+        txtCedula.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtCedulaFocusLost(evt);
+            }
+        });
+        txtCedula.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtCedulaMouseClicked(evt);
+            }
+        });
+        txtCedula.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCedulaActionPerformed(evt);
+            }
+        });
+        plBackground.add(txtCedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 320, 230, 70));
+
+        txtPassword.setBackground(new java.awt.Color(255, 255, 255));
+        txtPassword.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(51, 51, 51), 4, true), "Contraseña", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 14), new java.awt.Color(51, 51, 51))); // NOI18N
+        txtPassword.setOpaque(false);
+        txtPassword.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtPasswordFocusLost(evt);
+            }
+        });
+        txtPassword.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtPasswordMouseClicked(evt);
+            }
+        });
+        txtPassword.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtPasswordActionPerformed(evt);
+            }
+        });
+        plBackground.add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 420, 240, 70));
+
+        lblSalir.setBackground(new java.awt.Color(164, 112, 231));
+        lblSalir.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/imagenes/salirBlanco.png"))); // NOI18N
+        lblSalir.setOpaque(true);
+        lblSalir.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblSalirMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lblSalirMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lblSalirMouseExited(evt);
+            }
+        });
+        plBackground.add(lblSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 10, 50, 40));
+
+        Fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/imagenes/fondo2.png"))); // NOI18N
+        Fondo.setMaximumSize(new java.awt.Dimension(410, 670));
+        Fondo.setMinimumSize(new java.awt.Dimension(410, 670));
+        Fondo.setPreferredSize(new java.awt.Dimension(410, 670));
+        plBackground.add(Fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 0, 410, 680));
 
         getContentPane().add(plBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 930, 680));
 
@@ -286,26 +371,37 @@ public class PantallaRegistrarse extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_btnIniciarSesionActionPerformed
 
-    private void btnPacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPacienteActionPerformed
-//        TablaOpciones.setSelectedIndex(1);
-    }//GEN-LAST:event_btnPacienteActionPerformed
-
-    private void txtCedulaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCedulaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtCedulaActionPerformed
-
-    private void btnCapturarDatosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCapturarDatosActionPerformed
+    private void btnRegistrarseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarseActionPerformed
 
         Usuarios u = new Usuarios();
         UsuariosDAO r = new UsuariosDAO();
 
-        String nombre = txtNombre.getText();
-        String apellido = txtApellido.getText();
-        String correo = txtCorreo.getText();
-        String numero_telefono = txtTelefono.getText();
-        String cedula = txtCedula.getText();
-        String contraseña = txtPassword.getText();
+        String nombre = txtNombre.getText().trim();
+        String apellido = txtApellido.getText().trim();
+        String correo = txtCorreo.getText().trim();
+        String numero_telefono = txtTelefono.getText().trim();
+        String cedula = txtCedula.getText().trim();
+        String contraseña = txtPassword.getText().trim();
         String genero = rbtnFemenino.isSelected() ? "Femenino" : "Masculino";
+        
+        if (nombre.isEmpty() || apellido.isEmpty() || correo.isEmpty() || 
+        numero_telefono.isEmpty() || cedula.isEmpty() || contraseña.isEmpty() || genero.isEmpty()) {
+            
+            
+        JOptionPane.showMessageDialog(null,
+            "Por favor, complete todos los campos.",
+            "Error",
+            JOptionPane.ERROR_MESSAGE);
+        return; 
+    } 
+        
+         if (!numero_telefono.matches("\\d+")|| !cedula.matches("\\d+")) {
+        JOptionPane.showMessageDialog(null,
+            "El número de teléfono debe contener solo números.",
+            "Error",
+            JOptionPane.ERROR_MESSAGE);
+        return;
+    }
 
         u.setNombre(nombre);
         u.setApellido(apellido);
@@ -318,10 +414,10 @@ public class PantallaRegistrarse extends javax.swing.JFrame {
         r.agregar(u);
 
         JOptionPane.showMessageDialog(null,
-                "¡Datos de " + u.getNombre() + " capturados exitosamente!",
-                "Confirmación",
-                JOptionPane.INFORMATION_MESSAGE);
-    }//GEN-LAST:event_btnCapturarDatosActionPerformed
+            "¡Datos de " + u.getNombre() + " capturados exitosamente!",
+            "Confirmación",
+            JOptionPane.INFORMATION_MESSAGE);
+    }//GEN-LAST:event_btnRegistrarseActionPerformed
 
     private void iconEyeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_iconEyeMouseClicked
         // TODO add your handling code here:
@@ -338,6 +434,146 @@ public class PantallaRegistrarse extends javax.swing.JFrame {
     private void rbtnFemeninoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbtnFemeninoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_rbtnFemeninoActionPerformed
+
+    private void txtCorreoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtCorreoFocusLost
+        TitledBorder border = (TitledBorder) txtCorreo.getBorder();
+        border.setTitleColor(new Color(51,51,51));
+        border.setBorder(BorderFactory.createLineBorder(new Color(51,51,51), 4));
+        txtCorreo.repaint();
+    }//GEN-LAST:event_txtCorreoFocusLost
+
+    private void txtCorreoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtCorreoMouseClicked
+        TitledBorder border = (TitledBorder) txtCorreo.getBorder();
+        border.setTitleColor(new Color(83,121,235));
+        border.setBorder(BorderFactory.createLineBorder(new Color(83,121,235), 4));
+        txtCorreo.repaint();
+    }//GEN-LAST:event_txtCorreoMouseClicked
+
+    private void txtCorreoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCorreoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCorreoActionPerformed
+
+    private void txtApellidoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtApellidoFocusLost
+        TitledBorder border = (TitledBorder) txtApellido.getBorder();
+        border.setTitleColor(new Color(51,51,51));
+        border.setBorder(BorderFactory.createLineBorder(new Color(51,51,51), 4));
+        txtApellido.repaint();
+    }//GEN-LAST:event_txtApellidoFocusLost
+
+    private void txtApellidoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtApellidoMouseClicked
+         TitledBorder border = (TitledBorder) txtApellido.getBorder();
+        border.setTitleColor(new Color(83,121,235));
+        border.setBorder(BorderFactory.createLineBorder(new Color(83,121,235), 4));
+        txtApellido.repaint();
+    }//GEN-LAST:event_txtApellidoMouseClicked
+
+    private void txtApellidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtApellidoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtApellidoActionPerformed
+
+    private void txtNombreFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtNombreFocusLost
+        TitledBorder border = (TitledBorder) txtNombre.getBorder();
+        border.setTitleColor(new Color(51,51,51));
+        border.setBorder(BorderFactory.createLineBorder(new Color(51,51,51), 4));
+        txtNombre.repaint();
+    }//GEN-LAST:event_txtNombreFocusLost
+
+    private void txtNombreMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtNombreMouseClicked
+         TitledBorder border = (TitledBorder) txtNombre.getBorder();
+        border.setTitleColor(new Color(83,121,235));
+        border.setBorder(BorderFactory.createLineBorder(new Color(83,121,235), 4));
+        txtNombre.repaint();
+    }//GEN-LAST:event_txtNombreMouseClicked
+
+    private void txtNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNombreActionPerformed
+
+    private void txtTelefonoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtTelefonoFocusLost
+        TitledBorder border = (TitledBorder) txtTelefono.getBorder();
+        border.setTitleColor(new Color(51,51,51));
+        border.setBorder(BorderFactory.createLineBorder(new Color(51,51,51), 4));
+        txtTelefono.repaint();
+    }//GEN-LAST:event_txtTelefonoFocusLost
+
+    private void txtTelefonoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtTelefonoMouseClicked
+         TitledBorder border = (TitledBorder) txtTelefono.getBorder();
+        border.setTitleColor(new Color(83,121,235));
+        border.setBorder(BorderFactory.createLineBorder(new Color(83,121,235), 4));
+        txtTelefono.repaint();
+    }//GEN-LAST:event_txtTelefonoMouseClicked
+
+    private void txtTelefonoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTelefonoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtTelefonoActionPerformed
+
+    private void txtCedulaFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtCedulaFocusLost
+        TitledBorder border = (TitledBorder) txtCedula.getBorder();
+        border.setTitleColor(new Color(51,51,51));
+        border.setBorder(BorderFactory.createLineBorder(new Color(51,51,51), 4));
+        txtCedula.repaint();
+    }//GEN-LAST:event_txtCedulaFocusLost
+
+    private void txtCedulaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtCedulaMouseClicked
+         TitledBorder border = (TitledBorder) txtCedula.getBorder();
+        border.setTitleColor(new Color(83,121,235));
+        border.setBorder(BorderFactory.createLineBorder(new Color(83,121,235), 4));
+        txtCedula.repaint();
+    }//GEN-LAST:event_txtCedulaMouseClicked
+
+    private void txtCedulaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCedulaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCedulaActionPerformed
+
+    private void btnIniciarSesionMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnIniciarSesionMouseEntered
+        btnIniciarSesion.setForeground(new Color (0,0,153));
+    }//GEN-LAST:event_btnIniciarSesionMouseEntered
+
+    private void btnIniciarSesionMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnIniciarSesionMouseExited
+       btnIniciarSesion.setForeground(new Color(59,105,240));
+    }//GEN-LAST:event_btnIniciarSesionMouseExited
+
+    private void btnRegistrarseMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRegistrarseMouseExited
+        btnRegistrarse.setBackground(new Color(204,51,255));
+    }//GEN-LAST:event_btnRegistrarseMouseExited
+
+    private void btnRegistrarseMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRegistrarseMouseEntered
+        btnRegistrarse.setBackground(new Color(153,0,153)); 
+    }//GEN-LAST:event_btnRegistrarseMouseEntered
+
+    private void txtPasswordMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtPasswordMouseClicked
+        TitledBorder border = (TitledBorder) txtPassword.getBorder();
+        border.setTitleColor(new Color(83,121,235));
+        border.setBorder(BorderFactory.createLineBorder(new Color(83,121,235), 4));
+        txtPassword.repaint();
+    }//GEN-LAST:event_txtPasswordMouseClicked
+
+    private void txtPasswordFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtPasswordFocusLost
+         TitledBorder border = (TitledBorder) txtPassword.getBorder();
+        border.setTitleColor(new Color(51,51,51));
+        border.setBorder(BorderFactory.createLineBorder(new Color(51,51,51), 4));
+        txtPassword.repaint();
+    }//GEN-LAST:event_txtPasswordFocusLost
+
+    private void lblSalirMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblSalirMouseEntered
+         lblSalir.setBackground(new Color(255,51,102));
+    }//GEN-LAST:event_lblSalirMouseEntered
+
+    private void lblSalirMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblSalirMouseExited
+        lblSalir.setBackground(new Color (164, 112, 231));
+    }//GEN-LAST:event_lblSalirMouseExited
+
+    private void txtPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPasswordActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPasswordActionPerformed
+
+    private void lblSalirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblSalirMouseClicked
+        System.exit(0);
+    }//GEN-LAST:event_lblSalirMouseClicked
+
+    private void rbtnMasculinoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbtnMasculinoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_rbtnMasculinoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -375,32 +611,23 @@ public class PantallaRegistrarse extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel Contenedor;
     private javax.swing.JLabel Fondo;
-    private javax.swing.JButton btnCapturarDatos;
+    private javax.swing.JLabel Logo;
     private javax.swing.JButton btnIniciarSesion;
-    private javax.swing.JButton btnPaciente;
+    private javax.swing.JButton btnRegistrarse;
     private javax.swing.ButtonGroup btngGenero;
-    private javax.swing.JLabel iconEmail;
+    private javax.swing.JLabel eslogan;
     private javax.swing.JLabel iconEye;
-    private javax.swing.JLabel iconPassword;
-    private javax.swing.JLabel iconTelefono;
-    private javax.swing.JLabel iconUsuario;
-    private javax.swing.JLabel lblApellido;
-    private javax.swing.JLabel lblCedula;
-    private javax.swing.JLabel lblContraseña;
-    private javax.swing.JLabel lblCorreo;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel lblDoctoresImg;
     private javax.swing.JLabel lblGenero;
     private javax.swing.JLabel lblMensaje1;
     private javax.swing.JLabel lblMensaje2;
     private javax.swing.JLabel lblMensaje3;
     private javax.swing.JLabel lblMensaje4;
-    private javax.swing.JLabel lblNombre;
     private javax.swing.JLabel lblNombrePantalla;
-    private javax.swing.JLabel lblTelefono;
+    private javax.swing.JLabel lblSalir;
     private javax.swing.JPanel plBackground;
-    private javax.swing.JPanel plFormularioRegistro;
     private javax.swing.JRadioButton rbtnFemenino;
     private javax.swing.JRadioButton rbtnMasculino;
     private javax.swing.JTextField txtApellido;
