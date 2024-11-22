@@ -1,7 +1,12 @@
 
 package Vista;
 
+import java.awt.Color;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JProgressBar;
+import javax.swing.plaf.ColorUIResource;
+import javax.swing.plaf.basic.BasicProgressBarUI;
 
 /**
  *
@@ -12,9 +17,22 @@ public class PantallaInicio extends javax.swing.JFrame {
     pbThead t1;
     
     public PantallaInicio() {
-        initComponents();
         
-       
+      // setIconImage(null);  
+       setUndecorated(true);  
+       setLocationRelativeTo(null);
+
+       initComponents();
+        
+       BarraInicio.setBackground(new Color(91, 121, 235));
+        BarraInicio.setUI(new BasicProgressBarUI() {
+            @Override
+            protected Color getSelectionBackground() {
+                return new Color(91, 121, 235);
+            }
+        });
+        BarraInicio.setForeground(new Color(255,255,255)); 
+   
         
         t1 = new pbThead((JProgressBar) BarraInicio);
         t1.start();
@@ -39,19 +57,34 @@ public class PantallaInicio extends javax.swing.JFrame {
                 valores.setText(i + "%");
                 
 
-                if (i == 20) {
-                    
-                    mensaje.setText("Proceso en progreso...");
+                if (i == 5) {
+                    mensaje.setText("Iniciando el proceso...");
+                } else if (i == 10) {
+                    mensaje.setText("Cargando los datos...");
+                } else if (i == 20) {
+                    mensaje.setText("Verificando información...");
+                } else if (i == 30) {
+                    mensaje.setText("Revisando configuraciones...");
                 } else if (i == 40) {
-                    mensaje.setText("Ya casi estamos...");
+                    mensaje.setText("Ajustando detalles finales...");
+                } else if (i == 50) {
+                    mensaje.setText("Estamos casi listos...");
                 } else if (i == 60) {
-                    mensaje.setText("Solo un poco mas...");
-                } else if (i == 90) {
-                    mensaje.setText("Gracias por la espera!");
+                    mensaje.setText("Realizando últimos ajustes...");
+                }  else if (i == 70) {
+                    mensaje.setText("Estamos terminando...");
+                } else if (i == 80) {
+                    mensaje.setText("Solo un paso más...");
+                }else if (i == 90) {
+                    mensaje.setText("Gracias por la espera!"); 
                 }
                 
                 else if(i == 100){
-                
+                    try {
+                        sleep(700);
+                    } catch (InterruptedException ex) {
+                        Logger.getLogger(PantallaInicio.class.getName()).log(Level.SEVERE, null, ex);
+                    }
                 dispose();
                 PantallaInicioSesion inicio = new PantallaInicioSesion();
                 inicio.setVisible(true);
@@ -87,57 +120,49 @@ public class PantallaInicio extends javax.swing.JFrame {
         FondoDegradado = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(930, 670));
-        setMinimumSize(new java.awt.Dimension(930, 670));
+        setMinimumSize(new java.awt.Dimension(730, 500));
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         bgPantallaInicio.setBackground(new java.awt.Color(255, 255, 255));
-        bgPantallaInicio.setMaximumSize(new java.awt.Dimension(930, 670));
-        bgPantallaInicio.setMinimumSize(new java.awt.Dimension(930, 670));
+        bgPantallaInicio.setMaximumSize(new java.awt.Dimension(730, 500));
+        bgPantallaInicio.setMinimumSize(new java.awt.Dimension(730, 500));
+        bgPantallaInicio.setPreferredSize(new java.awt.Dimension(730, 500));
         bgPantallaInicio.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        Logo.setFont(new java.awt.Font("Segoe UI Emoji", 1, 120)); // NOI18N
+        Logo.setFont(new java.awt.Font("Segoe UI Emoji", 1, 100)); // NOI18N
         Logo.setForeground(new java.awt.Color(255, 255, 255));
         Logo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Logo.setText("SaludXpert");
-        bgPantallaInicio.add(Logo, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 230, -1, -1));
+        bgPantallaInicio.add(Logo, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 180, -1, -1));
 
-        eslogan.setFont(new java.awt.Font("Dialog", 3, 24)); // NOI18N
+        eslogan.setFont(new java.awt.Font("Dialog", 3, 21)); // NOI18N
         eslogan.setForeground(new java.awt.Color(255, 255, 255));
         eslogan.setText("Citas rápidas, salud eficiente. ");
-        bgPantallaInicio.add(eslogan, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 300, -1, 70));
+        bgPantallaInicio.add(eslogan, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 230, -1, 70));
 
-        mensaje.setFont(new java.awt.Font("Dialog", 3, 16)); // NOI18N
+        mensaje.setFont(new java.awt.Font("Dialog", 3, 12)); // NOI18N
         mensaje.setForeground(new java.awt.Color(255, 255, 255));
         mensaje.setText("Espere un momento.....");
-        bgPantallaInicio.add(mensaje, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 610, 180, 20));
+        bgPantallaInicio.add(mensaje, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 450, 290, 40));
 
-        valores.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
+        valores.setFont(new java.awt.Font("Dialog", 3, 12)); // NOI18N
         valores.setForeground(new java.awt.Color(255, 255, 255));
         valores.setText("0%");
-        bgPantallaInicio.add(valores, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 600, 50, 40));
+        bgPantallaInicio.add(valores, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 450, 50, 40));
 
         BarraInicio.setBackground(new java.awt.Color(255, 255, 255));
         BarraInicio.setForeground(new java.awt.Color(102, 102, 255));
         BarraInicio.setBorder(null);
         BarraInicio.setString("");
-        bgPantallaInicio.add(BarraInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(-20, 640, 1000, 40));
+        bgPantallaInicio.add(BarraInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(-20, 490, 770, 10));
 
         FondoDegradado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/imagenes/fondo.png"))); // NOI18N
-        FondoDegradado.setMaximumSize(new java.awt.Dimension(930, 670));
-        FondoDegradado.setMinimumSize(new java.awt.Dimension(930, 670));
-        FondoDegradado.setPreferredSize(new java.awt.Dimension(930, 670));
-        bgPantallaInicio.add(FondoDegradado, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 970, 670));
+        FondoDegradado.setMaximumSize(new java.awt.Dimension(730, 500));
+        FondoDegradado.setMinimumSize(new java.awt.Dimension(730, 500));
+        FondoDegradado.setPreferredSize(new java.awt.Dimension(730, 500));
+        bgPantallaInicio.add(FondoDegradado, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 730, 500));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(bgPantallaInicio, javax.swing.GroupLayout.DEFAULT_SIZE, 970, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(bgPantallaInicio, javax.swing.GroupLayout.DEFAULT_SIZE, 670, Short.MAX_VALUE)
-        );
+        getContentPane().add(bgPantallaInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
         setLocationRelativeTo(null);
@@ -171,6 +196,7 @@ public class PantallaInicio extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> {
             new PantallaInicio().setVisible(true);
+            
         });
     }
 
