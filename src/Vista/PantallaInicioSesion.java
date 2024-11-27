@@ -1,9 +1,16 @@
 package Vista;
 
 import Modelo.IniciarSesionDAO;
+import com.formdev.flatlaf.FlatClientProperties;
+import com.formdev.flatlaf.FlatLightLaf;
+import com.formdev.flatlaf.extras.FlatSVGIcon;
+import com.formdev.flatlaf.themes.FlatMacDarkLaf;
+import com.formdev.flatlaf.themes.FlatMacLightLaf;
 import java.awt.Color;
 import javax.swing.JOptionPane;
 import javax.swing.BorderFactory;
+import javax.swing.UIManager;
+import javax.swing.border.LineBorder;
 import javax.swing.border.TitledBorder;
 
 public class PantallaInicioSesion extends javax.swing.JFrame {
@@ -15,20 +22,20 @@ public class PantallaInicioSesion extends javax.swing.JFrame {
        setLocationRelativeTo(null);
         initComponents();
         
-        try {
-            javax.swing.UIManager.setLookAndFeel(javax.swing.UIManager.getSystemLookAndFeelClassName());
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
+        lblEmail.putClientProperty(FlatClientProperties.PLACEHOLDER_TEXT, "Ingrese su Email");
+        //lblEmail.putClientProperty("JComponent.roundRect", true);
+        lblEmail.putClientProperty(FlatClientProperties.TEXT_FIELD_SHOW_CLEAR_BUTTON, true);
+        lblContraseña.putClientProperty(FlatClientProperties.PLACEHOLDER_TEXT, "Ingrese su contraseña");
+       // lblContraseña.putClientProperty("JComponent.roundRect", true);
+        lblContraseña.putClientProperty(FlatClientProperties.STYLE, "showRevealButton:true");
+        
+        
     }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel8 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         botonregistrarse = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
@@ -39,15 +46,11 @@ public class PantallaInicioSesion extends javax.swing.JFrame {
         Doctoresimg = new javax.swing.JLabel();
         Logo = new javax.swing.JLabel();
         eslogan = new javax.swing.JLabel();
-        lblContraseña = new javax.swing.JTextField();
         inicio2 = new javax.swing.JLabel();
-        lblEmail = new javax.swing.JTextField();
         lblSalir = new javax.swing.JLabel();
         Degradado = new javax.swing.JLabel();
-
-        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/imagenes/circulo2.png"))); // NOI18N
-
-        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/imagenes/circulo2.png"))); // NOI18N
+        lblEmail = new javax.swing.JTextField();
+        lblContraseña = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(930, 670));
@@ -59,7 +62,7 @@ public class PantallaInicioSesion extends javax.swing.JFrame {
 
         botonregistrarse.setBackground(new java.awt.Color(255, 255, 255));
         botonregistrarse.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
-        botonregistrarse.setForeground(new java.awt.Color(255, 51, 255));
+        botonregistrarse.setForeground(new java.awt.Color(255, 128, 255));
         botonregistrarse.setText("Regístrate");
         botonregistrarse.setBorder(null);
         botonregistrarse.setBorderPainted(false);
@@ -134,60 +137,14 @@ public class PantallaInicioSesion extends javax.swing.JFrame {
         eslogan.setText("Citas rápidas, salud eficiente. ");
         jPanel1.add(eslogan, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 150, -1, 70));
 
-        lblContraseña.setBackground(new java.awt.Color(255, 255, 255));
-        lblContraseña.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        lblContraseña.setForeground(new java.awt.Color(51, 51, 51));
-        lblContraseña.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(83, 121, 235), 4, true), "Contraseña ", javax.swing.border.TitledBorder.LEFT, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 18), new java.awt.Color(83, 121, 235))); // NOI18N
-        lblContraseña.setMargin(new java.awt.Insets(10, 35, 10, 10));
-        lblContraseña.setMaximumSize(new java.awt.Dimension(15, 24));
-        lblContraseña.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                lblContraseñaFocusLost(evt);
-            }
-        });
-        lblContraseña.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                lblContraseñaMouseClicked(evt);
-            }
-        });
-        lblContraseña.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                lblContraseñaActionPerformed(evt);
-            }
-        });
-        jPanel1.add(lblContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 340, 400, 70));
-
         inicio2.setFont(new java.awt.Font("Dialog", 1, 32)); // NOI18N
         inicio2.setForeground(new java.awt.Color(83, 121, 235));
         inicio2.setText("Inicia sesión ");
         jPanel1.add(inicio2, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 160, 320, 60));
 
-        lblEmail.setBackground(new java.awt.Color(255, 255, 255));
-        lblEmail.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        lblEmail.setForeground(new java.awt.Color(51, 51, 51));
-        lblEmail.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(83, 121, 235), 4, true), "Email", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 18), new java.awt.Color(83, 121, 235))); // NOI18N
-        lblEmail.setMargin(new java.awt.Insets(0, 35, 0, 0));
-        lblEmail.setMaximumSize(new java.awt.Dimension(15, 24));
-        lblEmail.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                lblEmailFocusLost(evt);
-            }
-        });
-        lblEmail.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                lblEmailMouseClicked(evt);
-            }
-        });
-        lblEmail.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                lblEmailActionPerformed(evt);
-            }
-        });
-        jPanel1.add(lblEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 230, 400, 70));
-
         lblSalir.setBackground(new java.awt.Color(255, 255, 255));
         lblSalir.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/imagenes/salirnegro.png"))); // NOI18N
+        lblSalir.setIcon(new FlatSVGIcon("Vista/imagenes/cerrar.svg"));
         lblSalir.setOpaque(true);
         lblSalir.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -200,13 +157,23 @@ public class PantallaInicioSesion extends javax.swing.JFrame {
                 lblSalirMouseExited(evt);
             }
         });
-        jPanel1.add(lblSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 0, 40, 30));
+        jPanel1.add(lblSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 0, 50, 40));
 
         Degradado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/imagenes/fondo.png"))); // NOI18N
         Degradado.setMaximumSize(new java.awt.Dimension(430, 670));
         Degradado.setMinimumSize(new java.awt.Dimension(430, 670));
         Degradado.setPreferredSize(new java.awt.Dimension(430, 670));
         jPanel1.add(Degradado, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 430, 670));
+
+        lblEmail.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        lblEmail.setForeground(new java.awt.Color(51, 51, 51));
+        lblEmail.setMargin(new java.awt.Insets(10, 10, 10, 10));
+        jPanel1.add(lblEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 240, 350, 60));
+
+        lblContraseña.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        lblContraseña.setForeground(new java.awt.Color(51, 51, 51));
+        lblContraseña.setMargin(new java.awt.Insets(10, 10, 10, 10));
+        jPanel1.add(lblContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 330, 350, 60));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -257,7 +224,9 @@ public class PantallaInicioSesion extends javax.swing.JFrame {
         
         
     } else {
-        JOptionPane.showMessageDialog(null, "Usuario o contraseña incorrectos.");
+        lblEmail.putClientProperty("JComponent.outline", "error");
+        lblContraseña.putClientProperty("JComponent.outline", "error");
+         JOptionPane.showMessageDialog(null, "Usuario o contraseña incorrectos.");
           lblEmail.setText ("");
           lblContraseña.setText ("");
     }
@@ -296,42 +265,6 @@ public class PantallaInicioSesion extends javax.swing.JFrame {
 //        }
     }//GEN-LAST:event_botoninicioActionPerformed
 
-    private void lblContraseñaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblContraseñaMouseClicked
-        TitledBorder border = (TitledBorder) lblContraseña.getBorder(); 
-        border.setTitleColor(new Color(0,51,153));
-       border.setBorder(BorderFactory.createLineBorder(new Color(0,51,153), 4)); 
-        lblContraseña.repaint();
-    }//GEN-LAST:event_lblContraseñaMouseClicked
-
-    private void lblContraseñaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lblContraseñaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_lblContraseñaActionPerformed
-
-    private void lblEmailMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblEmailMouseClicked
-        TitledBorder border = (TitledBorder) lblEmail.getBorder(); 
-        border.setTitleColor(new Color(0,51,153));
-       border.setBorder(BorderFactory.createLineBorder(new Color(0,51,153), 4)); 
-        lblEmail.repaint();
-    }//GEN-LAST:event_lblEmailMouseClicked
-
-    private void lblEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lblEmailActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_lblEmailActionPerformed
-
-    private void lblEmailFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_lblEmailFocusLost
-        TitledBorder border = (TitledBorder) lblEmail.getBorder(); 
-        border.setTitleColor(new Color(83,121,235)); 
-        border.setBorder(BorderFactory.createLineBorder(new Color(83,121,235), 4)); 
-        lblEmail.repaint();
-    }//GEN-LAST:event_lblEmailFocusLost
-
-    private void lblContraseñaFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_lblContraseñaFocusLost
-        TitledBorder border = (TitledBorder) lblContraseña.getBorder(); 
-        border.setTitleColor(new Color(83,121,235)); 
-        border.setBorder(BorderFactory.createLineBorder(new Color(83,121,235), 4)); 
-        lblContraseña.repaint();
-    }//GEN-LAST:event_lblContraseñaFocusLost
-
     private void botoninicioMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botoninicioMouseEntered
         botoninicio.setBackground(new Color(0,102,204));
     }//GEN-LAST:event_botoninicioMouseEntered
@@ -361,30 +294,16 @@ public class PantallaInicioSesion extends javax.swing.JFrame {
     }//GEN-LAST:event_lblSalirMouseExited
 
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(PantallaInicioSesion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(PantallaInicioSesion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(PantallaInicioSesion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(PantallaInicioSesion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+       try {
+            
+          FlatLightLaf.setup();
+          UIManager.put("Component.innerFocusWidth", 3);
+          UIManager.put("TextComponent.arc", 999);
+           
+        } catch (Exception ex) {
+            System.err.println("No se pudo cargar el tema FlatLaf MacOS Light.");
+            ex.printStackTrace();
         }
-        //</editor-fold>
-
-        /* Create and display the form */
             java.awt.EventQueue.invokeLater(() -> {
           ;
              new PantallaInicioSesion().setVisible(true);
@@ -403,10 +322,8 @@ public class PantallaInicioSesion extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField lblContraseña;
+    private javax.swing.JPasswordField lblContraseña;
     private javax.swing.JTextField lblEmail;
     private javax.swing.JLabel lblSalir;
     // End of variables declaration//GEN-END:variables
