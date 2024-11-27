@@ -30,7 +30,7 @@ public class PantallaAdministrador extends javax.swing.JFrame {
       // lblFechaActual.setText("Fecha: " + fechaActual());
 
         
-        this.setExtendedState(PantallaAdministrador.MAXIMIZED_BOTH);
+       // this.setExtendedState(PantallaAdministrador.MAXIMIZED_BOTH);
     }
 
     /**
@@ -46,26 +46,28 @@ public class PantallaAdministrador extends javax.swing.JFrame {
         Menu = new javax.swing.JPanel();
         Administradortexto = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
-        Admiicono = new javax.swing.JLabel();
         lblBienvenida = new javax.swing.JLabel();
         lblDoctores = new javax.swing.JLabel();
         lblSalir = new javax.swing.JLabel();
         lblEspecialidades = new javax.swing.JLabel();
         lblRecepcionista = new javax.swing.JLabel();
         lblInformacion1 = new javax.swing.JLabel();
-        lblFechaActual = new javax.swing.JLabel();
         Pantallas = new javax.swing.JTabbedPane();
-        PBienvenida = new javax.swing.JTabbedPane();
-        pRecepcionista = new javax.swing.JTabbedPane();
-        pEspecialidades = new javax.swing.JTabbedPane();
-        pDoctores = new javax.swing.JTabbedPane();
-        pSistema = new javax.swing.JTabbedPane();
+        pRecepcionista = new javax.swing.JPanel();
+        pEspecialidades = new javax.swing.JPanel();
+        pDoctores = new javax.swing.JPanel();
+        pSistema = new javax.swing.JPanel();
+        pBienvenida = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(1000, 1150));
+        setPreferredSize(new java.awt.Dimension(1350, 785));
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        bg.setBackground(new java.awt.Color(255, 255, 255));
-        bg.setPreferredSize(new java.awt.Dimension(1000, 1148));
+        bg.setBackground(new java.awt.Color(242, 242, 242));
+        bg.setMaximumSize(new java.awt.Dimension(1350, 785));
+        bg.setMinimumSize(new java.awt.Dimension(1350, 785));
+        bg.setPreferredSize(new java.awt.Dimension(1350, 785));
+        bg.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         Menu.setBackground(new java.awt.Color(83, 121, 235));
         Menu.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -79,10 +81,6 @@ public class PantallaAdministrador extends javax.swing.JFrame {
         jSeparator1.setBackground(new java.awt.Color(255, 255, 255));
         jSeparator1.setForeground(new java.awt.Color(255, 255, 255));
         Menu.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 172, 232, 10));
-
-        Admiicono.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Admiicono.setIcon(new FlatSVGIcon("Vista/imagenes/Person.svg"));
-        Menu.add(Admiicono, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 36, 232, 88));
 
         lblBienvenida.setBackground(new java.awt.Color(83, 121, 235));
         lblBienvenida.setFont(new java.awt.Font("Dialog", 1, 13)); // NOI18N
@@ -207,72 +205,93 @@ public class PantallaAdministrador extends javax.swing.JFrame {
         });
         Menu.add(lblInformacion1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 520, 200, 60));
 
-        lblFechaActual.setBackground(new java.awt.Color(71, 112, 233));
-        lblFechaActual.setFont(new java.awt.Font("Courier New", 1, 20)); // NOI18N
-        lblFechaActual.setForeground(new java.awt.Color(255, 255, 255));
-        lblFechaActual.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblFechaActual.setText("Fecha:");
-        lblFechaActual.setOpaque(true);
+        bg.add(Menu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 200, 790));
 
-        PBienvenida.setBackground(new java.awt.Color(255, 204, 153));
-        PBienvenida.setOpaque(true);
-        Pantallas.addTab("tab1", PBienvenida);
+        Pantallas.setMaximumSize(new java.awt.Dimension(1350, 785));
+        Pantallas.setMinimumSize(new java.awt.Dimension(1350, 785));
+        Pantallas.setPreferredSize(new java.awt.Dimension(1350, 785));
 
-        pRecepcionista.setBackground(new java.awt.Color(0, 255, 0));
-        pRecepcionista.setOpaque(true);
-        Pantallas.addTab("tab2", pRecepcionista);
+        pRecepcionista.setBackground(new java.awt.Color(153, 255, 204));
 
-        pEspecialidades.setBackground(new java.awt.Color(51, 102, 255));
-        pEspecialidades.setOpaque(true);
-        Pantallas.addTab("tab3", pEspecialidades);
-
-        pDoctores.setBackground(new java.awt.Color(51, 204, 255));
-        pDoctores.setOpaque(true);
-        Pantallas.addTab("tab4", pDoctores);
-
-        pSistema.setBackground(new java.awt.Color(0, 153, 153));
-        pSistema.setOpaque(true);
-        Pantallas.addTab("tab5", pSistema);
-
-        javax.swing.GroupLayout bgLayout = new javax.swing.GroupLayout(bg);
-        bg.setLayout(bgLayout);
-        bgLayout.setHorizontalGroup(
-            bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(bgLayout.createSequentialGroup()
-                .addComponent(Menu, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(lblFechaActual, javax.swing.GroupLayout.DEFAULT_SIZE, 900, Short.MAX_VALUE))
-            .addGroup(bgLayout.createSequentialGroup()
-                .addGap(190, 190, 190)
-                .addComponent(Pantallas))
+        javax.swing.GroupLayout pRecepcionistaLayout = new javax.swing.GroupLayout(pRecepcionista);
+        pRecepcionista.setLayout(pRecepcionistaLayout);
+        pRecepcionistaLayout.setHorizontalGroup(
+            pRecepcionistaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1148, Short.MAX_VALUE)
         );
-        bgLayout.setVerticalGroup(
-            bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(bgLayout.createSequentialGroup()
-                .addGroup(bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(Menu, javax.swing.GroupLayout.PREFERRED_SIZE, 1180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(bgLayout.createSequentialGroup()
-                        .addGap(30, 30, 30)
-                        .addComponent(lblFechaActual, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(1100, 1100, 1100))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, bgLayout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(Pantallas, javax.swing.GroupLayout.PREFERRED_SIZE, 1137, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap())
+        pRecepcionistaLayout.setVerticalGroup(
+            pRecepcionistaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 684, Short.MAX_VALUE)
         );
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(bg, javax.swing.GroupLayout.DEFAULT_SIZE, 1100, Short.MAX_VALUE)
+        Pantallas.addTab("tab6", pRecepcionista);
+
+        pEspecialidades.setBackground(new java.awt.Color(51, 204, 255));
+
+        javax.swing.GroupLayout pEspecialidadesLayout = new javax.swing.GroupLayout(pEspecialidades);
+        pEspecialidades.setLayout(pEspecialidadesLayout);
+        pEspecialidadesLayout.setHorizontalGroup(
+            pEspecialidadesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1148, Short.MAX_VALUE)
         );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(bg, javax.swing.GroupLayout.DEFAULT_SIZE, 1186, Short.MAX_VALUE)
+        pEspecialidadesLayout.setVerticalGroup(
+            pEspecialidadesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 684, Short.MAX_VALUE)
         );
+
+        Pantallas.addTab("tab7", pEspecialidades);
+
+        pDoctores.setBackground(new java.awt.Color(0, 51, 204));
+
+        javax.swing.GroupLayout pDoctoresLayout = new javax.swing.GroupLayout(pDoctores);
+        pDoctores.setLayout(pDoctoresLayout);
+        pDoctoresLayout.setHorizontalGroup(
+            pDoctoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1148, Short.MAX_VALUE)
+        );
+        pDoctoresLayout.setVerticalGroup(
+            pDoctoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 684, Short.MAX_VALUE)
+        );
+
+        Pantallas.addTab("tab8", pDoctores);
+
+        pSistema.setBackground(new java.awt.Color(255, 51, 153));
+
+        javax.swing.GroupLayout pSistemaLayout = new javax.swing.GroupLayout(pSistema);
+        pSistema.setLayout(pSistemaLayout);
+        pSistemaLayout.setHorizontalGroup(
+            pSistemaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1148, Short.MAX_VALUE)
+        );
+        pSistemaLayout.setVerticalGroup(
+            pSistemaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 684, Short.MAX_VALUE)
+        );
+
+        Pantallas.addTab("tab9", pSistema);
+
+        pBienvenida.setBackground(new java.awt.Color(102, 255, 0));
+
+        javax.swing.GroupLayout pBienvenidaLayout = new javax.swing.GroupLayout(pBienvenida);
+        pBienvenida.setLayout(pBienvenidaLayout);
+        pBienvenidaLayout.setHorizontalGroup(
+            pBienvenidaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1148, Short.MAX_VALUE)
+        );
+        pBienvenidaLayout.setVerticalGroup(
+            pBienvenidaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 684, Short.MAX_VALUE)
+        );
+
+        Pantallas.addTab("tab6", pBienvenida);
+
+        bg.add(Pantallas, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 80, 1150, 710));
+
+        getContentPane().add(bg, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1350, 790));
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void lblBienvenidaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblBienvenidaMouseClicked
@@ -359,42 +378,40 @@ public class PantallaAdministrador extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-////    public static void main(String args[]) {
-////       try {
-////            
-////          FlatLightLaf.setup();
-////          UIManager.put("Component.innerFocusWidth", 3);
-////          //UIManager.put("TextComponent.arc", 999);
-////           
-////        } catch (Exception ex) {
-////            System.err.println("No se pudo cargar el tema FlatLaf MacOS Light.");
-////            ex.printStackTrace();
-////        }
-////        java.awt.EventQueue.invokeLater(new Runnable() {
-////            public void run() {
-////                new PantallaAdministrador().setVisible(true);
-////            }
-////        });
-////    }
+    public static void main(String args[]) {
+       try {
+            
+          FlatLightLaf.setup();
+          UIManager.put("Component.innerFocusWidth", 3);
+          //UIManager.put("TextComponent.arc", 999);
+           
+        } catch (Exception ex) {
+            System.err.println("No se pudo cargar el tema FlatLaf MacOS Light.");
+            ex.printStackTrace();
+        }
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new PantallaAdministrador().setVisible(true);
+            }
+        });
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel Admiicono;
     private javax.swing.JLabel Administradortexto;
     private javax.swing.JPanel Menu;
-    private javax.swing.JTabbedPane PBienvenida;
     private javax.swing.JTabbedPane Pantallas;
     private javax.swing.JPanel bg;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JLabel lblBienvenida;
     private javax.swing.JLabel lblDoctores;
     private javax.swing.JLabel lblEspecialidades;
-    private javax.swing.JLabel lblFechaActual;
     private javax.swing.JLabel lblInformacion1;
     private javax.swing.JLabel lblRecepcionista;
     private javax.swing.JLabel lblSalir;
-    private javax.swing.JTabbedPane pDoctores;
-    private javax.swing.JTabbedPane pEspecialidades;
-    private javax.swing.JTabbedPane pRecepcionista;
-    private javax.swing.JTabbedPane pSistema;
+    private javax.swing.JPanel pBienvenida;
+    private javax.swing.JPanel pDoctores;
+    private javax.swing.JPanel pEspecialidades;
+    private javax.swing.JPanel pRecepcionista;
+    private javax.swing.JPanel pSistema;
     // End of variables declaration//GEN-END:variables
 }
