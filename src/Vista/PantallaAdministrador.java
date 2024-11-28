@@ -9,8 +9,10 @@ package Vista;
 import com.formdev.flatlaf.FlatLightLaf;
 import com.formdev.flatlaf.extras.FlatSVGIcon;
 import java.awt.Color;
+import java.awt.Insets;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 
 
@@ -44,20 +46,72 @@ public class PantallaAdministrador extends javax.swing.JFrame {
 
         bg = new javax.swing.JPanel();
         Menu = new javax.swing.JPanel();
-        Administradortexto = new javax.swing.JLabel();
-        jSeparator1 = new javax.swing.JSeparator();
         lblBienvenida = new javax.swing.JLabel();
-        lblDoctores = new javax.swing.JLabel();
         lblSalir = new javax.swing.JLabel();
-        lblEspecialidades = new javax.swing.JLabel();
         lblRecepcionista = new javax.swing.JLabel();
         lblInformacion1 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        LupaBuscador = new javax.swing.JLabel();
+        Buscador = new javax.swing.JTextField();
+        NotificacionIcon = new javax.swing.JLabel();
+        puntocorreo = new javax.swing.JLabel();
+        puntonoti = new javax.swing.JLabel();
+        Correoicon = new javax.swing.JLabel();
         Pantallas = new javax.swing.JTabbedPane();
-        pRecepcionista = new javax.swing.JPanel();
-        pEspecialidades = new javax.swing.JPanel();
-        pDoctores = new javax.swing.JPanel();
-        pSistema = new javax.swing.JPanel();
         pBienvenida = new javax.swing.JPanel();
+        tabbeDyR = new javax.swing.JTabbedPane();
+        jPanel2 = new javax.swing.JPanel();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        tablaDoctores = new javax.swing.JTable();
+        jPanel3 = new javax.swing.JPanel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        tablaRecep = new javax.swing.JTable();
+        pRecepcionista = new javax.swing.JPanel();
+        Doctor = new javax.swing.JTabbedPane();
+        jPanel4 = new javax.swing.JPanel();
+        txtNombre = new javax.swing.JTextField();
+        txtCorreo = new javax.swing.JTextField();
+        txtTelefono = new javax.swing.JTextField();
+        txtCedula = new javax.swing.JTextField();
+        txtPassword = new javax.swing.JPasswordField();
+        lblGenero = new javax.swing.JLabel();
+        rbtnFemenino = new javax.swing.JRadioButton();
+        rbtnMasculino = new javax.swing.JRadioButton();
+        btnRegistrarse = new javax.swing.JButton();
+        lblNombrePantalla = new javax.swing.JLabel();
+        txtApellido1 = new javax.swing.JTextField();
+        jDateChooser1 = new com.toedter.calendar.JDateChooser();
+        jSpinField1 = new com.toedter.components.JSpinField();
+        jComboBox1 = new javax.swing.JComboBox<>();
+        jComboBox2 = new javax.swing.JComboBox<>();
+        jPanel5 = new javax.swing.JPanel();
+        lblNombrePantalla1 = new javax.swing.JLabel();
+        txtNombre1 = new javax.swing.JTextField();
+        txtCorreo1 = new javax.swing.JTextField();
+        txtTelefono1 = new javax.swing.JTextField();
+        txtPassword1 = new javax.swing.JPasswordField();
+        jComboBox3 = new javax.swing.JComboBox<>();
+        txtCedula1 = new javax.swing.JTextField();
+        txtApellido2 = new javax.swing.JTextField();
+        jDateChooser2 = new com.toedter.calendar.JDateChooser();
+        jComboBox4 = new javax.swing.JComboBox<>();
+        jSpinField2 = new com.toedter.components.JSpinField();
+        lblGenero1 = new javax.swing.JLabel();
+        rbtnFemenino1 = new javax.swing.JRadioButton();
+        rbtnMasculino1 = new javax.swing.JRadioButton();
+        btnRegistrarse1 = new javax.swing.JButton();
+        jPanel6 = new javax.swing.JPanel();
+        lblNombrePantalla2 = new javax.swing.JLabel();
+        txtNombre2 = new javax.swing.JTextField();
+        btnRegistrarse2 = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
+        pDoctores = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
+        pEspecialidades = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        pSistema = new javax.swing.JPanel();
+        jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(1350, 785));
@@ -71,16 +125,6 @@ public class PantallaAdministrador extends javax.swing.JFrame {
 
         Menu.setBackground(new java.awt.Color(83, 121, 235));
         Menu.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        Administradortexto.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        Administradortexto.setForeground(new java.awt.Color(255, 255, 255));
-        Administradortexto.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Administradortexto.setText("Admi");
-        Menu.add(Administradortexto, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 130, 232, 30));
-
-        jSeparator1.setBackground(new java.awt.Color(255, 255, 255));
-        jSeparator1.setForeground(new java.awt.Color(255, 255, 255));
-        Menu.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 172, 232, 10));
 
         lblBienvenida.setBackground(new java.awt.Color(83, 121, 235));
         lblBienvenida.setFont(new java.awt.Font("Dialog", 1, 13)); // NOI18N
@@ -101,29 +145,7 @@ public class PantallaAdministrador extends javax.swing.JFrame {
                 lblBienvenidaMouseExited(evt);
             }
         });
-        Menu.add(lblBienvenida, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 270, 200, 70));
-
-        lblDoctores.setBackground(new java.awt.Color(83, 121, 235));
-        lblDoctores.setFont(new java.awt.Font("Dialog", 1, 13)); // NOI18N
-        lblDoctores.setForeground(new java.awt.Color(255, 255, 255));
-        lblDoctores.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblDoctores.setIcon(new FlatSVGIcon("Vista/imagenes/coracon+.svg"));
-        lblDoctores.setText("Doctores");
-        lblDoctores.setMaximumSize(new java.awt.Dimension(91, 18));
-        lblDoctores.setMinimumSize(new java.awt.Dimension(91, 18));
-        lblDoctores.setOpaque(true);
-        lblDoctores.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                lblDoctoresMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                lblDoctoresMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                lblDoctoresMouseExited(evt);
-            }
-        });
-        Menu.add(lblDoctores, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 460, 200, 70));
+        Menu.add(lblBienvenida, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, 200, 70));
 
         lblSalir.setBackground(new java.awt.Color(83, 121, 235));
         lblSalir.setFont(new java.awt.Font("Dialog", 1, 13)); // NOI18N
@@ -143,27 +165,7 @@ public class PantallaAdministrador extends javax.swing.JFrame {
                 lblSalirMouseExited(evt);
             }
         });
-        Menu.add(lblSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 580, 200, 60));
-
-        lblEspecialidades.setBackground(new java.awt.Color(83, 121, 235));
-        lblEspecialidades.setFont(new java.awt.Font("Dialog", 1, 13)); // NOI18N
-        lblEspecialidades.setForeground(new java.awt.Color(255, 255, 255));
-        lblEspecialidades.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblEspecialidades.setIcon(new FlatSVGIcon("Vista/imagenes/herramienta.svg"));
-        lblEspecialidades.setText("Especialidades");
-        lblEspecialidades.setOpaque(true);
-        lblEspecialidades.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                lblEspecialidadesMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                lblEspecialidadesMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                lblEspecialidadesMouseExited(evt);
-            }
-        });
-        Menu.add(lblEspecialidades, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 400, 200, 70));
+        Menu.add(lblSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 380, 200, 60));
 
         lblRecepcionista.setBackground(new java.awt.Color(83, 121, 235));
         lblRecepcionista.setFont(new java.awt.Font("Dialog", 1, 13)); // NOI18N
@@ -183,7 +185,7 @@ public class PantallaAdministrador extends javax.swing.JFrame {
                 lblRecepcionistaMouseExited(evt);
             }
         });
-        Menu.add(lblRecepcionista, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 340, 200, 70));
+        Menu.add(lblRecepcionista, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 140, 200, 70));
 
         lblInformacion1.setBackground(new java.awt.Color(83, 121, 235));
         lblInformacion1.setFont(new java.awt.Font("Dialog", 1, 13)); // NOI18N
@@ -203,90 +205,334 @@ public class PantallaAdministrador extends javax.swing.JFrame {
                 lblInformacion1MouseExited(evt);
             }
         });
-        Menu.add(lblInformacion1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 520, 200, 60));
+        Menu.add(lblInformacion1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 320, 200, 60));
 
         bg.add(Menu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 200, 790));
 
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        LupaBuscador.setBackground(new java.awt.Color(204, 204, 204));
+        LupaBuscador.setIcon(new FlatSVGIcon("Vista/imagenes/buscar.svg"));
+        jPanel1.add(LupaBuscador, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 30, 40, 50));
+
+        Buscador.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        Buscador.setMargin(new java.awt.Insets(0, 40, 0, 20));
+        Buscador.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BuscadorActionPerformed(evt);
+            }
+        });
+        jPanel1.add(Buscador, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 30, 520, 50));
+
+        NotificacionIcon.setIcon(new FlatSVGIcon("Vista/imagenes/notificacion.svg"));
+        jPanel1.add(NotificacionIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 40, 40, 40));
+
+        puntocorreo.setIcon(new FlatSVGIcon("Vista/imagenes/punto.svg"));
+        jPanel1.add(puntocorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 40, 20, 20));
+
+        puntonoti.setIcon(new FlatSVGIcon("Vista/imagenes/punto.svg"));
+        jPanel1.add(puntonoti, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 40, 20, 20));
+
+        Correoicon.setIcon(new FlatSVGIcon("Vista/imagenes/correo.svg"));
+        jPanel1.add(Correoicon, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 40, 40, 40));
+
+        bg.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 0, 1150, 120));
+
+        Pantallas.setBackground(new java.awt.Color(242, 242, 242));
         Pantallas.setMaximumSize(new java.awt.Dimension(1350, 785));
         Pantallas.setMinimumSize(new java.awt.Dimension(1350, 785));
         Pantallas.setPreferredSize(new java.awt.Dimension(1350, 785));
 
-        pRecepcionista.setBackground(new java.awt.Color(153, 255, 204));
+        pBienvenida.setBackground(new java.awt.Color(242, 242, 242));
+        pBienvenida.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        javax.swing.GroupLayout pRecepcionistaLayout = new javax.swing.GroupLayout(pRecepcionista);
-        pRecepcionista.setLayout(pRecepcionistaLayout);
-        pRecepcionistaLayout.setHorizontalGroup(
-            pRecepcionistaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1148, Short.MAX_VALUE)
-        );
-        pRecepcionistaLayout.setVerticalGroup(
-            pRecepcionistaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 684, Short.MAX_VALUE)
-        );
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        Pantallas.addTab("tab6", pRecepcionista);
+        tablaDoctores.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane4.setViewportView(tablaDoctores);
 
-        pEspecialidades.setBackground(new java.awt.Color(51, 204, 255));
+        jPanel2.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1150, 660));
 
-        javax.swing.GroupLayout pEspecialidadesLayout = new javax.swing.GroupLayout(pEspecialidades);
-        pEspecialidades.setLayout(pEspecialidadesLayout);
-        pEspecialidadesLayout.setHorizontalGroup(
-            pEspecialidadesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1148, Short.MAX_VALUE)
-        );
-        pEspecialidadesLayout.setVerticalGroup(
-            pEspecialidadesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 684, Short.MAX_VALUE)
-        );
+        tabbeDyR.addTab("Ver Doctores", jPanel2);
 
-        Pantallas.addTab("tab7", pEspecialidades);
+        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        pDoctores.setBackground(new java.awt.Color(0, 51, 204));
+        tablaRecep.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
+            },
+            new String [] {
+                "klk", "Title 2", "Title 3", "Title 4", "Title 5"
+            }
+        ));
+        jScrollPane3.setViewportView(tablaRecep);
 
-        javax.swing.GroupLayout pDoctoresLayout = new javax.swing.GroupLayout(pDoctores);
-        pDoctores.setLayout(pDoctoresLayout);
-        pDoctoresLayout.setHorizontalGroup(
-            pDoctoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1148, Short.MAX_VALUE)
-        );
-        pDoctoresLayout.setVerticalGroup(
-            pDoctoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 684, Short.MAX_VALUE)
-        );
+        jPanel3.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1150, 660));
 
-        Pantallas.addTab("tab8", pDoctores);
+        tabbeDyR.addTab("Ver recepcionista ", jPanel3);
 
-        pSistema.setBackground(new java.awt.Color(255, 51, 153));
+        pBienvenida.add(tabbeDyR, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 1150, 690));
 
-        javax.swing.GroupLayout pSistemaLayout = new javax.swing.GroupLayout(pSistema);
-        pSistema.setLayout(pSistemaLayout);
-        pSistemaLayout.setHorizontalGroup(
-            pSistemaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1148, Short.MAX_VALUE)
-        );
-        pSistemaLayout.setVerticalGroup(
-            pSistemaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 684, Short.MAX_VALUE)
-        );
+        Pantallas.addTab("bienvenida", pBienvenida);
 
-        Pantallas.addTab("tab9", pSistema);
+        pRecepcionista.setBackground(new java.awt.Color(242, 242, 242));
+        pRecepcionista.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        pBienvenida.setBackground(new java.awt.Color(102, 255, 0));
+        jPanel4.setBackground(new java.awt.Color(242, 242, 242));
+        jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        javax.swing.GroupLayout pBienvenidaLayout = new javax.swing.GroupLayout(pBienvenida);
-        pBienvenida.setLayout(pBienvenidaLayout);
-        pBienvenidaLayout.setHorizontalGroup(
-            pBienvenidaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1148, Short.MAX_VALUE)
-        );
-        pBienvenidaLayout.setVerticalGroup(
-            pBienvenidaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 684, Short.MAX_VALUE)
-        );
+        txtNombre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNombreActionPerformed(evt);
+            }
+        });
+        jPanel4.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 100, 250, 60));
+        jPanel4.add(txtCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 190, 560, 60));
+        jPanel4.add(txtTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 270, 240, 60));
 
-        Pantallas.addTab("tab6", pBienvenida);
+        txtCedula.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCedulaActionPerformed(evt);
+            }
+        });
+        jPanel4.add(txtCedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 270, 260, 60));
+        jPanel4.add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 360, 240, 60));
 
-        bg.add(Pantallas, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 80, 1150, 710));
+        lblGenero.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        lblGenero.setForeground(new java.awt.Color(102, 102, 102));
+        lblGenero.setText("Género");
+        jPanel4.add(lblGenero, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 370, 120, 30));
+
+        rbtnFemenino.setBackground(new java.awt.Color(255, 255, 255));
+        rbtnFemenino.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
+        rbtnFemenino.setForeground(new java.awt.Color(102, 102, 102));
+        rbtnFemenino.setText("Femenino");
+        rbtnFemenino.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rbtnFemeninoActionPerformed(evt);
+            }
+        });
+        jPanel4.add(rbtnFemenino, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 400, 90, 40));
+
+        rbtnMasculino.setBackground(new java.awt.Color(255, 255, 255));
+        rbtnMasculino.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
+        rbtnMasculino.setForeground(new java.awt.Color(102, 102, 102));
+        rbtnMasculino.setText("Masculino");
+        rbtnMasculino.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rbtnMasculinoActionPerformed(evt);
+            }
+        });
+        jPanel4.add(rbtnMasculino, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 400, 90, 40));
+
+        btnRegistrarse.setBackground(new java.awt.Color(204, 51, 255));
+        btnRegistrarse.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        btnRegistrarse.setForeground(new java.awt.Color(255, 255, 255));
+        btnRegistrarse.setText("Registrarse");
+        btnRegistrarse.setBorder(null);
+        btnRegistrarse.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnRegistrarseMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnRegistrarseMouseExited(evt);
+            }
+        });
+        btnRegistrarse.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegistrarseActionPerformed(evt);
+            }
+        });
+        jPanel4.add(btnRegistrarse, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 460, 200, 60));
+
+        lblNombrePantalla.setFont(new java.awt.Font("Dialog", 1, 32)); // NOI18N
+        lblNombrePantalla.setForeground(new java.awt.Color(83, 121, 235));
+        lblNombrePantalla.setText("Formulario de registro");
+        jPanel4.add(lblNombrePantalla, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 20, 410, 60));
+        jPanel4.add(txtApellido1, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 100, 270, 60));
+        jPanel4.add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 100, 220, 60));
+        jPanel4.add(jSpinField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 280, 90, 50));
+
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jPanel4.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 360, 260, 60));
+
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jPanel4.add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 190, 230, 60));
+
+        Doctor.addTab("Doctor", jPanel4);
+
+        jPanel5.setBackground(new java.awt.Color(242, 242, 242));
+        jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lblNombrePantalla1.setFont(new java.awt.Font("Dialog", 1, 32)); // NOI18N
+        lblNombrePantalla1.setForeground(new java.awt.Color(83, 121, 235));
+        lblNombrePantalla1.setText("Formulario de registro");
+        jPanel5.add(lblNombrePantalla1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 20, 410, 60));
+
+        txtNombre1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNombre1ActionPerformed(evt);
+            }
+        });
+        jPanel5.add(txtNombre1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 100, 250, 60));
+        jPanel5.add(txtCorreo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 190, 560, 60));
+        jPanel5.add(txtTelefono1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 270, 240, 60));
+        jPanel5.add(txtPassword1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 360, 240, 60));
+
+        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jPanel5.add(jComboBox3, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 360, 260, 60));
+
+        txtCedula1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCedula1ActionPerformed(evt);
+            }
+        });
+        jPanel5.add(txtCedula1, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 270, 260, 60));
+        jPanel5.add(txtApellido2, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 100, 270, 60));
+        jPanel5.add(jDateChooser2, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 100, 220, 60));
+
+        jComboBox4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jPanel5.add(jComboBox4, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 190, 230, 60));
+        jPanel5.add(jSpinField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 280, 90, 50));
+
+        lblGenero1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        lblGenero1.setForeground(new java.awt.Color(102, 102, 102));
+        lblGenero1.setText("Género");
+        jPanel5.add(lblGenero1, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 370, 120, 30));
+
+        rbtnFemenino1.setBackground(new java.awt.Color(255, 255, 255));
+        rbtnFemenino1.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
+        rbtnFemenino1.setForeground(new java.awt.Color(102, 102, 102));
+        rbtnFemenino1.setText("Femenino");
+        rbtnFemenino1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rbtnFemenino1ActionPerformed(evt);
+            }
+        });
+        jPanel5.add(rbtnFemenino1, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 400, 90, 40));
+
+        rbtnMasculino1.setBackground(new java.awt.Color(255, 255, 255));
+        rbtnMasculino1.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
+        rbtnMasculino1.setForeground(new java.awt.Color(102, 102, 102));
+        rbtnMasculino1.setText("Masculino");
+        rbtnMasculino1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rbtnMasculino1ActionPerformed(evt);
+            }
+        });
+        jPanel5.add(rbtnMasculino1, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 400, 90, 40));
+
+        btnRegistrarse1.setBackground(new java.awt.Color(204, 51, 255));
+        btnRegistrarse1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        btnRegistrarse1.setForeground(new java.awt.Color(255, 255, 255));
+        btnRegistrarse1.setText("Registrarse");
+        btnRegistrarse1.setBorder(null);
+        btnRegistrarse1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnRegistrarse1MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnRegistrarse1MouseExited(evt);
+            }
+        });
+        btnRegistrarse1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegistrarse1ActionPerformed(evt);
+            }
+        });
+        jPanel5.add(btnRegistrarse1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 460, 200, 60));
+
+        Doctor.addTab("Recepcionista", jPanel5);
+
+        jPanel6.setBackground(new java.awt.Color(242, 242, 242));
+        jPanel6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lblNombrePantalla2.setFont(new java.awt.Font("Dialog", 1, 32)); // NOI18N
+        lblNombrePantalla2.setForeground(new java.awt.Color(83, 121, 235));
+        lblNombrePantalla2.setText("Formulario de registro");
+        jPanel6.add(lblNombrePantalla2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 20, 410, 60));
+
+        txtNombre2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNombre2ActionPerformed(evt);
+            }
+        });
+        jPanel6.add(txtNombre2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 100, 340, 60));
+
+        btnRegistrarse2.setBackground(new java.awt.Color(204, 51, 255));
+        btnRegistrarse2.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        btnRegistrarse2.setForeground(new java.awt.Color(255, 255, 255));
+        btnRegistrarse2.setText("Registrarse");
+        btnRegistrarse2.setBorder(null);
+        btnRegistrarse2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnRegistrarse2MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnRegistrarse2MouseExited(evt);
+            }
+        });
+        btnRegistrarse2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegistrarse2ActionPerformed(evt);
+            }
+        });
+        jPanel6.add(btnRegistrarse2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 460, 200, 60));
+
+        jTextArea1.setColumns(20);
+        jTextArea1.setRows(5);
+        jScrollPane1.setViewportView(jTextArea1);
+
+        jPanel6.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 180, 540, 270));
+
+        Doctor.addTab("Especialidad", jPanel6);
+
+        pRecepcionista.add(Doctor, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, 1150, 670));
+
+        Pantallas.addTab("sistema", pRecepcionista);
+
+        pDoctores.setBackground(new java.awt.Color(242, 242, 242));
+        pDoctores.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel3.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
+        jLabel3.setText("doctores");
+        pDoctores.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(142, 132, 510, 180));
+
+        Pantallas.addTab("espe", pDoctores);
+
+        pEspecialidades.setBackground(new java.awt.Color(242, 242, 242));
+        pEspecialidades.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel2.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
+        jLabel2.setText("especialidad");
+        pEspecialidades.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(142, 132, 510, 180));
+
+        Pantallas.addTab("recep", pEspecialidades);
+
+        pSistema.setBackground(new java.awt.Color(242, 242, 242));
+        pSistema.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel4.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
+        jLabel4.setText("sistema");
+        pSistema.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(142, 132, 510, 180));
+
+        Pantallas.addTab("docto", pSistema);
+
+        bg.add(Pantallas, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 70, 1150, 720));
 
         getContentPane().add(bg, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1350, 790));
 
@@ -306,18 +552,6 @@ public class PantallaAdministrador extends javax.swing.JFrame {
         lblBienvenida.setBackground(new Color(83,121,235));
     }//GEN-LAST:event_lblBienvenidaMouseExited
 
-    private void lblDoctoresMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblDoctoresMouseClicked
-        Pantallas.setSelectedIndex(3);
-    }//GEN-LAST:event_lblDoctoresMouseClicked
-
-    private void lblDoctoresMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblDoctoresMouseEntered
-        lblDoctores.setBackground(new Color(42,72,161));
-    }//GEN-LAST:event_lblDoctoresMouseEntered
-
-    private void lblDoctoresMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblDoctoresMouseExited
-        lblDoctores.setBackground(new Color(83,121,235));
-    }//GEN-LAST:event_lblDoctoresMouseExited
-
     private void lblSalirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblSalirMouseClicked
         lblSalir.setBackground(new Color(42,72,161));
         PantallaInicioSesion inicio = new PantallaInicioSesion();
@@ -332,18 +566,6 @@ public class PantallaAdministrador extends javax.swing.JFrame {
     private void lblSalirMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblSalirMouseExited
         lblSalir.setBackground(new Color(83,121,235));
     }//GEN-LAST:event_lblSalirMouseExited
-
-    private void lblEspecialidadesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblEspecialidadesMouseClicked
-        Pantallas.setSelectedIndex(2);
-    }//GEN-LAST:event_lblEspecialidadesMouseClicked
-
-    private void lblEspecialidadesMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblEspecialidadesMouseEntered
-        lblEspecialidades.setBackground(new Color(42,72,161));
-    }//GEN-LAST:event_lblEspecialidadesMouseEntered
-
-    private void lblEspecialidadesMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblEspecialidadesMouseExited
-        lblEspecialidades.setBackground(new Color(83,121,235));
-    }//GEN-LAST:event_lblEspecialidadesMouseExited
 
     private void lblRecepcionistaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblRecepcionistaMouseClicked
         Pantallas.setSelectedIndex(1);
@@ -368,6 +590,182 @@ public class PantallaAdministrador extends javax.swing.JFrame {
     private void lblInformacion1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblInformacion1MouseExited
         lblInformacion1.setBackground(new Color(83,121,235));
     }//GEN-LAST:event_lblInformacion1MouseExited
+
+    private void BuscadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscadorActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BuscadorActionPerformed
+
+    private void rbtnFemeninoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbtnFemeninoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_rbtnFemeninoActionPerformed
+
+    private void rbtnMasculinoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbtnMasculinoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_rbtnMasculinoActionPerformed
+
+    private void btnRegistrarseMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRegistrarseMouseEntered
+        btnRegistrarse.setBackground(new Color(153,0,153));
+    }//GEN-LAST:event_btnRegistrarseMouseEntered
+
+    private void btnRegistrarseMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRegistrarseMouseExited
+        btnRegistrarse.setBackground(new Color(204,51,255));
+    }//GEN-LAST:event_btnRegistrarseMouseExited
+
+    private void btnRegistrarseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarseActionPerformed
+
+//        Usuarios u = new Usuarios();
+//        UsuariosDAO r = new UsuariosDAO();
+//
+//        String nombre = txtNombre.getText().trim();
+//        String apellido = txtApellido.getText().trim();
+//        String correo = txtCorreo.getText().trim();
+//        String numero_telefono = txtTelefono.getText().trim();
+//        String cedula = txtCedula.getText().trim();
+//        String contraseña = txtPassword.getText().trim();
+//        String genero = rbtnFemenino.isSelected() ? "Femenino" : "Masculino";
+//
+//        if (nombre.isEmpty()) {
+//
+//            txtNombre.putClientProperty("JComponent.outline", "error");
+//
+//            JOptionPane.showMessageDialog(null,
+//                "Por favor, complete todos los campos.",
+//                "Error",
+//                JOptionPane.ERROR_MESSAGE);
+//            return;
+//
+//        }else if (apellido.isEmpty()) {
+//            txtApellido.putClientProperty("JComponent.outline", "error");
+//            JOptionPane.showMessageDialog(null,
+//                "Por favor, complete todos los campos.",
+//                "Error",
+//                JOptionPane.ERROR_MESSAGE);
+//            return;
+//
+//        }else if (correo.isEmpty()) {
+//            txtCorreo.putClientProperty("JComponent.outline", "error");
+//            JOptionPane.showMessageDialog(null,
+//                "Por favor, complete todos los campos.",
+//                "Error",
+//                JOptionPane.ERROR_MESSAGE);
+//            return;
+//
+//        }else if (!numero_telefono.matches("\\d+")) {
+//            txtTelefono.putClientProperty("JComponent.outline", "error");
+//            JOptionPane.showMessageDialog(null,
+//                "Este campo solo acepta numeros.",
+//                "Error",
+//                JOptionPane.ERROR_MESSAGE);
+//            return;
+//
+//        }else if (numero_telefono.isEmpty()) {
+//            txtTelefono.putClientProperty("JComponent.outline", "error");
+//            JOptionPane.showMessageDialog(null,
+//                "Por favor, complete todos los campos.",
+//                "Error",
+//                JOptionPane.ERROR_MESSAGE);
+//            return;
+//
+//        }else if (cedula.isEmpty()) {
+//            txtCedula.putClientProperty("JComponent.outline", "error");
+//            JOptionPane.showMessageDialog(null,
+//                "Por favor, complete todos los campos.",
+//                "Error",
+//                JOptionPane.ERROR_MESSAGE);
+//            return;
+//
+//        }else if (!cedula.matches("\\d+")) {
+//            txtCedula.putClientProperty("JComponent.outline", "error");
+//            JOptionPane.showMessageDialog(null,
+//                "Este campo solo acepta numeros",
+//                "Error",
+//                JOptionPane.ERROR_MESSAGE);
+//            return;
+//
+//        }else if (contraseña.isEmpty()) {
+//            txtPassword.putClientProperty("JComponent.outline", "error");
+//            JOptionPane.showMessageDialog(null,
+//                "Por favor, complete todos los campos.",
+//                "Error",
+//                JOptionPane.ERROR_MESSAGE);
+//            return;
+//
+//        }else if (genero.isEmpty()) {
+//            JOptionPane.showMessageDialog(null,
+//                "Por favor, complete todos los campos.",
+//                "Error",
+//                JOptionPane.ERROR_MESSAGE);
+//            return;
+//
+//        }
+//
+//        u.setNombre(nombre);
+//        u.setApellido(apellido);
+//        u.setCedula(cedula);
+//        u.setCorreo(correo);
+//        u.setGenero(genero);
+//        u.setNumeroTelefono(numero_telefono);
+//        u.setContraseña(contraseña);
+//
+//        r.agregar(u);
+//
+//        JOptionPane.showMessageDialog(null,
+//            "¡Datos de " + u.getNombre() + " capturados exitosamente!",
+//            "Confirmación",
+//            JOptionPane.INFORMATION_MESSAGE);
+    }//GEN-LAST:event_btnRegistrarseActionPerformed
+
+    private void txtNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNombreActionPerformed
+
+    private void txtCedulaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCedulaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCedulaActionPerformed
+
+    private void txtNombre1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombre1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNombre1ActionPerformed
+
+    private void txtCedula1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCedula1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCedula1ActionPerformed
+
+    private void rbtnFemenino1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbtnFemenino1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_rbtnFemenino1ActionPerformed
+
+    private void rbtnMasculino1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbtnMasculino1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_rbtnMasculino1ActionPerformed
+
+    private void btnRegistrarse1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRegistrarse1MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnRegistrarse1MouseEntered
+
+    private void btnRegistrarse1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRegistrarse1MouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnRegistrarse1MouseExited
+
+    private void btnRegistrarse1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarse1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnRegistrarse1ActionPerformed
+
+    private void txtNombre2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombre2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNombre2ActionPerformed
+
+    private void btnRegistrarse2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRegistrarse2MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnRegistrarse2MouseEntered
+
+    private void btnRegistrarse2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRegistrarse2MouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnRegistrarse2MouseExited
+
+    private void btnRegistrarse2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarse2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnRegistrarse2ActionPerformed
     
     public static String fechaActual() {
         Date fecha = new Date();
@@ -378,34 +776,67 @@ public class PantallaAdministrador extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-       try {
-            
-          FlatLightLaf.setup();
-          UIManager.put("Component.innerFocusWidth", 3);
-          //UIManager.put("TextComponent.arc", 999);
-           
-        } catch (Exception ex) {
-            System.err.println("No se pudo cargar el tema FlatLaf MacOS Light.");
-            ex.printStackTrace();
-        }
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new PantallaAdministrador().setVisible(true);
-            }
-        });
-    }
+//    public static void main(String args[]) {
+//       try {
+//            
+//          FlatLightLaf.setup();
+//          UIManager.put("Component.innerFocusWidth", 3);
+//          //UIManager.put("TextComponent.arc", 999);
+//          
+//          UIManager.put("TabbedPane.tabInsets", new Insets(10, 20, 10, 20)); 
+//        UIManager.put("TabbedPane.tabAreaInsets", new Insets(10, 10, 10, 10));
+//           
+//        } catch (Exception ex) {
+//            System.err.println("No se pudo cargar el tema FlatLaf MacOS Light.");
+//            ex.printStackTrace();
+//        }
+//        java.awt.EventQueue.invokeLater(new Runnable() {
+//            public void run() {
+//                new PantallaAdministrador().setVisible(true);
+//            }
+//        });
+//    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel Administradortexto;
+    private javax.swing.JTextField Buscador;
+    private javax.swing.JLabel Correoicon;
+    private javax.swing.JTabbedPane Doctor;
+    private javax.swing.JLabel LupaBuscador;
     private javax.swing.JPanel Menu;
+    private javax.swing.JLabel NotificacionIcon;
     private javax.swing.JTabbedPane Pantallas;
     private javax.swing.JPanel bg;
-    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JButton btnRegistrarse;
+    private javax.swing.JButton btnRegistrarse1;
+    private javax.swing.JButton btnRegistrarse2;
+    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JComboBox<String> jComboBox2;
+    private javax.swing.JComboBox<String> jComboBox3;
+    private javax.swing.JComboBox<String> jComboBox4;
+    private com.toedter.calendar.JDateChooser jDateChooser1;
+    private com.toedter.calendar.JDateChooser jDateChooser2;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
+    private com.toedter.components.JSpinField jSpinField1;
+    private com.toedter.components.JSpinField jSpinField2;
+    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JLabel lblBienvenida;
-    private javax.swing.JLabel lblDoctores;
-    private javax.swing.JLabel lblEspecialidades;
+    private javax.swing.JLabel lblGenero;
+    private javax.swing.JLabel lblGenero1;
     private javax.swing.JLabel lblInformacion1;
+    private javax.swing.JLabel lblNombrePantalla;
+    private javax.swing.JLabel lblNombrePantalla1;
+    private javax.swing.JLabel lblNombrePantalla2;
     private javax.swing.JLabel lblRecepcionista;
     private javax.swing.JLabel lblSalir;
     private javax.swing.JPanel pBienvenida;
@@ -413,5 +844,27 @@ public class PantallaAdministrador extends javax.swing.JFrame {
     private javax.swing.JPanel pEspecialidades;
     private javax.swing.JPanel pRecepcionista;
     private javax.swing.JPanel pSistema;
+    private javax.swing.JLabel puntocorreo;
+    private javax.swing.JLabel puntonoti;
+    private javax.swing.JRadioButton rbtnFemenino;
+    private javax.swing.JRadioButton rbtnFemenino1;
+    private javax.swing.JRadioButton rbtnMasculino;
+    private javax.swing.JRadioButton rbtnMasculino1;
+    private javax.swing.JTabbedPane tabbeDyR;
+    private javax.swing.JTable tablaDoctores;
+    private javax.swing.JTable tablaRecep;
+    private javax.swing.JTextField txtApellido1;
+    private javax.swing.JTextField txtApellido2;
+    private javax.swing.JTextField txtCedula;
+    private javax.swing.JTextField txtCedula1;
+    private javax.swing.JTextField txtCorreo;
+    private javax.swing.JTextField txtCorreo1;
+    private javax.swing.JTextField txtNombre;
+    private javax.swing.JTextField txtNombre1;
+    private javax.swing.JTextField txtNombre2;
+    private javax.swing.JPasswordField txtPassword;
+    private javax.swing.JPasswordField txtPassword1;
+    private javax.swing.JTextField txtTelefono;
+    private javax.swing.JTextField txtTelefono1;
     // End of variables declaration//GEN-END:variables
 }
