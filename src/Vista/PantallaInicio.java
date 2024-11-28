@@ -115,7 +115,7 @@ public class PantallaInicio extends javax.swing.JFrame {
     private void initComponents() {
 
         bgPantallaInicio = new javax.swing.JPanel();
-        Logo = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
         eslogan = new javax.swing.JLabel();
         mensaje = new javax.swing.JLabel();
         valores = new javax.swing.JLabel();
@@ -132,12 +132,10 @@ public class PantallaInicio extends javax.swing.JFrame {
         bgPantallaInicio.setPreferredSize(new java.awt.Dimension(730, 500));
         bgPantallaInicio.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        Logo.setFont(new java.awt.Font("Segoe UI Emoji", 1, 100)); // NOI18N
-        Logo.setForeground(new java.awt.Color(255, 255, 255));
-        Logo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Logo.setIcon(new FlatSVGIcon("Vista/imagenes/saludx.svg"));
-        Logo.setText("SaludXpert");
-        bgPantallaInicio.add(Logo, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 180, -1, -1));
+        jLabel2.setFont(new java.awt.Font("Segoe UI Emoji", 1, 100)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("SaludXpert");
+        bgPantallaInicio.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 170, 590, 120));
 
         eslogan.setFont(new java.awt.Font("Dialog", 3, 21)); // NOI18N
         eslogan.setForeground(new java.awt.Color(255, 255, 255));
@@ -190,9 +188,9 @@ public class PantallaInicio extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JProgressBar BarraInicio;
     private javax.swing.JLabel FondoDegradado;
-    private javax.swing.JLabel Logo;
     private javax.swing.JPanel bgPantallaInicio;
     private javax.swing.JLabel eslogan;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel mensaje;
     private javax.swing.JLabel valores;
     // End of variables declaration//GEN-END:variables
