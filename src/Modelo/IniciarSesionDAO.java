@@ -5,6 +5,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class IniciarSesionDAO {
+
     DatabaseConnection conectar = new DatabaseConnection();
     Connection conn;
     PreparedStatement ps;
@@ -18,28 +19,49 @@ public class IniciarSesionDAO {
      * @param clavef
      * @return datos
      */
-    public boolean iniciarSesion(String correo, String contraseña) {
-        conn = conectar.conectar();
+//    public boolean iniciarSesion(String correo, String contraseña) {
+//        conn = conectar.conectar();
+//
+//        String sql = "select * from users where correo = ? and contraseña = ?";
+//
+//        try {
+//            ps = conn.prepareStatement(sql);
+//
+//            ps.setString(1, correo);
+//            ps.setString(2, contraseña);
+//
+//            rs = ps.executeQuery();
+//
+//            while (rs.next()) {
+//                conn.close();
+//                return true;
+//            }
+//
+//        } catch (SQLException ex) {
+//            Logger.getLogger(IniciarSesionDAO.class.getName()).log(Level.SEVERE, null, ex);
+//            return false;
+//        }
+//        return false;
+//    }
 
-        String sql = "select * from users where correo = ? and contraseña = ?";
+    public String obtenerContraseñaEncriptada(String correo) {
+        String sql = "SELECT contraseña FROM users WHERE correo = ?"; // Asegúrate de que el nombre de la tabla y la columna sean correctos
+        String contraseñaEncriptada = null;
 
-        try {
-            ps = conn.prepareStatement(sql);
+        try (Connection conn = conectar.conectar(); PreparedStatement ps = conn.prepareStatement(sql)) {
 
-            ps.setString(1, correo);
-            ps.setString(2, contraseña);
+            ps.setString(1, correo); // El índice empieza en 1, no en 0
+            ResultSet rs = ps.executeQuery();
 
-            rs = ps.executeQuery();
-
-            while (rs.next()) {
-                conn.close();
-                return true;
+            if (rs.next()) {
+                contraseñaEncriptada = rs.getString("contraseña"); // Obtener la contraseña encriptada
             }
 
         } catch (SQLException ex) {
             Logger.getLogger(IniciarSesionDAO.class.getName()).log(Level.SEVERE, null, ex);
-            return false;
         }
-        return false;
+
+        return contraseñaEncriptada; // Retornamos la contraseña encriptada
     }
+
 }
