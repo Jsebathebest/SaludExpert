@@ -1,17 +1,17 @@
 package Vista;
 
+import Controlador.ControladorUsuario;
+import Modelo.DatabaseConnection;
 import Modelo.RegistrarseDB;
 import javax.swing.JOptionPane;
 import Modelo.Usuarios;
-import Modelo.UsuariosDAO;
 import com.formdev.flatlaf.FlatClientProperties;
 import com.formdev.flatlaf.FlatLightLaf;
 import com.formdev.flatlaf.extras.FlatSVGIcon;
-import com.formdev.flatlaf.themes.FlatMacLightLaf;
 import java.awt.Color;
-import javax.swing.BorderFactory;
+import javax.swing.ImageIcon;
 import javax.swing.UIManager;
-import javax.swing.border.TitledBorder;
+import org.mindrot.jbcrypt.BCrypt;
 
 /**
  *
@@ -25,38 +25,34 @@ public class PantallaRegistrarse extends javax.swing.JFrame {
      * Creates new form PantallaRegistrarse
      */
     public PantallaRegistrarse() {
-        
-       setUndecorated(true);  
-       setLocationRelativeTo(null);
-       
+
+        setUndecorated(true);
+        setIconImage(new ImageIcon(getClass().getResource("/SXP_Logo.png")).getImage());
+        setLocationRelativeTo(null);
+
         initComponents();
-        
-        
+
         txtNombre.putClientProperty(FlatClientProperties.PLACEHOLDER_TEXT, "Ingrese su Nombre");
         txtApellido.putClientProperty(FlatClientProperties.PLACEHOLDER_TEXT, "Ingrese su Apellido");
         txtCorreo.putClientProperty(FlatClientProperties.PLACEHOLDER_TEXT, "Ingrese su Email");
         txtTelefono.putClientProperty(FlatClientProperties.PLACEHOLDER_TEXT, "Ingrese su Numero telefonico");
         txtCedula.putClientProperty(FlatClientProperties.PLACEHOLDER_TEXT, "Ingrese su Cedula");
-        txtPassword.putClientProperty(FlatClientProperties.PLACEHOLDER_TEXT, "Ingrese su contraseña");
-        
-       
-        
+        Contraseña.putClientProperty(FlatClientProperties.PLACEHOLDER_TEXT, "Ingrese su contraseña");
+
         txtNombre.putClientProperty(FlatClientProperties.TEXT_FIELD_SHOW_CLEAR_BUTTON, true);
         txtApellido.putClientProperty(FlatClientProperties.TEXT_FIELD_SHOW_CLEAR_BUTTON, true);
         txtCorreo.putClientProperty(FlatClientProperties.TEXT_FIELD_SHOW_CLEAR_BUTTON, true);
         txtTelefono.putClientProperty(FlatClientProperties.TEXT_FIELD_SHOW_CLEAR_BUTTON, true);
-        txtPassword.putClientProperty(FlatClientProperties.TEXT_FIELD_SHOW_CLEAR_BUTTON, true);
-     
-        
+        Contraseña.putClientProperty(FlatClientProperties.TEXT_FIELD_SHOW_CLEAR_BUTTON, true);
+
 //        lblContraseña.putClientProperty("JComponent.roundRect", true);
-        txtPassword.putClientProperty(FlatClientProperties.STYLE, "showRevealButton:true");
-        
+        Contraseña.putClientProperty(FlatClientProperties.STYLE, "showRevealButton:true");
+
         /*try {
             javax.swing.UIManager.setLookAndFeel(javax.swing.UIManager.getSystemLookAndFeelClassName());
         } catch (Exception e) {
             e.printStackTrace();
         }*/
-
     }
 
     /**
@@ -90,7 +86,7 @@ public class PantallaRegistrarse extends javax.swing.JFrame {
         txtCorreo = new javax.swing.JTextField();
         txtTelefono = new javax.swing.JTextField();
         txtCedula = new javax.swing.JTextField();
-        txtPassword = new javax.swing.JPasswordField();
+        Contraseña = new javax.swing.JPasswordField();
 
         btngGenero.add(rbtnFemenino);
         btngGenero.add(rbtnMasculino);
@@ -152,7 +148,7 @@ public class PantallaRegistrarse extends javax.swing.JFrame {
                 btnIniciarSesionActionPerformed(evt);
             }
         });
-        plBackground.add(btnIniciarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 590, 80, 30));
+        plBackground.add(btnIniciarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 590, 90, 30));
 
         Logo.setFont(new java.awt.Font("Segoe UI Emoji", 1, 55)); // NOI18N
         Logo.setForeground(new java.awt.Color(255, 255, 255));
@@ -239,7 +235,7 @@ public class PantallaRegistrarse extends javax.swing.JFrame {
         plBackground.add(txtCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, 450, 60));
         plBackground.add(txtTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 300, 210, 60));
         plBackground.add(txtCedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 300, 210, 60));
-        plBackground.add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 390, 210, 60));
+        plBackground.add(Contraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 390, 210, 60));
 
         getContentPane().add(plBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 930, 680));
 
@@ -257,105 +253,33 @@ public class PantallaRegistrarse extends javax.swing.JFrame {
     private void btnRegistrarseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarseActionPerformed
 
         Usuarios u = new Usuarios();
-        UsuariosDAO r = new UsuariosDAO();
+        ControladorUsuario control = new ControladorUsuario();
+        DatabaseConnection con = new DatabaseConnection();
 
         String nombre = txtNombre.getText().trim();
         String apellido = txtApellido.getText().trim();
         String correo = txtCorreo.getText().trim();
         String numero_telefono = txtTelefono.getText().trim();
         String cedula = txtCedula.getText().trim();
-        String contraseña = txtPassword.getText().trim();
+        String contraseña = Contraseña.getText().trim();
         String genero = rbtnFemenino.isSelected() ? "Femenino" : "Masculino";
         
-        if (nombre.isEmpty()) {
-         
-            txtNombre.putClientProperty("JComponent.outline", "error");
-            
-            JOptionPane.showMessageDialog(null,
-            "Por favor, complete todos los campos.",
-            "Error",
-            JOptionPane.ERROR_MESSAGE);
-           return; 
-            
-        }else if (apellido.isEmpty()) {
-            txtApellido.putClientProperty("JComponent.outline", "error");
-            JOptionPane.showMessageDialog(null,
-            "Por favor, complete todos los campos.",
-            "Error",
-            JOptionPane.ERROR_MESSAGE);
-        return; 
-            
-        }else if (correo.isEmpty()) {
-            txtCorreo.putClientProperty("JComponent.outline", "error");
-            JOptionPane.showMessageDialog(null,
-            "Por favor, complete todos los campos.",
-            "Error",
-            JOptionPane.ERROR_MESSAGE);
-        return; 
-            
-        }else if (!numero_telefono.matches("\\d+")) {
-            txtTelefono.putClientProperty("JComponent.outline", "error");
-            JOptionPane.showMessageDialog(null,
-            "Este campo solo acepta numeros.",
-            "Error",
-            JOptionPane.ERROR_MESSAGE);
-        return; 
-            
-        }else if (numero_telefono.isEmpty()) {
-            txtTelefono.putClientProperty("JComponent.outline", "error");
-            JOptionPane.showMessageDialog(null,
-            "Por favor, complete todos los campos.",
-            "Error",
-            JOptionPane.ERROR_MESSAGE);
-        return; 
-            
-        }else if (cedula.isEmpty()) {
-            txtCedula.putClientProperty("JComponent.outline", "error");
-            JOptionPane.showMessageDialog(null,
-            "Por favor, complete todos los campos.",
-            "Error",
-            JOptionPane.ERROR_MESSAGE);
-        return; 
-            
-        }else if (!cedula.matches("\\d+")) {
-            txtCedula.putClientProperty("JComponent.outline", "error");
-            JOptionPane.showMessageDialog(null,
-            "Este campo solo acepta numeros",
-            "Error",
-            JOptionPane.ERROR_MESSAGE);
-        return; 
-            
-        }else if (contraseña.isEmpty()) {
-            txtPassword.putClientProperty("JComponent.outline", "error");
-            JOptionPane.showMessageDialog(null,
-            "Por favor, complete todos los campos.",
-            "Error",
-            JOptionPane.ERROR_MESSAGE);
-        return; 
-            
-        }else if (genero.isEmpty()) {
-            JOptionPane.showMessageDialog(null,
-            "Por favor, complete todos los campos.",
-            "Error",
-            JOptionPane.ERROR_MESSAGE);
-        return; 
-            
+        if (!control.validarCampos(nombre, apellido, correo, numero_telefono, cedula, contraseña, genero)) {
+            return;
         }
-   
+        //Esto se encarga de encriptar la contraseña
+        String contraseñaEncriptada = BCrypt.hashpw(contraseña, BCrypt.gensalt());
+
         u.setNombre(nombre);
         u.setApellido(apellido);
         u.setCedula(cedula);
         u.setCorreo(correo);
         u.setGenero(genero);
         u.setNumeroTelefono(numero_telefono);
-        u.setContraseña(contraseña);
+        u.setContraseña(contraseñaEncriptada);
 
-        r.agregar(u);
+        control.guardarUsuario(u);
 
-        JOptionPane.showMessageDialog(null,
-            "¡Datos de " + u.getNombre() + " capturados exitosamente!",
-            "Confirmación",
-            JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_btnRegistrarseActionPerformed
 
     private void rbtnFemeninoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbtnFemeninoActionPerformed
@@ -363,27 +287,27 @@ public class PantallaRegistrarse extends javax.swing.JFrame {
     }//GEN-LAST:event_rbtnFemeninoActionPerformed
 
     private void btnIniciarSesionMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnIniciarSesionMouseEntered
-        btnIniciarSesion.setForeground(new Color (0,0,153));
+        btnIniciarSesion.setForeground(new Color(0, 0, 153));
     }//GEN-LAST:event_btnIniciarSesionMouseEntered
 
     private void btnIniciarSesionMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnIniciarSesionMouseExited
-       btnIniciarSesion.setForeground(new Color(59,105,240));
+        btnIniciarSesion.setForeground(new Color(59, 105, 240));
     }//GEN-LAST:event_btnIniciarSesionMouseExited
 
     private void btnRegistrarseMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRegistrarseMouseExited
-        btnRegistrarse.setBackground(new Color(204,51,255));
+        btnRegistrarse.setBackground(new Color(204, 51, 255));
     }//GEN-LAST:event_btnRegistrarseMouseExited
 
     private void btnRegistrarseMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRegistrarseMouseEntered
-        btnRegistrarse.setBackground(new Color(153,0,153)); 
+        btnRegistrarse.setBackground(new Color(153, 0, 153));
     }//GEN-LAST:event_btnRegistrarseMouseEntered
 
     private void lblSalirMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblSalirMouseEntered
-         lblSalir.setBackground(new Color(255,51,102));
+        lblSalir.setBackground(new Color(255, 51, 102));
     }//GEN-LAST:event_lblSalirMouseEntered
 
     private void lblSalirMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblSalirMouseExited
-        lblSalir.setBackground(new Color (164, 112, 231));
+        lblSalir.setBackground(new Color(164, 112, 231));
     }//GEN-LAST:event_lblSalirMouseExited
 
     private void lblSalirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblSalirMouseClicked
@@ -399,10 +323,10 @@ public class PantallaRegistrarse extends javax.swing.JFrame {
      */
     public static void main(String args[]) {
         try {
-           FlatLightLaf.setup();
-         
-          UIManager.put("Component.innerFocusWidth", 2);
-          //UIManager.put("TextComponent.arc", 999);
+            FlatLightLaf.setup();
+
+            UIManager.put("Component.innerFocusWidth", 2);
+            //UIManager.put("TextComponent.arc", 999);
         } catch (Exception ex) {
             System.err.println("No se pudo cargar el tema FlatLaf MacOS Light.");
             ex.printStackTrace();
@@ -415,6 +339,7 @@ public class PantallaRegistrarse extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPasswordField Contraseña;
     private javax.swing.JLabel Fondo;
     private javax.swing.JLabel Logo;
     private javax.swing.JButton btnIniciarSesion;
@@ -436,7 +361,6 @@ public class PantallaRegistrarse extends javax.swing.JFrame {
     private javax.swing.JTextField txtCedula;
     private javax.swing.JTextField txtCorreo;
     private javax.swing.JTextField txtNombre;
-    private javax.swing.JPasswordField txtPassword;
     private javax.swing.JTextField txtTelefono;
     // End of variables declaration//GEN-END:variables
 }
