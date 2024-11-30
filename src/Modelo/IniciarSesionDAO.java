@@ -12,45 +12,38 @@ public class IniciarSesionDAO {
     ResultSet rs;
 
     /**
-     * Este metodo se encarga de listar un registro.El mismo devuelve un objeto
-     * tipo arrayList.
+     * Obtiene la contraseña encriptada de un usuario a partir de su correo electrónico.
+     * El método consulta tres tablas diferentes: `users`, `doctores` y `recepcionista`,
+     * y retorna la primera coincidencia encontrada para el correo proporcionado.
+     * 
+     * Si el correo coincide en más de una tabla, se retornará la contraseña
+     * de la primera tabla en el orden definido por la consulta SQL (users -> doctores -> recepcionista).
      *
-     * @param usuariof
-     * @param clavef
-     * @return datos
+     * En caso de error durante la ejecución de la consulta, el método registrará
+     * un mensaje en el log y retornará `null`.
+     *
+     * **Nota de Seguridad:** La contraseña retornada está encriptada, pero
+     * es responsabilidad del desarrollador manejarla adecuadamente para evitar
+     * exposición accidental.
+     *
+     * @param correo El correo electrónico del usuario cuya contraseña
+     *               encriptada se desea obtener.
+     * @return La contraseña encriptada del usuario si se encuentra una coincidencia,
+     *         o `null` si no se encuentra o ocurre un error.
      */
-//    public boolean iniciarSesion(String correo, String contraseña) {
-//        conn = conectar.conectar();
-//
-//        String sql = "select * from users where correo = ? and contraseña = ?";
-//
-//        try {
-//            ps = conn.prepareStatement(sql);
-//
-//            ps.setString(1, correo);
-//            ps.setString(2, contraseña);
-//
-//            rs = ps.executeQuery();
-//
-//            while (rs.next()) {
-//                conn.close();
-//                return true;
-//            }
-//
-//        } catch (SQLException ex) {
-//            Logger.getLogger(IniciarSesionDAO.class.getName()).log(Level.SEVERE, null, ex);
-//            return false;
-//        }
-//        return false;
-//    }
 
-    public String obtenerContraseñaEncriptada(String correo) {
-        String sql = "SELECT contraseña FROM users WHERE correo = ?"; // Asegúrate de que el nombre de la tabla y la columna sean correctos
+
+public String obtenerContraseñaEncriptada(String correo) {
+        String sql = "SELECT contraseña FROM users WHERE correo = ? " +
+                 "UNION SELECT contraseña FROM doctores WHERE correo = ? " +
+                 "UNION SELECT contraseña FROM recepcionista WHERE correo = ?";
         String contraseñaEncriptada = null;
 
         try (Connection conn = conectar.conectar(); PreparedStatement ps = conn.prepareStatement(sql)) {
 
-            ps.setString(1, correo); // El índice empieza en 1, no en 0
+            ps.setString(1, correo); // Para la tabla 'users'
+            ps.setString(2, correo); // Para la tabla 'doctores'
+            ps.setString(3, correo); // Para la tabla 'recepcionista'
             ResultSet rs = ps.executeQuery();
 
             if (rs.next()) {
