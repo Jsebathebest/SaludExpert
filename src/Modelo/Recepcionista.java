@@ -12,9 +12,11 @@ public class Recepcionista {
     String apellidos;
     String correoElectronico; //Lleva nascara
     String telefono; //Lleva mascara
-    String horario; //Lleva mascara (Ej: 8:00AM - 2:00PM)
-    String turno; //Lleva mascara (Ej: 'Tarde')
     String genero; //Femenino/Masculino
+    int edad;
+    String cedula; 
+    String fechaRegistro;
+    String contraseña;
 
     //Crear constructor vacio
     public Recepcionista() {
@@ -22,15 +24,17 @@ public class Recepcionista {
 
     //Llenar constructor
     public Recepcionista(int idRecepcionista, String nombres, String apellidos, String correoElectronico,
-            String telefono, String horario, String turno, String genero) {
+            String telefono, String genero, int edad, String cedula, String fechaRegistro, String contraseña) {
         this.idRecepcionista = idRecepcionista;
         this.nombres = nombres;
         this.apellidos = apellidos;
         this.correoElectronico = correoElectronico;
         this.telefono = telefono;
-        this.horario = horario;
-        this.turno = turno;
         this.genero = genero;
+        this.edad = edad;
+        this.cedula = cedula;
+        this.fechaRegistro = fechaRegistro;
+        this.contraseña = contraseña;
     }
 
     //Crear Getters y Setters
@@ -74,28 +78,44 @@ public class Recepcionista {
         this.telefono = telefono;
     }
 
-    public String getHorario() {
-        return horario;
-    }
-
-    public void setHorario(String horario) {
-        this.horario = horario;
-    }
-
-    public String getTurno() {
-        return turno;
-    }
-
-    public void setTurno(String turno) {
-        this.turno = turno;
-    }
-
     public String getGenero() {
         return genero;
     }
 
     public void setGenero(String genero) {
         this.genero = genero;
+    }
+
+    public int getEdad() {
+        return edad;
+    }
+
+    public void setEdad(int edad) {
+        this.edad = edad;
+    }
+
+    public String getCedula() {
+        return cedula;
+    }
+
+    public void setCedula(String cedula) {
+        this.cedula = cedula;
+    }
+
+    public String getFechaRegistro() {
+        return fechaRegistro;
+    }
+
+    public void setFechaRegistro(String fechaRegistro) {
+        this.fechaRegistro = fechaRegistro;
+    }
+
+    public String getContraseña() {
+        return contraseña;
+    }
+
+    public void setContraseña(String contraseña) {
+        this.contraseña = contraseña;
     }
 
 }
