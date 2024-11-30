@@ -15,10 +15,14 @@ public class Doctores {
     String especialidad;
     String telefono;//Lleva mascara
     String correoElectronico;//Lleva mascara
-    Date fechaContratacion;
+    String fechaRegistro;
     String numeroSecuator;
     String horarioTrabajo;
     String numeroConsultorio;
+    int edad;
+    String genero;
+    String cedula;
+    String contraseña;
 
     //Crear constructor vacio
     public Doctores() {
@@ -31,20 +35,28 @@ public class Doctores {
             String especialidad,
             String telefono,
             String correoElectronico,
-            Date fechaContratacion,
+            String fechaRegistro,
             String numeroSecuator,
             String horarioTrabajo,
-            String numeroConsultorio) {
+            String numeroConsultorio,
+            int edad,
+            String genero,
+            String cedula,
+            String contraseña) {
         this.idDoctor = idDoctor;
         this.nombres = nombres;
         this.apellidos = apellidos;
         this.especialidad = especialidad;
         this.telefono = telefono;
         this.correoElectronico = correoElectronico;
-        this.fechaContratacion = fechaContratacion;
+        this.fechaRegistro = fechaRegistro;
         this.numeroSecuator = numeroSecuator;
         this.horarioTrabajo = horarioTrabajo;
         this.numeroConsultorio = numeroConsultorio;
+        this.edad = edad;
+        this.genero = genero;
+        this.cedula = cedula;
+        this.contraseña = contraseña;
     }
 
     //Agregar Getters y Setters
@@ -96,12 +108,12 @@ public class Doctores {
         this.correoElectronico = correoElectronico;
     }
 
-    public Date getFechaContratacion() {
-        return fechaContratacion;
+    public String getFechaRegistro() {
+        return fechaRegistro;
     }
 
-    public void setFechaContratacion(Date fechaContratacion) {
-        this.fechaContratacion = fechaContratacion;
+    public void setFechaRegistro(String fechaRegistro) {
+        this.fechaRegistro = fechaRegistro;
     }
 
     public String getNumeroSecuator() {
@@ -128,4 +140,36 @@ public class Doctores {
         this.numeroConsultorio = numeroConsultorio;
     }
 
+    public int getEdad() {
+        return edad;
+    }
+
+    public void setEdad(int edad) {
+        this.edad = edad;
+    }
+
+    public String getGenero() {
+        return genero;
+    }
+
+    public void setGenero(String genero) {
+        this.genero = genero;
+    }
+
+    public String getCedula() {
+        return cedula;
+    }
+
+    public void setCedula(String cedula) {
+        this.cedula = cedula;
+    }
+
+    public String getContraseña() {
+        return contraseña;
+    }
+
+    public void setContraseña(String contraseña) {
+        this.contraseña = contraseña;
+    }
+    
 }
