@@ -1,4 +1,6 @@
 # SaludXpert
+![Imagen de WhatsApp 2024-11-27 a las 00 01 23_01499fc4](https://github.com/user-attachments/assets/aa943f7c-4349-46c8-99cd-5a037abc3821)
+
 
 Salud Xpert es un software de gestión de citas médicas desarrollado por J.S.A.B.F Technology que se 
 utiliza para optimizar el tiempo de los doctores y mejorar la experiencia de los pacientes. 
