@@ -36,7 +36,7 @@ y recordatorios automáticos enviados por correo electrónico.
   - NetBeans (versión recomendada 12.6 o superior).
   - Conector JDBC para Java.
 
-     ## Instalación
+ ## Instalación
 
 1. Clona este repositorio en tu máquina local:
    ```bash
