@@ -55,7 +55,7 @@ Modifica las credenciales en la clase Conexion.java dentro de src/modelo/.
 Ejecuta el proyecto desde tu IDE o mediante la línea de comandos:
 java -jar SaludXpert.jar
 
-##Uso
+## Uso
 1. Inicio de Sesión
 Credenciales de prueba:
 Usuario: admin
@@ -67,7 +67,7 @@ b. Gestión de Citas
 Visualizar citas agendadas.
 Crear y editar citas desde la interfaz gráfica.
 
-##Estructura del Proyecto
+## Estructura del Proyecto
 
 SaludXpert/
 ├── src/
@@ -79,7 +79,7 @@ SaludXpert/
 ├── assets/              # Recursos gráficos como íconos y capturas
 └── README.md            # Documentación principal
 
-##Contribuciones
+## Contribuciones
 1- Haz un fork del repositorio.
 
 2- Crea una nueva rama para tus cambios:
