@@ -93,3 +93,5 @@ Este proyecto está licenciado bajo la **Licencia Apache 2.0**.
 Puedes usar, modificar y distribuir este software bajo los términos de dicha licencia. Consulta el archivo LICENSE en este repositorio o revisa los detalles completos de la licencia en el siguiente enlace:  
 [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0).  
 
+## Documentación Adicional
+La documentación técnica completa generada con Javadoc está disponible en el siguiente enlace:
