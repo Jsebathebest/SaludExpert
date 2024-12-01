@@ -21,6 +21,7 @@ y recordatorios automáticos enviados por correo electrónico.
 5. [Estructura del Proyecto](#estructura-del-proyecto)
 6. [Contribuciones](#contribuciones)
 7. [Licencia](#licencia)
+8. [Documentacion adicional](#Documentación-Adicional)
 
    
 ## Características
