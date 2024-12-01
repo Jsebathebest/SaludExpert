@@ -28,13 +28,13 @@ y recordatorios automáticos enviados por correo electrónico.
 - Separación en capas **Modelo-Vista-Controlador (MVC)**.
 - Escalable y fácil de mantener.
 
-  ## Requisitos
-1. **Software**:
-   - Java JDK 11 o superior.
-   - Servidor SQL (MySQL, PostgreSQL o similar).
-   - IDE compatible con Java (NetBeans, IntelliJ IDEA, Eclipse).
-2. **Hardware**:
-   - PC con al menos 4 GB de RAM y 10 GB de espacio libre en disco.
+## Requisitos
+- **Sistema Operativo**: Windows, macOS o Linux.
+- **Java**: JDK 8 o superior.
+- **Base de Datos**: MySQL o PostgreSQL.
+- **Herramientas**:
+  - NetBeans (versión recomendada 12.6 o superior).
+  - Conector JDBC para Java.
 
      ## Instalación
 
@@ -80,7 +80,16 @@ SaludXpert/
 └── README.md            # Documentación principal
 
 ##Contribuciones
-Haz un fork del repositorio.
-Crea una nueva rama para tus cambios:
+1- Haz un fork del repositorio.
+
+2- Crea una nueva rama para tus cambios:
 "git checkout -b feature/nueva-funcionalidad"
+
+3-Envía un pull request describiendo tus contribuciones.
+
+## Licencia
+Este proyecto está licenciado bajo la **Licencia Apache 2.0**. 
+
+Puedes usar, modificar y distribuir este software bajo los términos de dicha licencia. Consulta el archivo LICENSE en este repositorio o revisa los detalles completos de la licencia en el siguiente enlace:  
+[Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0).  
 
