@@ -52,7 +52,9 @@ public class PantallaRegistrarse extends javax.swing.JFrame {
         txtTelefono.putClientProperty(FlatClientProperties.PLACEHOLDER_TEXT, "Ingrese su Numero telefonico");
         txtCedula.putClientProperty(FlatClientProperties.PLACEHOLDER_TEXT, "Ingrese su Cedula");
         txtPassword.putClientProperty(FlatClientProperties.PLACEHOLDER_TEXT, "Ingrese su contraseña");
-        
+         txtPeso.putClientProperty(FlatClientProperties.PLACEHOLDER_TEXT, "Ingrese su peso en libras");
+          txtAltura.putClientProperty(FlatClientProperties.PLACEHOLDER_TEXT, "Ingrese su altura en cm");
+          
        txtDireccion.putClientProperty(FlatClientProperties.PLACEHOLDER_TEXT, "Ingrese su Numero direccion");
         txtSeguro.putClientProperty(FlatClientProperties.PLACEHOLDER_TEXT, "Ingrese su seguro");
         txtAntecedentes.putClientProperty(FlatClientProperties.PLACEHOLDER_TEXT, "Antedecentes medicos");
@@ -103,13 +105,12 @@ public class PantallaRegistrarse extends javax.swing.JFrame {
         Fondo = new javax.swing.JLabel();
         PantallasRegistro = new javax.swing.JTabbedPane();
         pRegristro1 = new javax.swing.JPanel();
-        txtNombre = new javax.swing.JTextField();
+        txtAltura = new javax.swing.JTextField();
         lblNombrePantalla = new javax.swing.JLabel();
         txtApellido = new javax.swing.JTextField();
         txtCorreo = new javax.swing.JTextField();
         txtTelefono = new javax.swing.JTextField();
         txtCedula = new javax.swing.JTextField();
-        txtPassword = new javax.swing.JPasswordField();
         lblGenero = new javax.swing.JLabel();
         rbtnFemenino = new javax.swing.JRadioButton();
         rbtnMasculino = new javax.swing.JRadioButton();
@@ -117,6 +118,9 @@ public class PantallaRegistrarse extends javax.swing.JFrame {
         btnIniciarSesion = new javax.swing.JButton();
         botonSiguiente = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
+        txtPassword = new javax.swing.JPasswordField();
+        txtNombre = new javax.swing.JTextField();
+        txtPeso = new javax.swing.JTextField();
         pRegistro2 = new javax.swing.JPanel();
         btnRegistrarse = new javax.swing.JButton();
         txtSeguro = new javax.swing.JTextField();
@@ -202,7 +206,7 @@ public class PantallaRegistrarse extends javax.swing.JFrame {
 
         pRegristro1.setBackground(new java.awt.Color(255, 255, 255));
         pRegristro1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        pRegristro1.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 120, 210, 60));
+        pRegristro1.add(txtAltura, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 470, 220, 60));
 
         lblNombrePantalla.setFont(new java.awt.Font("Dialog", 1, 32)); // NOI18N
         lblNombrePantalla.setForeground(new java.awt.Color(83, 121, 235));
@@ -212,7 +216,6 @@ public class PantallaRegistrarse extends javax.swing.JFrame {
         pRegristro1.add(txtCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 210, 450, 60));
         pRegristro1.add(txtTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 300, 210, 60));
         pRegristro1.add(txtCedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 300, 210, 60));
-        pRegristro1.add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 390, 210, 60));
 
         lblGenero.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         lblGenero.setForeground(new java.awt.Color(102, 102, 102));
@@ -244,7 +247,7 @@ public class PantallaRegistrarse extends javax.swing.JFrame {
         lblMensaje4.setFont(new java.awt.Font("Dialog", 3, 12)); // NOI18N
         lblMensaje4.setForeground(new java.awt.Color(153, 153, 153));
         lblMensaje4.setText("¿Ya tienes una cuenta? ");
-        pRegristro1.add(lblMensaje4, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 490, -1, 20));
+        pRegristro1.add(lblMensaje4, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 570, -1, 20));
 
         btnIniciarSesion.setBackground(new java.awt.Color(255, 255, 255));
         btnIniciarSesion.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
@@ -267,7 +270,7 @@ public class PantallaRegistrarse extends javax.swing.JFrame {
                 btnIniciarSesionActionPerformed(evt);
             }
         });
-        pRegristro1.add(btnIniciarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 480, 80, 40));
+        pRegristro1.add(btnIniciarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 560, 80, 40));
 
         botonSiguiente.setText("Siguiente");
         botonSiguiente.addActionListener(new java.awt.event.ActionListener() {
@@ -275,10 +278,13 @@ public class PantallaRegistrarse extends javax.swing.JFrame {
                 botonSiguienteActionPerformed(evt);
             }
         });
-        pRegristro1.add(botonSiguiente, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 540, 130, 30));
+        pRegristro1.add(botonSiguiente, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 560, 110, 30));
 
         jLabel6.setText("1/2");
         pRegristro1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, -1, -1));
+        pRegristro1.add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 390, 210, 60));
+        pRegristro1.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 120, 210, 60));
+        pRegristro1.add(txtPeso, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 470, 200, 60));
 
         PantallasRegistro.addTab("tab1", pRegristro1);
 
@@ -404,7 +410,7 @@ public class PantallaRegistrarse extends javax.swing.JFrame {
         Usuarios u = new Usuarios();
         UsuariosDAO r = new UsuariosDAO();
 
-        String nombre = txtNombre.getText().trim();
+        String nombre = txtAltura.getText().trim();
         String apellido = txtApellido.getText().trim();
         String correo = txtCorreo.getText().trim();
         String numero_telefono = txtTelefono.getText().trim();
@@ -415,7 +421,7 @@ public class PantallaRegistrarse extends javax.swing.JFrame {
         
         if (nombre.isEmpty()) {
          
-            txtNombre.putClientProperty("JComponent.outline", "error");
+            txtAltura.putClientProperty("JComponent.outline", "error");
             
             JOptionPane.showMessageDialog(null,
             "Por favor, complete todos los campos.",
@@ -627,6 +633,7 @@ public class PantallaRegistrarse extends javax.swing.JFrame {
     private javax.swing.JPanel plBackground;
     private javax.swing.JRadioButton rbtnFemenino;
     private javax.swing.JRadioButton rbtnMasculino;
+    private javax.swing.JTextField txtAltura;
     private javax.swing.JTextArea txtAntecedentes;
     private javax.swing.JTextField txtApellido;
     private javax.swing.JTextField txtCedula;
@@ -634,6 +641,7 @@ public class PantallaRegistrarse extends javax.swing.JFrame {
     private javax.swing.JTextField txtDireccion;
     private javax.swing.JTextField txtNombre;
     private javax.swing.JPasswordField txtPassword;
+    private javax.swing.JTextField txtPeso;
     private javax.swing.JTextField txtSeguro;
     private javax.swing.JTextField txtTelefono;
     // End of variables declaration//GEN-END:variables
