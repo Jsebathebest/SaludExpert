@@ -30,6 +30,10 @@ y recordatorios automáticos enviados por correo electrónico.
 - Soporte para la base de datos SQL para almacenar datos.
 - Separación en capas **Modelo-Vista-Controlador (MVC)**.
 - Escalable y fácil de mantener.
+  ![Imagen de WhatsApp 2024-12-01 a las 18 03 17_14f12f35](https://github.com/user-attachments/assets/d0d75b4a-4243-4347-961a-c9147d86c11a)
+  ![Imagen de WhatsApp 2024-12-01 a las 18 03 18_1d86d4d5](https://github.com/user-attachments/assets/18f24e6d-3d26-4e82-b131-f27345c7c2ec)
+
+
 
 ## Requisitos
 - **Sistema Operativo**: Windows, macOS o Linux.
