@@ -75,25 +75,25 @@ SaludXpert/
 
 │   ├── modelo/    
 
-# Clases para la lógica de negocio (AdminDAO, UsuariosDAO, etc.)
+#Clases para la lógica de negocio (AdminDAO, UsuariosDAO, etc.)
 
 │   ├── vista/     
 
-# Interfaces gráficas desarrolladas con Java Swing
+#Interfaces gráficas desarrolladas con Java Swing
 
 │   └── controlador/   
-# Controladores que conectan modelo y vista
+#Controladores que conectan modelo y vista
 
 ├── database/     
-# Archivos SQL para la configuración de la base de datos
+#Archivos SQL para la configuración de la base de datos
 
 ├── doc/     
 
-# Documentación generada con Javadoc
+#Documentación generada con Javadoc
 
 ├── assets/
 
-# Recursos gráficos como íconos y capturas
+#Recursos gráficos como íconos y capturas
 
 └── README.md            # Documentación principal
 
