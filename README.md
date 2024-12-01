@@ -70,13 +70,31 @@ Crear y editar citas desde la interfaz gráfica.
 ## Estructura del Proyecto
 
 SaludXpert/
+
 ├── src/
-│   ├── modelo/          # Clases para la lógica de negocio (AdminDAO, UsuariosDAO, etc.)
-│   ├── vista/           # Interfaces gráficas desarrolladas con Java Swing
-│   └── controlador/     # Controladores que conectan modelo y vista
-├── database/            # Archivos SQL para la configuración de la base de datos
-├── doc/                 # Documentación generada con Javadoc
-├── assets/              # Recursos gráficos como íconos y capturas
+
+│   ├── modelo/    
+
+# Clases para la lógica de negocio (AdminDAO, UsuariosDAO, etc.)
+
+│   ├── vista/     
+
+# Interfaces gráficas desarrolladas con Java Swing
+
+│   └── controlador/   
+# Controladores que conectan modelo y vista
+
+├── database/     
+# Archivos SQL para la configuración de la base de datos
+
+├── doc/     
+
+# Documentación generada con Javadoc
+
+├── assets/
+
+# Recursos gráficos como íconos y capturas
+
 └── README.md            # Documentación principal
 
 ## Contribuciones
