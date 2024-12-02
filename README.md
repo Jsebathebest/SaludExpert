@@ -1,9 +1,9 @@
 # SaludXpert
 ![Imagen de WhatsApp 2024-12-01 a las 23 14 39_b9a41ac2](https://github.com/user-attachments/assets/827629cd-4657-4f38-938e-ebfda536ddf0)}
 
+ ![Imagen de WhatsApp 2024-12-01 a las 23 14 39_7c0f6b8c](https://github.com/user-attachments/assets/484c5d15-810c-4288-859b-5f3f460d6c79)
 
 
-![Imagen de WhatsApp 2024-11-27 a las 00 01 23_01499fc4](https://github.com/user-attachments/assets/aa943f7c-4349-46c8-99cd-5a037abc3821)
 
 
 Salud Xpert es un software de gestión de citas médicas desarrollado por J.S.A.B.F Technology que se 
@@ -34,7 +34,7 @@ y recordatorios automáticos enviados por correo electrónico.
 - Soporte para la base de datos SQL para almacenar datos.
 - Separación en capas **Modelo-Vista-Controlador (MVC)**.
 - Escalable y fácil de mantener.
- ![Imagen de WhatsApp 2024-12-01 a las 23 14 39_7c0f6b8c](https://github.com/user-attachments/assets/484c5d15-810c-4288-859b-5f3f460d6c79)
+  ![Imagen de WhatsApp 2024-11-27 a las 00 01 23_01499fc4](https://github.com/user-attachments/assets/aa943f7c-4349-46c8-99cd-5a037abc3821)
   ![Imagen de WhatsApp 2024-12-01 a las 18 03 17_14f12f35](https://github.com/user-attachments/assets/d0d75b4a-4243-4347-961a-c9147d86c11a)
   ![Imagen de WhatsApp 2024-12-01 a las 18 03 18_1d86d4d5](https://github.com/user-attachments/assets/18f24e6d-3d26-4e82-b131-f27345c7c2ec)
 
