@@ -106,15 +106,10 @@ public class PantallaAdministrador extends javax.swing.JFrame {
         btnRegistrarse2 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
-        pDoctores = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
-        pEspecialidades = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
         pSistema = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(1350, 785));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         bg.setBackground(new java.awt.Color(242, 242, 242));
@@ -505,24 +500,6 @@ public class PantallaAdministrador extends javax.swing.JFrame {
 
         Pantallas.addTab("sistema", pRecepcionista);
 
-        pDoctores.setBackground(new java.awt.Color(242, 242, 242));
-        pDoctores.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel3.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
-        jLabel3.setText("doctores");
-        pDoctores.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(142, 132, 510, 180));
-
-        Pantallas.addTab("espe", pDoctores);
-
-        pEspecialidades.setBackground(new java.awt.Color(242, 242, 242));
-        pEspecialidades.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel2.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
-        jLabel2.setText("especialidad");
-        pEspecialidades.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(142, 132, 510, 180));
-
-        Pantallas.addTab("recep", pEspecialidades);
-
         pSistema.setBackground(new java.awt.Color(242, 242, 242));
         pSistema.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -580,7 +557,7 @@ public class PantallaAdministrador extends javax.swing.JFrame {
     }//GEN-LAST:event_lblRecepcionistaMouseExited
 
     private void lblInformacion1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblInformacion1MouseClicked
-        Pantallas.setSelectedIndex(4);
+        Pantallas.setSelectedIndex(2);
     }//GEN-LAST:event_lblInformacion1MouseClicked
 
     private void lblInformacion1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblInformacion1MouseEntered
@@ -776,26 +753,26 @@ public class PantallaAdministrador extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-//    public static void main(String args[]) {
-//       try {
-//            
-//          FlatLightLaf.setup();
-//          UIManager.put("Component.innerFocusWidth", 3);
-//          //UIManager.put("TextComponent.arc", 999);
-//          
-//          UIManager.put("TabbedPane.tabInsets", new Insets(10, 20, 10, 20)); 
-//        UIManager.put("TabbedPane.tabAreaInsets", new Insets(10, 10, 10, 10));
-//           
-//        } catch (Exception ex) {
-//            System.err.println("No se pudo cargar el tema FlatLaf MacOS Light.");
-//            ex.printStackTrace();
-//        }
-//        java.awt.EventQueue.invokeLater(new Runnable() {
-//            public void run() {
-//                new PantallaAdministrador().setVisible(true);
-//            }
-//        });
-//    }
+    public static void main(String args[]) {
+       try {
+            
+          FlatLightLaf.setup();
+          UIManager.put("Component.innerFocusWidth", 3);
+          //UIManager.put("TextComponent.arc", 999);
+          
+          UIManager.put("TabbedPane.tabInsets", new Insets(10, 20, 10, 20)); 
+        UIManager.put("TabbedPane.tabAreaInsets", new Insets(10, 10, 10, 10));
+           
+        } catch (Exception ex) {
+            System.err.println("No se pudo cargar el tema FlatLaf MacOS Light.");
+            ex.printStackTrace();
+        }
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new PantallaAdministrador().setVisible(true);
+            }
+        });
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField Buscador;
@@ -815,8 +792,6 @@ public class PantallaAdministrador extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> jComboBox4;
     private com.toedter.calendar.JDateChooser jDateChooser1;
     private com.toedter.calendar.JDateChooser jDateChooser2;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
@@ -840,8 +815,6 @@ public class PantallaAdministrador extends javax.swing.JFrame {
     private javax.swing.JLabel lblRecepcionista;
     private javax.swing.JLabel lblSalir;
     private javax.swing.JPanel pBienvenida;
-    private javax.swing.JPanel pDoctores;
-    private javax.swing.JPanel pEspecialidades;
     private javax.swing.JPanel pRecepcionista;
     private javax.swing.JPanel pSistema;
     private javax.swing.JLabel puntocorreo;

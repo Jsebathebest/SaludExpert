@@ -1,8 +1,10 @@
 package Vista;
 
+import com.formdev.flatlaf.FlatLightLaf;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.swing.JOptionPane;
+import javax.swing.UIManager;
 
 /**
  *
@@ -14,8 +16,11 @@ public class PantallaDoctor extends javax.swing.JFrame {
      * Creates new form InterfazDoctor
      */
     public PantallaDoctor() {
-        initComponents();
+        
         setLocationRelativeTo(null);
+        initComponents();
+        
+        this.setExtendedState(PantallaDoctor.MAXIMIZED_BOTH);
         lblFechaActual.setText(fechaActual());
     }
 
@@ -29,7 +34,6 @@ public class PantallaDoctor extends javax.swing.JFrame {
     private void initComponents() {
 
         plBackground = new javax.swing.JPanel();
-        lblLogo = new javax.swing.JLabel();
         plDatosPaciente = new javax.swing.JPanel();
         lblNombrePaciente = new javax.swing.JLabel();
         lblMotivoCita = new javax.swing.JLabel();
@@ -56,9 +60,6 @@ public class PantallaDoctor extends javax.swing.JFrame {
         plBackground.setBackground(new java.awt.Color(255, 255, 255));
         plBackground.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        lblLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/imagenes/SXP_LogoM.png"))); // NOI18N
-        plBackground.add(lblLogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 80, 70));
-
         plDatosPaciente.setBackground(new java.awt.Color(99, 47, 136));
 
         lblNombrePaciente.setFont(new java.awt.Font("Roboto Black", 0, 18)); // NOI18N
@@ -74,14 +75,14 @@ public class PantallaDoctor extends javax.swing.JFrame {
         txtAnotaciones.setColumns(20);
         txtAnotaciones.setRows(4);
         txtAnotaciones.setText("Ejemplo Ejemplo Ejemplo");
-        txtAnotaciones.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Anotaciones", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Roboto", 1, 12))); // NOI18N
+        txtAnotaciones.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(41, 43, 45)), "Anotaciones", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Roboto", 1, 12))); // NOI18N
         jScrollPane2.setViewportView(txtAnotaciones);
 
         txtHistMedico.setEditable(false);
         txtHistMedico.setColumns(20);
         txtHistMedico.setRows(5);
         txtHistMedico.setText("Ejemplo Ejemplo Ejemplo");
-        txtHistMedico.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Historial Medico", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Roboto", 1, 12))); // NOI18N
+        txtHistMedico.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(41, 43, 45)), "Historial Medico", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Roboto", 1, 12))); // NOI18N
         txtHistMedico.setFocusable(false);
         txtHistMedico.setRequestFocusEnabled(false);
         jScrollPane1.setViewportView(txtHistMedico);
@@ -98,7 +99,7 @@ public class PantallaDoctor extends javax.swing.JFrame {
         txtEnfermedades.setColumns(20);
         txtEnfermedades.setRows(3);
         txtEnfermedades.setText("Ejemplo Ejemplo Ejemplo ");
-        txtEnfermedades.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Enfermedades", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Roboto", 1, 12))); // NOI18N
+        txtEnfermedades.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(41, 43, 45)), "Enfermedades", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Roboto", 1, 12))); // NOI18N
         txtEnfermedades.setFocusable(false);
         txtEnfermedades.setRequestFocusEnabled(false);
         jScrollPane4.setViewportView(txtEnfermedades);
@@ -298,38 +299,20 @@ public class PantallaDoctor extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(PantallaDoctor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(PantallaDoctor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(PantallaDoctor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(PantallaDoctor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new PantallaDoctor().setVisible(true);
-            }
-        });
-    }
+//    public static void main(String args[]) {
+//       try {
+//            // Establecer el tema MacOS Light
+//            UIManager.setLookAndFeel(new FlatLightLaf());
+//        } catch (Exception ex) {
+//            System.err.println("No se pudo cargar el tema FlatLaf MacOS Light.");
+//            ex.printStackTrace();
+//        }
+//        java.awt.EventQueue.invokeLater(new Runnable() {
+//            public void run() {
+//                new PantallaDoctor().setVisible(true);
+//            }
+//        });
+//    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JScrollPane jScrollPane1;
@@ -340,7 +323,6 @@ public class PantallaDoctor extends javax.swing.JFrame {
     private javax.swing.JLabel lblCantidadPacientes;
     private javax.swing.JLabel lblFechaActual;
     private javax.swing.JLabel lblGeneroPaciente;
-    private javax.swing.JLabel lblLogo;
     private javax.swing.JLabel lblMensajeBienvenida;
     private javax.swing.JLabel lblMotivoCita;
     private javax.swing.JLabel lblNombrePaciente;
