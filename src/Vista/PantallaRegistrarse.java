@@ -11,10 +11,12 @@ import com.formdev.flatlaf.extras.FlatSVGIcon;
 import java.awt.Color;
 import static java.util.Collections.list;
 import javax.swing.BorderFactory;
+import javax.swing.ImageIcon;
 import javax.swing.ListSelectionModel;
 import javax.swing.UIManager;
 import javax.swing.border.TitledBorder;
 import javax.swing.event.ListSelectionEvent;
+import org.mindrot.jbcrypt.BCrypt;
 
 /**
  *
@@ -73,7 +75,7 @@ public class PantallaRegistrarse extends javax.swing.JFrame {
         listaEnfermedades.setSelectionMode(ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
         
 //        lblContraseña.putClientProperty("JComponent.roundRect", true);
-        Contraseña.putClientProperty(FlatClientProperties.STYLE, "showRevealButton:true");
+        txtPassword.putClientProperty(FlatClientProperties.STYLE, "showRevealButton:true");
 
         /*try {
             javax.swing.UIManager.setLookAndFeel(javax.swing.UIManager.getSystemLookAndFeelClassName());
@@ -442,7 +444,7 @@ public class PantallaRegistrarse extends javax.swing.JFrame {
         String correo = txtCorreo.getText().trim();
         String numero_telefono = txtTelefono.getText().trim();
         String cedula = txtCedula.getText().trim();
-        String contraseña = Contraseña.getText().trim();
+        String contraseña = txtPassword.getText().trim();
         String genero = rbtnFemenino.isSelected() ? "Femenino" : "Masculino";
         
         
