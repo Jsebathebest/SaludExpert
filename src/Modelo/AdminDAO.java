@@ -237,7 +237,7 @@ public class AdminDAO {
                 + "apellidos = ?, "
                 + "correo = ?, "
                 + "telefono = ?, "
-                + "Cedula = ?, "
+                + "cedula = ? "
                 + "WHERE id_recepcionista = ?";
 
         try {
@@ -248,6 +248,7 @@ public class AdminDAO {
             ps.setString(3, r.getCorreoElectronico());
             ps.setString(4, r.getTelefono());
             ps.setString(5, r.getCedula());
+            ps.setInt(6, r.getIdRecepcionista());
 
             resultado = ps.executeUpdate();
 

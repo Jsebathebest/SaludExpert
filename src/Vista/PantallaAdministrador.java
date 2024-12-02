@@ -1102,6 +1102,7 @@ public class PantallaAdministrador extends javax.swing.JFrame {
                     "Advertencia",
                     JOptionPane.WARNING_MESSAGE);
         }
+        mostrarDatosRecepcionistas();
     }//GEN-LAST:event_btnEliminarRActionPerformed
 
     private void btnEditarRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarRActionPerformed
@@ -1126,6 +1127,7 @@ public class PantallaAdministrador extends javax.swing.JFrame {
         String cedula = txtCedula.getText().trim();
 
         controladorAdmin.actualizarRecepcionista(nombre, apellido, telefono, correo, cedula);
+        mostrarDatosRecepcionistas();
     }//GEN-LAST:event_btnActualizarRActionPerformed
 
     private void btnCancelarRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarRActionPerformed
