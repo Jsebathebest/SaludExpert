@@ -9,6 +9,7 @@ import com.formdev.flatlaf.extras.FlatSVGIcon;
 import com.formdev.flatlaf.themes.FlatMacLightLaf;
 import java.awt.Color;
 import java.awt.Insets;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 
@@ -22,7 +23,7 @@ public class PantallaDoctores extends javax.swing.JFrame {
      * Creates new form PantallaDoctores
      */
     public PantallaDoctores() {
-
+        setIconImage(new ImageIcon(getClass().getResource("/SXP_Logo.png")).getImage());
         initComponents();
         
     }
@@ -126,7 +127,7 @@ public class PantallaDoctores extends javax.swing.JFrame {
                 lblBienvenidaMouseExited(evt);
             }
         });
-        Menu.add(lblBienvenida, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, 200, 70));
+        Menu.add(lblBienvenida, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, 200, 70));
 
         lblSalir.setBackground(new java.awt.Color(83, 121, 235));
         lblSalir.setFont(new java.awt.Font("Dialog", 1, 13)); // NOI18N
@@ -146,7 +147,7 @@ public class PantallaDoctores extends javax.swing.JFrame {
                 lblSalirMouseExited(evt);
             }
         });
-        Menu.add(lblSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 470, 200, 60));
+        Menu.add(lblSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 370, 200, 60));
 
         lblRecepcionista.setBackground(new java.awt.Color(83, 121, 235));
         lblRecepcionista.setFont(new java.awt.Font("Dialog", 1, 13)); // NOI18N
@@ -166,7 +167,7 @@ public class PantallaDoctores extends javax.swing.JFrame {
                 lblRecepcionistaMouseExited(evt);
             }
         });
-        Menu.add(lblRecepcionista, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 140, 200, 70));
+        Menu.add(lblRecepcionista, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 180, 200, 70));
 
         pHistorialClinico.setBackground(new java.awt.Color(83, 121, 235));
         pHistorialClinico.setFont(new java.awt.Font("Dialog", 1, 13)); // NOI18N
@@ -186,7 +187,7 @@ public class PantallaDoctores extends javax.swing.JFrame {
                 pHistorialClinicoMouseExited(evt);
             }
         });
-        Menu.add(pHistorialClinico, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 210, 200, 60));
+        Menu.add(pHistorialClinico, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 250, 200, 60));
 
         pSistema.setBackground(new java.awt.Color(83, 121, 235));
         pSistema.setFont(new java.awt.Font("Dialog", 1, 13)); // NOI18N
@@ -206,7 +207,7 @@ public class PantallaDoctores extends javax.swing.JFrame {
                 pSistemaMouseExited(evt);
             }
         });
-        Menu.add(pSistema, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 350, 200, 60));
+        Menu.add(pSistema, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 310, 200, 60));
 
         jPanel1.add(Menu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 200, 790));
 
@@ -341,7 +342,7 @@ public class PantallaDoctores extends javax.swing.JFrame {
         txtAnotaciones.setColumns(20);
         txtAnotaciones.setRows(4);
         txtAnotaciones.setText("Ejemplo Ejemplo Ejemplo");
-        txtAnotaciones.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(41, 43, 45)), "Anotaciones", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Roboto", 1, 12))); // NOI18N
+        txtAnotaciones.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Anotaciones", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Roboto", 1, 12))); // NOI18N
         jScrollPane4.setViewportView(txtAnotaciones);
 
         plDatosPaciente.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(47, 370, -1, -1));
@@ -350,7 +351,7 @@ public class PantallaDoctores extends javax.swing.JFrame {
         txtHistMedico.setColumns(20);
         txtHistMedico.setRows(5);
         txtHistMedico.setText("Ejemplo Ejemplo Ejemplo");
-        txtHistMedico.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(41, 43, 45)), "Historial Medico", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Roboto", 1, 12))); // NOI18N
+        txtHistMedico.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Historial Medico", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Roboto", 1, 12))); // NOI18N
         txtHistMedico.setFocusable(false);
         txtHistMedico.setRequestFocusEnabled(false);
         jScrollPane5.setViewportView(txtHistMedico);
@@ -371,7 +372,7 @@ public class PantallaDoctores extends javax.swing.JFrame {
         txtEnfermedades.setColumns(20);
         txtEnfermedades.setRows(3);
         txtEnfermedades.setText("Ejemplo Ejemplo Ejemplo ");
-        txtEnfermedades.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(41, 43, 45)), "Enfermedades", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Roboto", 1, 12))); // NOI18N
+        txtEnfermedades.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Enfermedades", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Roboto", 1, 12))); // NOI18N
         txtEnfermedades.setFocusable(false);
         txtEnfermedades.setRequestFocusEnabled(false);
         jScrollPane6.setViewportView(txtEnfermedades);
@@ -400,7 +401,7 @@ public class PantallaDoctores extends javax.swing.JFrame {
             plActEstadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(plActEstadoLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(lblActEstado, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lblActEstado, javax.swing.GroupLayout.DEFAULT_SIZE, 221, Short.MAX_VALUE)
                 .addContainerGap())
         );
         plActEstadoLayout.setVerticalGroup(
@@ -475,7 +476,7 @@ public class PantallaDoctores extends javax.swing.JFrame {
         txtEnfermedades1.setColumns(20);
         txtEnfermedades1.setRows(3);
         txtEnfermedades1.setText("Ejemplo Ejemplo Ejemplo ");
-        txtEnfermedades1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(41, 43, 45)), "Enfermedades", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Roboto", 1, 12))); // NOI18N
+        txtEnfermedades1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Enfermedades", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Roboto", 1, 12))); // NOI18N
         txtEnfermedades1.setFocusable(false);
         txtEnfermedades1.setRequestFocusEnabled(false);
         jScrollPane8.setViewportView(txtEnfermedades1);
@@ -486,7 +487,7 @@ public class PantallaDoctores extends javax.swing.JFrame {
         txtHistMedico1.setColumns(20);
         txtHistMedico1.setRows(5);
         txtHistMedico1.setText("Ejemplo Ejemplo Ejemplo");
-        txtHistMedico1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(41, 43, 45)), "Historial Medico", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Roboto", 1, 12))); // NOI18N
+        txtHistMedico1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Historial Medico", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Roboto", 1, 12))); // NOI18N
         txtHistMedico1.setFocusable(false);
         txtHistMedico1.setRequestFocusEnabled(false);
         jScrollPane9.setViewportView(txtHistMedico1);
@@ -496,7 +497,7 @@ public class PantallaDoctores extends javax.swing.JFrame {
         txtAnotaciones1.setColumns(20);
         txtAnotaciones1.setRows(4);
         txtAnotaciones1.setText("Ejemplo Ejemplo Ejemplo");
-        txtAnotaciones1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(41, 43, 45)), "Anotaciones", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Roboto", 1, 12))); // NOI18N
+        txtAnotaciones1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Anotaciones", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Roboto", 1, 12))); // NOI18N
         jScrollPane10.setViewportView(txtAnotaciones1);
 
         pHistorial.add(jScrollPane10, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 420, -1, -1));

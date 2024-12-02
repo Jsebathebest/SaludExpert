@@ -82,7 +82,7 @@ public class PantallaInicioSesion extends javax.swing.JFrame {
                 botonregistrarseActionPerformed(evt);
             }
         });
-        jPanel1.add(botonregistrarse, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 530, 80, 20));
+        jPanel1.add(botonregistrarse, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 530, 80, 20));
 
         jLabel4.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(153, 153, 153));
@@ -205,32 +205,32 @@ public class PantallaInicioSesion extends javax.swing.JFrame {
         ControladorUsuario control = new ControladorUsuario();
 
         String correo = txtCorreo.getText().trim();
-        String contraseña = txtContraseña.getText().trim();
-//        boolean esValido = login.iniciarSesion(correo, contraseña); // Valida las credenciales
-        String contraseñaIngresada = contraseña;
+        String contraseñaIngresada = txtContraseña.getText().trim();
+
+        // Verificar si el correo existe y obtener la contraseña encriptada
         String contraseñaEncriptada = login.obtenerContraseñaEncriptada(correo);
 
-        if (BCrypt.checkpw(contraseñaIngresada, contraseñaEncriptada)) {
+        if (contraseñaEncriptada == null) {
+            // El correo no existe
+            JOptionPane.showMessageDialog(this, "El correo ingresado no está registrado.", "Error", JOptionPane.ERROR_MESSAGE);
+        } else if (BCrypt.checkpw(contraseñaIngresada, contraseñaEncriptada)) {
             // La contraseña es correcta
-            JOptionPane.showMessageDialog(null, "¡Inicio de sesión exitoso!");
-            // Verifica el dominio del correo y redirige a la pantalla correspondiente
+            JOptionPane.showMessageDialog(this, "¡Inicio de sesión exitoso!");
+
+            // Redirigir a la pantalla correspondiente según el dominio del correo
             if (correo.endsWith("@doctor.saludxpert.com")) {
-                JOptionPane.showMessageDialog(this, "Bienvenido Doctor. Abriendo pantalla del doctor...");
                 new PantallaDoctores().setVisible(true);
             } else if (correo.endsWith("@recepcionista.saludxpert.com")) {
-                JOptionPane.showMessageDialog(this, "Bienvenido Recepcionista. Abriendo pantalla de recepcionista...");
                 new PantallaRecepcionista().setVisible(true);
             } else if (correo.endsWith("@admin.saludxpert.com")) {
-                JOptionPane.showMessageDialog(this, "Bienvenido Administrador. Abriendo pantalla de administrador...");
                 new PantallaAdministrador().setVisible(true);
             } else {
-                JOptionPane.showMessageDialog(this, "Bienvenido Paciente. Abriendo pantalla de paciente...");
                 new PantallaPaciente().setVisible(true);
-                this.dispose();
             }
+            this.dispose(); // Cerrar ventana actual
         } else {
             // La contraseña es incorrecta
-            JOptionPane.showMessageDialog(null, "Contraseña incorrecta");
+            JOptionPane.showMessageDialog(this, "Contraseña incorrecta. Intente nuevamente.", "Error", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_botoninicioActionPerformed
 

@@ -132,16 +132,20 @@ public class PantallaAdministrador extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         tablaRecep = new javax.swing.JTable();
-        btnActualizar = new javax.swing.JButton();
-        btnEliminar = new javax.swing.JButton();
-        btnCancelar = new javax.swing.JButton();
-        Editar = new javax.swing.JButton();
+        btnActualizarD = new javax.swing.JButton();
+        btnEliminarD = new javax.swing.JButton();
+        btnCancelarD = new javax.swing.JButton();
+        btnEditarD = new javax.swing.JButton();
         txtNombre = new javax.swing.JTextField();
         txtApellido = new javax.swing.JTextField();
         txtCorreo = new javax.swing.JTextField();
         txtEspecialidad = new javax.swing.JTextField();
         txtCedula = new javax.swing.JTextField();
         txtTelefono = new javax.swing.JTextField();
+        btnEliminarR = new javax.swing.JButton();
+        btnEditarR = new javax.swing.JButton();
+        btnActualizarR = new javax.swing.JButton();
+        btnCancelarR = new javax.swing.JButton();
         pRegistrar = new javax.swing.JPanel();
         Doctor = new javax.swing.JTabbedPane();
         plDoctor = new javax.swing.JPanel();
@@ -338,6 +342,11 @@ public class PantallaAdministrador extends javax.swing.JFrame {
 
             }
         ));
+        tablaRecep.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tablaRecepMouseClicked(evt);
+            }
+        });
         jScrollPane3.setViewportView(tablaRecep);
 
         jPanel3.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1150, 660));
@@ -346,49 +355,49 @@ public class PantallaAdministrador extends javax.swing.JFrame {
 
         pBienvenida.add(tabbeDyR, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 280, 1150, 380));
 
-        btnActualizar.setBackground(javax.swing.UIManager.getDefaults().getColor("Actions.Green"));
-        btnActualizar.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
-        btnActualizar.setForeground(new java.awt.Color(255, 255, 255));
-        btnActualizar.setText("Actualizar");
-        btnActualizar.addActionListener(new java.awt.event.ActionListener() {
+        btnActualizarD.setBackground(javax.swing.UIManager.getDefaults().getColor("Actions.Green"));
+        btnActualizarD.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
+        btnActualizarD.setForeground(new java.awt.Color(255, 255, 255));
+        btnActualizarD.setText("Actualizar");
+        btnActualizarD.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnActualizarActionPerformed(evt);
+                btnActualizarDActionPerformed(evt);
             }
         });
-        pBienvenida.add(btnActualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 220, 190, 50));
+        pBienvenida.add(btnActualizarD, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 220, 190, 50));
 
-        btnEliminar.setBackground(new java.awt.Color(255, 0, 0));
-        btnEliminar.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
-        btnEliminar.setForeground(new java.awt.Color(255, 255, 255));
-        btnEliminar.setText("Eliminar");
-        btnEliminar.addActionListener(new java.awt.event.ActionListener() {
+        btnEliminarD.setBackground(new java.awt.Color(255, 0, 0));
+        btnEliminarD.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
+        btnEliminarD.setForeground(new java.awt.Color(255, 255, 255));
+        btnEliminarD.setText("Eliminar");
+        btnEliminarD.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEliminarActionPerformed(evt);
+                btnEliminarDActionPerformed(evt);
             }
         });
-        pBienvenida.add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 220, 190, 50));
+        pBienvenida.add(btnEliminarD, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 220, 190, 50));
 
-        btnCancelar.setBackground(java.awt.Color.orange);
-        btnCancelar.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
-        btnCancelar.setForeground(new java.awt.Color(255, 255, 255));
-        btnCancelar.setText("Cancelar");
-        btnCancelar.addActionListener(new java.awt.event.ActionListener() {
+        btnCancelarD.setBackground(java.awt.Color.orange);
+        btnCancelarD.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
+        btnCancelarD.setForeground(new java.awt.Color(255, 255, 255));
+        btnCancelarD.setText("Cancelar");
+        btnCancelarD.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCancelarActionPerformed(evt);
+                btnCancelarDActionPerformed(evt);
             }
         });
-        pBienvenida.add(btnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 220, 190, 50));
+        pBienvenida.add(btnCancelarD, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 220, 190, 50));
 
-        Editar.setBackground(javax.swing.UIManager.getDefaults().getColor("Actions.Blue"));
-        Editar.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
-        Editar.setForeground(new java.awt.Color(255, 255, 255));
-        Editar.setText("Editar");
-        Editar.addActionListener(new java.awt.event.ActionListener() {
+        btnEditarD.setBackground(javax.swing.UIManager.getDefaults().getColor("Actions.Blue"));
+        btnEditarD.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
+        btnEditarD.setForeground(new java.awt.Color(255, 255, 255));
+        btnEditarD.setText("Editar");
+        btnEditarD.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                EditarActionPerformed(evt);
+                btnEditarDActionPerformed(evt);
             }
         });
-        pBienvenida.add(Editar, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 220, 190, 50));
+        pBienvenida.add(btnEditarD, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 220, 190, 50));
 
         txtNombre.setToolTipText("Nombre");
         pBienvenida.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 250, 60));
@@ -407,6 +416,50 @@ public class PantallaAdministrador extends javax.swing.JFrame {
 
         txtTelefono.setToolTipText("Telefono");
         pBienvenida.add(txtTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 30, 200, 60));
+
+        btnEliminarR.setBackground(new java.awt.Color(255, 0, 0));
+        btnEliminarR.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
+        btnEliminarR.setForeground(new java.awt.Color(255, 255, 255));
+        btnEliminarR.setText("Eliminar");
+        btnEliminarR.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarRActionPerformed(evt);
+            }
+        });
+        pBienvenida.add(btnEliminarR, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 220, 190, 50));
+
+        btnEditarR.setBackground(javax.swing.UIManager.getDefaults().getColor("Actions.Blue"));
+        btnEditarR.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
+        btnEditarR.setForeground(new java.awt.Color(255, 255, 255));
+        btnEditarR.setText("Editar");
+        btnEditarR.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditarRActionPerformed(evt);
+            }
+        });
+        pBienvenida.add(btnEditarR, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 220, 190, 50));
+
+        btnActualizarR.setBackground(javax.swing.UIManager.getDefaults().getColor("Actions.Green"));
+        btnActualizarR.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
+        btnActualizarR.setForeground(new java.awt.Color(255, 255, 255));
+        btnActualizarR.setText("Actualizar");
+        btnActualizarR.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnActualizarRActionPerformed(evt);
+            }
+        });
+        pBienvenida.add(btnActualizarR, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 220, 190, 50));
+
+        btnCancelarR.setBackground(java.awt.Color.orange);
+        btnCancelarR.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
+        btnCancelarR.setForeground(new java.awt.Color(255, 255, 255));
+        btnCancelarR.setText("Cancelar");
+        btnCancelarR.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancelarRActionPerformed(evt);
+            }
+        });
+        pBienvenida.add(btnCancelarR, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 220, 190, 50));
 
         Pantallas.addTab("bienvenida", pBienvenida);
 
@@ -429,13 +482,13 @@ public class PantallaAdministrador extends javax.swing.JFrame {
 
         txtTelefonoD.setToolTipText("Telefono");
         plDoctor.add(txtTelefonoD, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 270, 240, 60));
-        try {
-            MaskFormatter mf = new MaskFormatter("(###) ### - ####");
-            mf.setPlaceholderCharacter('_');
-            txtTelefonoD.setFormatterFactory(new DefaultFormatterFactory(mf));
-        } catch (ParseException pex) {
-            System.out.println(pex);
-        }
+        //try {
+            //    MaskFormatter mf = new MaskFormatter("(###) ### - ####");
+            //    mf.setPlaceholderCharacter('_');
+            //    txtTelefonoD.setFormatterFactory(new DefaultFormatterFactory(mf));
+            //} catch (ParseException pex) {
+            //    System.out.println(pex);
+            //}
 
         txtCedulaD.setToolTipText("Cedula");
         txtCedulaD.addActionListener(new java.awt.event.ActionListener() {
@@ -535,13 +588,13 @@ public class PantallaAdministrador extends javax.swing.JFrame {
 
         txtTelefonoR.setToolTipText("Telefono");
         plRecepcionista.add(txtTelefonoR, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 270, 240, 60));
-        try {
-            MaskFormatter mf = new MaskFormatter("(###) ### - ####");
-            mf.setPlaceholderCharacter('_');
-            txtTelefonoR.setFormatterFactory(new DefaultFormatterFactory(mf));
-        } catch (ParseException pex) {
-            System.out.println(pex);
-        }
+        //try {
+            //    MaskFormatter mf = new MaskFormatter("(###) ### - ####");
+            //    mf.setPlaceholderCharacter('_');
+            //    txtTelefonoR.setFormatterFactory(new DefaultFormatterFactory(mf));
+            //} catch (ParseException pex) {
+            //    System.out.println(pex);
+            //}
 
         txtCedulaR.setToolTipText("Cedula");
         txtCedulaR.addActionListener(new java.awt.event.ActionListener() {
@@ -917,7 +970,7 @@ public class PantallaAdministrador extends javax.swing.JFrame {
                 JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_btnRegistrarEActionPerformed
 
-    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
+    private void btnEliminarDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarDActionPerformed
         // Obtener la fila seleccionada en la tabla
         int filaSeleccionada = tablaDoctores.getSelectedRow();
 
@@ -957,13 +1010,21 @@ public class PantallaAdministrador extends javax.swing.JFrame {
                     "Advertencia",
                     JOptionPane.WARNING_MESSAGE);
         }
-    }//GEN-LAST:event_btnEliminarActionPerformed
+    }//GEN-LAST:event_btnEliminarDActionPerformed
 
     private void tablaDoctoresMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaDoctoresMouseClicked
-        // TODO add your handling code here:
+        btnEliminarD.setVisible(true);
+        btnEditarD.setVisible(true);
+        btnActualizarD.setVisible(true);
+        btnCancelarD.setVisible(true);
+        
+        btnEliminarR.setVisible(false);
+        btnEditarR.setVisible(false);
+        btnActualizarR.setVisible(false);
+        btnCancelarR.setVisible(false);
     }//GEN-LAST:event_tablaDoctoresMouseClicked
 
-    private void btnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarActionPerformed
+    private void btnActualizarDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarDActionPerformed
         String nombre = txtNombre.getText().trim();
         String apellido = txtApellido.getText().trim();
         String especialidad = txtEspecialidad.getText().trim();
@@ -972,9 +1033,9 @@ public class PantallaAdministrador extends javax.swing.JFrame {
         String cedula = txtCedula.getText().trim();
 
         controladorAdmin.actualizarDoctor(nombre, apellido, especialidad, telefono, correo, cedula);
-    }//GEN-LAST:event_btnActualizarActionPerformed
+    }//GEN-LAST:event_btnActualizarDActionPerformed
 
-    private void EditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditarActionPerformed
+    private void btnEditarDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarDActionPerformed
         // Obtener el ID del doctor seleccionado en la tabla
         int filaSeleccionada = tablaDoctores.getSelectedRow();
 
@@ -987,9 +1048,9 @@ public class PantallaAdministrador extends javax.swing.JFrame {
         } else {
             JOptionPane.showMessageDialog(this, "Debe seleccionar un doctor para editar.", "Advertencia", JOptionPane.WARNING_MESSAGE);
         }
-    }//GEN-LAST:event_EditarActionPerformed
+    }//GEN-LAST:event_btnEditarDActionPerformed
 
-    private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
+    private void btnCancelarDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarDActionPerformed
         txtNombre.setText("");
         txtApellido.setText("");
         txtTelefono.setText("");
@@ -1000,7 +1061,95 @@ public class PantallaAdministrador extends javax.swing.JFrame {
 
         // Deseleccionar cualquier fila en la tabla
         tablaDoctores.clearSelection();
-    }//GEN-LAST:event_btnCancelarActionPerformed
+    }//GEN-LAST:event_btnCancelarDActionPerformed
+
+    private void btnEliminarRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarRActionPerformed
+        // Obtener la fila seleccionada en la tabla
+        int filaSeleccionada = tablaRecep.getSelectedRow();
+
+        if (filaSeleccionada != -1) { // Verificar si hay una fila seleccionada
+            int idDoctor = Integer.parseInt(tablaRecep.getValueAt(filaSeleccionada, 0).toString());
+
+            // Confirmar eliminación
+            int confirmacion = JOptionPane.showConfirmDialog(
+                    this,
+                    "¿Estás seguro de que deseas eliminar esta recepcionista?",
+                    "Confirmar eliminación",
+                    JOptionPane.YES_NO_OPTION);
+
+            if (confirmacion == JOptionPane.YES_OPTION) {
+                // Llamar al método eliminar del controlador
+                int resultado = controladorAdmin.eliminarDoctor(idDoctor);
+
+                if (resultado > 0) { // Verificar si se eliminó correctamente
+                    JOptionPane.showMessageDialog(this,
+                            "¡Recepcionista eliminado con éxito!",
+                            "Éxito",
+                            JOptionPane.INFORMATION_MESSAGE);
+
+                    // Actualizar la tabla para reflejar los cambios
+                    mostrarDatosDoctores();
+                } else {
+                    JOptionPane.showMessageDialog(this,
+                            "Hubo un error al intentar eliminar la recepcionista.",
+                            "Error",
+                            JOptionPane.ERROR_MESSAGE);
+                }
+            }
+        } else {
+            JOptionPane.showMessageDialog(this,
+                    "Debes seleccionar una recepcionista en la tabla para eliminarla.",
+                    "Advertencia",
+                    JOptionPane.WARNING_MESSAGE);
+        }
+    }//GEN-LAST:event_btnEliminarRActionPerformed
+
+    private void btnEditarRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarRActionPerformed
+        int filaSeleccionada = tablaRecep.getSelectedRow();
+
+        if (filaSeleccionada != -1) {
+            // Obtener el ID de la fila seleccionada (asumiendo que la primera columna es el ID)
+            int id = Integer.parseInt(tablaRecep.getValueAt(filaSeleccionada, 0).toString());
+
+            // Llamar al método editarDoctor del controlador
+            controladorAdmin.editarRecepcionista(id);
+        } else {
+            JOptionPane.showMessageDialog(this, "Debe seleccionar una recepcionista para editar.", "Advertencia", JOptionPane.WARNING_MESSAGE);
+        }
+    }//GEN-LAST:event_btnEditarRActionPerformed
+
+    private void btnActualizarRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarRActionPerformed
+        String nombre = txtNombre.getText().trim();
+        String apellido = txtApellido.getText().trim();
+        String telefono = txtTelefono.getText().trim();
+        String correo = txtCorreo.getText().trim();
+        String cedula = txtCedula.getText().trim();
+
+        controladorAdmin.actualizarRecepcionista(nombre, apellido, telefono, correo, cedula);
+    }//GEN-LAST:event_btnActualizarRActionPerformed
+
+    private void btnCancelarRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarRActionPerformed
+        txtNombre.setText("");
+        txtApellido.setText("");
+        txtTelefono.setText("");
+        txtCorreo.setText("");
+        txtCedula.setText("");
+        txtEspecialidad.setText("");
+
+        tablaRecep.clearSelection();
+    }//GEN-LAST:event_btnCancelarRActionPerformed
+
+    private void tablaRecepMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaRecepMouseClicked
+        btnEliminarD.setVisible(false);
+        btnEditarD.setVisible(false);
+        btnActualizarD.setVisible(false);
+        btnCancelarD.setVisible(false);
+        
+        btnEliminarR.setVisible(true);
+        btnEditarR.setVisible(true);
+        btnActualizarR.setVisible(true);
+        btnCancelarR.setVisible(true);
+    }//GEN-LAST:event_tablaRecepMouseClicked
 
     public static String fechaActual() {
         Date fecha = new Date();
@@ -1104,41 +1253,45 @@ public class PantallaAdministrador extends javax.swing.JFrame {
         });
     }
 
-//    /**
-//     * @param args the command line arguments
-//     */
-//    public static void main(String args[]) {
-//       try {
-//            
-//          FlatLightLaf.setup();
-//          UIManager.put("Component.innerFocusWidth", 3);
-//          //UIManager.put("TextComponent.arc", 999);
-//          
-//          UIManager.put("TabbedPane.tabInsets", new Insets(10, 20, 10, 20)); 
-//        UIManager.put("TabbedPane.tabAreaInsets", new Insets(10, 10, 10, 10));
-//           
-//        } catch (Exception ex) {
-//            System.err.println("No se pudo cargar el tema FlatLaf MacOS Light.");
-//            ex.printStackTrace();
-//        }
-//        java.awt.EventQueue.invokeLater(new Runnable() {
-//            public void run() {
-//                new PantallaAdministrador().setVisible(true);
-//            }
-//        });
-//    }
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String args[]) {
+       try {
+            
+          FlatLightLaf.setup();
+          UIManager.put("Component.innerFocusWidth", 3);
+          //UIManager.put("TextComponent.arc", 999);
+          
+          UIManager.put("TabbedPane.tabInsets", new Insets(10, 20, 10, 20)); 
+        UIManager.put("TabbedPane.tabAreaInsets", new Insets(10, 10, 10, 10));
+           
+        } catch (Exception ex) {
+            System.err.println("No se pudo cargar el tema FlatLaf MacOS Light.");
+            ex.printStackTrace();
+        }
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new PantallaAdministrador().setVisible(true);
+            }
+        });
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField Buscador;
     private javax.swing.JTabbedPane Doctor;
-    private javax.swing.JButton Editar;
     private javax.swing.JLabel LupaBuscador;
     private javax.swing.JPanel Menu;
     private javax.swing.JTabbedPane Pantallas;
     private javax.swing.JPanel bg;
-    private javax.swing.JButton btnActualizar;
-    private javax.swing.JButton btnCancelar;
-    private javax.swing.JButton btnEliminar;
+    private javax.swing.JButton btnActualizarD;
+    private javax.swing.JButton btnActualizarR;
+    private javax.swing.JButton btnCancelarD;
+    private javax.swing.JButton btnCancelarR;
+    private javax.swing.JButton btnEditarD;
+    private javax.swing.JButton btnEditarR;
+    private javax.swing.JButton btnEliminarD;
+    private javax.swing.JButton btnEliminarR;
     private javax.swing.JButton btnRegistrarD;
     private javax.swing.JButton btnRegistrarE;
     private javax.swing.JButton btnRegistrarR;

@@ -6,7 +6,7 @@ import java.sql.DriverManager;
 
 public class DatabaseConnection {
 
-    String url = "jdbc:mysql://localhost:3306/RecetasElectronicas";
+    String url = "jdbc:mysql://localhost:3306/SaludXpertTest";
     String user = "root";
     String passw = "";
     private Connection connection;

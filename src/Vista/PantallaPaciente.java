@@ -11,6 +11,7 @@ import java.awt.Insets;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.swing.BorderFactory;
+import javax.swing.ImageIcon;
 import javax.swing.UIManager;
 
 /**
@@ -24,7 +25,7 @@ public class PantallaPaciente extends javax.swing.JFrame {
      */
     public PantallaPaciente() {
         
-       //setUndecorated(true);  
+       setIconImage(new ImageIcon(getClass().getResource("/SXP_Logo.png")).getImage());  
        setLocationRelativeTo(null);
 
         initComponents();

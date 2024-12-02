@@ -1,6 +1,3 @@
-/*
- *
- */
 package Modelo;
 
 public class TestDB {

@@ -6,6 +6,7 @@ import com.formdev.flatlaf.extras.FlatSVGIcon;
 import java.awt.Color;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.ImageIcon;
 import javax.swing.JProgressBar;
 import javax.swing.UIManager;
 import javax.swing.plaf.ColorUIResource;
@@ -21,10 +22,9 @@ public class PantallaInicio extends javax.swing.JFrame {
     
     public PantallaInicio() {
         
-      // setIconImage(null);  
+        setIconImage(new ImageIcon(getClass().getResource("/SXP_Logo.png")).getImage()); 
        setUndecorated(true);  
        setLocationRelativeTo(null);
-
        initComponents();
         
        BarraInicio.setBackground(new Color(91, 121, 235));
