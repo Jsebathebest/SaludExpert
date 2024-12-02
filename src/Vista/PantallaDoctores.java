@@ -400,7 +400,7 @@ public class PantallaDoctores extends javax.swing.JFrame {
             plActEstadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(plActEstadoLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(lblActEstado, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lblActEstado, javax.swing.GroupLayout.DEFAULT_SIZE, 221, Short.MAX_VALUE)
                 .addContainerGap())
         );
         plActEstadoLayout.setVerticalGroup(
