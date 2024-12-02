@@ -1,4 +1,6 @@
 # SaludXpert
+![Imagen de WhatsApp 2024-12-01 a las 23 14 39_b9a41ac2](https://github.com/user-attachments/assets/827629cd-4657-4f38-938e-ebfda536ddf0)
+
 ![Imagen de WhatsApp 2024-11-27 a las 00 01 23_01499fc4](https://github.com/user-attachments/assets/aa943f7c-4349-46c8-99cd-5a037abc3821)
 
 
