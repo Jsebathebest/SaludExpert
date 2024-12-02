@@ -9,9 +9,12 @@ import com.formdev.flatlaf.FlatClientProperties;
 import com.formdev.flatlaf.FlatLightLaf;
 import com.formdev.flatlaf.extras.FlatSVGIcon;
 import java.awt.Color;
-import javax.swing.ImageIcon;
+import static java.util.Collections.list;
+import javax.swing.BorderFactory;
+import javax.swing.ListSelectionModel;
 import javax.swing.UIManager;
-import org.mindrot.jbcrypt.BCrypt;
+import javax.swing.border.TitledBorder;
+import javax.swing.event.ListSelectionEvent;
 
 /**
  *
@@ -31,20 +34,44 @@ public class PantallaRegistrarse extends javax.swing.JFrame {
         setLocationRelativeTo(null);
 
         initComponents();
+        
+         listaEnfermedades.setSelectionMode(ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
 
+        // Agregar el listener para capturar selecciones
+        listaEnfermedades.addListSelectionListener((ListSelectionEvent e) -> {
+            if (!e.getValueIsAdjusting()) {
+                // Obtener las selecciones
+                java.util.List<String> seleccionados = listaEnfermedades.getSelectedValuesList();
+                System.out.println("Seleccionaste: " + seleccionados);
+            }
+        });
+        
+        
         txtNombre.putClientProperty(FlatClientProperties.PLACEHOLDER_TEXT, "Ingrese su Nombre");
         txtApellido.putClientProperty(FlatClientProperties.PLACEHOLDER_TEXT, "Ingrese su Apellido");
         txtCorreo.putClientProperty(FlatClientProperties.PLACEHOLDER_TEXT, "Ingrese su Email");
         txtTelefono.putClientProperty(FlatClientProperties.PLACEHOLDER_TEXT, "Ingrese su Numero telefonico");
         txtCedula.putClientProperty(FlatClientProperties.PLACEHOLDER_TEXT, "Ingrese su Cedula");
-        Contraseña.putClientProperty(FlatClientProperties.PLACEHOLDER_TEXT, "Ingrese su contraseña");
-
+        txtPassword.putClientProperty(FlatClientProperties.PLACEHOLDER_TEXT, "Ingrese su contraseña");
+         txtPeso.putClientProperty(FlatClientProperties.PLACEHOLDER_TEXT, "Ingrese su peso en libras");
+          txtAltura.putClientProperty(FlatClientProperties.PLACEHOLDER_TEXT, "Ingrese su altura en cm");
+          
+       txtDireccion.putClientProperty(FlatClientProperties.PLACEHOLDER_TEXT, "Ingrese su Numero direccion");
+        txtSeguro.putClientProperty(FlatClientProperties.PLACEHOLDER_TEXT, "Ingrese su seguro");
+        txtAntecedentes.putClientProperty(FlatClientProperties.PLACEHOLDER_TEXT, "Antedecentes medicos");
+        
+        
+        txtDireccion.putClientProperty(FlatClientProperties.TEXT_FIELD_SHOW_CLEAR_BUTTON, true);
+        txtSeguro.putClientProperty(FlatClientProperties.TEXT_FIELD_SHOW_CLEAR_BUTTON, true);
+        
         txtNombre.putClientProperty(FlatClientProperties.TEXT_FIELD_SHOW_CLEAR_BUTTON, true);
         txtApellido.putClientProperty(FlatClientProperties.TEXT_FIELD_SHOW_CLEAR_BUTTON, true);
         txtCorreo.putClientProperty(FlatClientProperties.TEXT_FIELD_SHOW_CLEAR_BUTTON, true);
         txtTelefono.putClientProperty(FlatClientProperties.TEXT_FIELD_SHOW_CLEAR_BUTTON, true);
-        Contraseña.putClientProperty(FlatClientProperties.TEXT_FIELD_SHOW_CLEAR_BUTTON, true);
-
+        txtPassword.putClientProperty(FlatClientProperties.TEXT_FIELD_SHOW_CLEAR_BUTTON, true);
+     
+        listaEnfermedades.setSelectionMode(ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
+        
 //        lblContraseña.putClientProperty("JComponent.roundRect", true);
         Contraseña.putClientProperty(FlatClientProperties.STYLE, "showRevealButton:true");
 
@@ -66,27 +93,51 @@ public class PantallaRegistrarse extends javax.swing.JFrame {
 
         btngGenero = new javax.swing.ButtonGroup();
         plBackground = new javax.swing.JPanel();
-        lblNombrePantalla = new javax.swing.JLabel();
         lblMensaje1 = new javax.swing.JLabel();
         lblMensaje2 = new javax.swing.JLabel();
         lblMensaje3 = new javax.swing.JLabel();
         lblDoctoresImg = new javax.swing.JLabel();
-        lblMensaje4 = new javax.swing.JLabel();
-        btnIniciarSesion = new javax.swing.JButton();
         Logo = new javax.swing.JLabel();
         eslogan = new javax.swing.JLabel();
-        lblGenero = new javax.swing.JLabel();
-        rbtnFemenino = new javax.swing.JRadioButton();
-        rbtnMasculino = new javax.swing.JRadioButton();
-        btnRegistrarse = new javax.swing.JButton();
         lblSalir = new javax.swing.JLabel();
         Fondo = new javax.swing.JLabel();
-        txtNombre = new javax.swing.JTextField();
+        PantallasRegistro = new javax.swing.JTabbedPane();
+        pRegristro1 = new javax.swing.JPanel();
+        txtAltura = new javax.swing.JTextField();
+        lblNombrePantalla = new javax.swing.JLabel();
         txtApellido = new javax.swing.JTextField();
         txtCorreo = new javax.swing.JTextField();
         txtTelefono = new javax.swing.JTextField();
         txtCedula = new javax.swing.JTextField();
-        Contraseña = new javax.swing.JPasswordField();
+        lblGenero = new javax.swing.JLabel();
+        rbtnFemenino = new javax.swing.JRadioButton();
+        rbtnMasculino = new javax.swing.JRadioButton();
+        lblMensaje4 = new javax.swing.JLabel();
+        btnIniciarSesion = new javax.swing.JButton();
+        botonSiguiente = new javax.swing.JButton();
+        jLabel6 = new javax.swing.JLabel();
+        txtPassword = new javax.swing.JPasswordField();
+        txtNombre = new javax.swing.JTextField();
+        txtPeso = new javax.swing.JTextField();
+        pRegistro2 = new javax.swing.JPanel();
+        btnRegistrarse = new javax.swing.JButton();
+        txtSeguro = new javax.swing.JTextField();
+        txtDireccion = new javax.swing.JTextField();
+        boxSeguros = new javax.swing.JComboBox<>();
+        DateFechaNacimiento = new com.toedter.calendar.JDateChooser();
+        BoxTipoSangre = new javax.swing.JComboBox<>();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        listaEnfermedades = new javax.swing.JList<>();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        txtAntecedentes = new javax.swing.JTextArea();
+        jLabel2 = new javax.swing.JLabel();
+        jSeparator1 = new javax.swing.JSeparator();
+        jSeparator2 = new javax.swing.JSeparator();
+        jLabel3 = new javax.swing.JLabel();
+        Aviso = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        botonVolver = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         btngGenero.add(rbtnFemenino);
         btngGenero.add(rbtnMasculino);
@@ -97,11 +148,6 @@ public class PantallaRegistrarse extends javax.swing.JFrame {
 
         plBackground.setBackground(new java.awt.Color(255, 255, 255));
         plBackground.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        lblNombrePantalla.setFont(new java.awt.Font("Dialog", 1, 32)); // NOI18N
-        lblNombrePantalla.setForeground(new java.awt.Color(83, 121, 235));
-        lblNombrePantalla.setText("Regístrate");
-        plBackground.add(lblNombrePantalla, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, 190, 60));
 
         lblMensaje1.setFont(new java.awt.Font("Microsoft YaHei UI Light", 1, 35)); // NOI18N
         lblMensaje1.setForeground(new java.awt.Color(255, 255, 255));
@@ -161,53 +207,6 @@ public class PantallaRegistrarse extends javax.swing.JFrame {
         eslogan.setText("Citas rápidas, salud eficiente. ");
         plBackground.add(eslogan, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 160, -1, 70));
 
-        lblGenero.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        lblGenero.setForeground(new java.awt.Color(102, 102, 102));
-        lblGenero.setText("Género");
-        plBackground.add(lblGenero, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 380, 120, 30));
-
-        rbtnFemenino.setBackground(new java.awt.Color(255, 255, 255));
-        rbtnFemenino.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
-        rbtnFemenino.setForeground(new java.awt.Color(102, 102, 102));
-        rbtnFemenino.setText("Femenino");
-        rbtnFemenino.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rbtnFemeninoActionPerformed(evt);
-            }
-        });
-        plBackground.add(rbtnFemenino, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 410, 90, 40));
-
-        rbtnMasculino.setBackground(new java.awt.Color(255, 255, 255));
-        rbtnMasculino.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
-        rbtnMasculino.setForeground(new java.awt.Color(102, 102, 102));
-        rbtnMasculino.setText("Masculino");
-        rbtnMasculino.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rbtnMasculinoActionPerformed(evt);
-            }
-        });
-        plBackground.add(rbtnMasculino, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 410, 90, 40));
-
-        btnRegistrarse.setBackground(new java.awt.Color(204, 51, 255));
-        btnRegistrarse.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        btnRegistrarse.setForeground(new java.awt.Color(255, 255, 255));
-        btnRegistrarse.setText("Registrarse");
-        btnRegistrarse.setBorder(null);
-        btnRegistrarse.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btnRegistrarseMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                btnRegistrarseMouseExited(evt);
-            }
-        });
-        btnRegistrarse.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRegistrarseActionPerformed(evt);
-            }
-        });
-        plBackground.add(btnRegistrarse, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 520, 200, 60));
-
         lblSalir.setBackground(new java.awt.Color(164, 112, 231));
         lblSalir.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblSalir.setIcon(new FlatSVGIcon("Vista/imagenes/cerrar.svg"));
@@ -230,12 +229,194 @@ public class PantallaRegistrarse extends javax.swing.JFrame {
         Fondo.setMinimumSize(new java.awt.Dimension(410, 670));
         Fondo.setPreferredSize(new java.awt.Dimension(410, 670));
         plBackground.add(Fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 0, 410, 680));
-        plBackground.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 210, 60));
-        plBackground.add(txtApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 120, 210, 60));
-        plBackground.add(txtCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, 450, 60));
-        plBackground.add(txtTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 300, 210, 60));
-        plBackground.add(txtCedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 300, 210, 60));
-        plBackground.add(Contraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 390, 210, 60));
+
+        pRegristro1.setBackground(new java.awt.Color(255, 255, 255));
+        pRegristro1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        pRegristro1.add(txtAltura, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 470, 220, 60));
+
+        lblNombrePantalla.setFont(new java.awt.Font("Dialog", 1, 32)); // NOI18N
+        lblNombrePantalla.setForeground(new java.awt.Color(83, 121, 235));
+        lblNombrePantalla.setText("Regístrate");
+        pRegristro1.add(lblNombrePantalla, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 40, 190, 60));
+        pRegristro1.add(txtApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 120, 210, 60));
+        pRegristro1.add(txtCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 210, 450, 60));
+        pRegristro1.add(txtTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 300, 210, 60));
+        pRegristro1.add(txtCedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 300, 210, 60));
+
+        lblGenero.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        lblGenero.setForeground(new java.awt.Color(102, 102, 102));
+        lblGenero.setText("Género");
+        pRegristro1.add(lblGenero, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 380, 120, 30));
+
+        rbtnFemenino.setBackground(new java.awt.Color(255, 255, 255));
+        rbtnFemenino.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
+        rbtnFemenino.setForeground(new java.awt.Color(102, 102, 102));
+        rbtnFemenino.setText("Femenino");
+        rbtnFemenino.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rbtnFemeninoActionPerformed(evt);
+            }
+        });
+        pRegristro1.add(rbtnFemenino, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 410, 90, 40));
+
+        rbtnMasculino.setBackground(new java.awt.Color(255, 255, 255));
+        rbtnMasculino.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
+        rbtnMasculino.setForeground(new java.awt.Color(102, 102, 102));
+        rbtnMasculino.setText("Masculino");
+        rbtnMasculino.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rbtnMasculinoActionPerformed(evt);
+            }
+        });
+        pRegristro1.add(rbtnMasculino, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 410, -1, 40));
+
+        lblMensaje4.setFont(new java.awt.Font("Dialog", 3, 12)); // NOI18N
+        lblMensaje4.setForeground(new java.awt.Color(153, 153, 153));
+        lblMensaje4.setText("¿Ya tienes una cuenta? ");
+        pRegristro1.add(lblMensaje4, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 570, -1, 20));
+
+        btnIniciarSesion.setBackground(new java.awt.Color(255, 255, 255));
+        btnIniciarSesion.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
+        btnIniciarSesion.setForeground(new java.awt.Color(59, 105, 240));
+        btnIniciarSesion.setText(" Iniciar sesión");
+        btnIniciarSesion.setBorder(null);
+        btnIniciarSesion.setBorderPainted(false);
+        btnIniciarSesion.setContentAreaFilled(false);
+        btnIniciarSesion.setFocusable(false);
+        btnIniciarSesion.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnIniciarSesionMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnIniciarSesionMouseExited(evt);
+            }
+        });
+        btnIniciarSesion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnIniciarSesionActionPerformed(evt);
+            }
+        });
+        pRegristro1.add(btnIniciarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 560, 80, 40));
+
+        botonSiguiente.setText("Siguiente");
+        botonSiguiente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonSiguienteActionPerformed(evt);
+            }
+        });
+        pRegristro1.add(botonSiguiente, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 560, 110, 30));
+
+        jLabel6.setText("1/2");
+        pRegristro1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, -1, -1));
+        pRegristro1.add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 390, 210, 60));
+        pRegristro1.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 120, 210, 60));
+        pRegristro1.add(txtPeso, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 470, 200, 60));
+
+        PantallasRegistro.addTab("tab1", pRegristro1);
+
+        pRegistro2.setBackground(new java.awt.Color(255, 255, 255));
+        pRegistro2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        btnRegistrarse.setBackground(new java.awt.Color(204, 51, 255));
+        btnRegistrarse.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        btnRegistrarse.setForeground(new java.awt.Color(255, 255, 255));
+        btnRegistrarse.setText("Registrarse");
+        btnRegistrarse.setBorder(null);
+        btnRegistrarse.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnRegistrarseMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnRegistrarseMouseExited(evt);
+            }
+        });
+        btnRegistrarse.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegistrarseActionPerformed(evt);
+            }
+        });
+        pRegistro2.add(btnRegistrarse, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 570, 190, 60));
+        pRegistro2.add(txtSeguro, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 150, 230, 60));
+
+        txtDireccion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtDireccionActionPerformed(evt);
+            }
+        });
+        pRegistro2.add(txtDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 450, 60));
+
+        boxSeguros.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-Seleccionar Seguro-", "Senasa", "ARS salud seguros", "Humano Seguros", "Futuro ARS", "ASSPN", "Mapfre Salud", "ADR", "Seguros Reserva", "SEMMA", "ARS Universal", "N/A" }));
+        boxSeguros.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                boxSegurosActionPerformed(evt);
+            }
+        });
+        pRegistro2.add(boxSeguros, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 150, 190, 60));
+        pRegistro2.add(DateFechaNacimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 240, 220, 50));
+
+        BoxTipoSangre.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-Tipo de sangre-", "A+", "A-", "B+", "B-", "AB+", "AB-", "O+", "O-" }));
+        BoxTipoSangre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BoxTipoSangreActionPerformed(evt);
+            }
+        });
+        pRegistro2.add(BoxTipoSangre, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 240, 190, 50));
+
+        listaEnfermedades.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "Resfriado Comun", "Hipertension", "Diabetes tipo 2", "Enfermedad Cardiovascular", "Insuficienci Cardiaca", "Asma", "Artritis", "Cancer", "Gastritis", "Calculos Renales ", "Infecciones del tracto urinario", "Enfermedad pulmonar obstructiva cronica", "Osteoporosis", "Neumonia", "Cataratas", "Migraña", "Hernia discal", "Migraña", "Hepatitis ", "Sindrome de intestino irritable" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        jScrollPane1.setViewportView(listaEnfermedades);
+
+        pRegistro2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 360, 250, 160));
+
+        txtAntecedentes.setColumns(20);
+        txtAntecedentes.setLineWrap(true);
+        txtAntecedentes.setRows(5);
+        jScrollPane2.setViewportView(txtAntecedentes);
+
+        pRegistro2.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 360, 210, 160));
+
+        jLabel2.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(102, 102, 102));
+        pRegistro2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 520, -1, -1));
+
+        jSeparator1.setBackground(new java.awt.Color(102, 102, 102));
+        jSeparator1.setForeground(new java.awt.Color(102, 102, 102));
+        pRegistro2.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 330, 130, 40));
+
+        jSeparator2.setBackground(new java.awt.Color(102, 102, 102));
+        jSeparator2.setForeground(new java.awt.Color(102, 102, 102));
+        pRegistro2.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 330, 130, 40));
+
+        jLabel3.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel3.setText("Fecha de nacimiento ");
+        pRegistro2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 220, -1, -1));
+
+        Aviso.setText("Si lo que buscas no está en la lista, por favor indícalo en el siguiente cuadro.");
+        pRegistro2.add(Aviso, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 520, 460, 30));
+
+        jLabel5.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel5.setText("Antecedentes Médicos");
+        pRegistro2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 319, -1, 30));
+
+        botonVolver.setText("Volver");
+        botonVolver.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonVolverActionPerformed(evt);
+            }
+        });
+        pRegistro2.add(botonVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 594, 100, 30));
+
+        jLabel1.setText("2/2");
+        pRegistro2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, -1, -1));
+
+        PantallasRegistro.addTab("tab2", pRegistro2);
+
+        plBackground.add(PantallasRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -20, 530, 700));
 
         getContentPane().add(plBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 930, 680));
 
@@ -256,7 +437,7 @@ public class PantallaRegistrarse extends javax.swing.JFrame {
         ControladorUsuario control = new ControladorUsuario();
         DatabaseConnection con = new DatabaseConnection();
 
-        String nombre = txtNombre.getText().trim();
+        String nombre = txtAltura.getText().trim();
         String apellido = txtApellido.getText().trim();
         String correo = txtCorreo.getText().trim();
         String numero_telefono = txtTelefono.getText().trim();
@@ -264,8 +445,80 @@ public class PantallaRegistrarse extends javax.swing.JFrame {
         String contraseña = Contraseña.getText().trim();
         String genero = rbtnFemenino.isSelected() ? "Femenino" : "Masculino";
         
-        if (!control.validarCampos(nombre, apellido, correo, numero_telefono, cedula, contraseña, genero)) {
-            return;
+        
+        if (nombre.isEmpty()) {
+         
+            txtAltura.putClientProperty("JComponent.outline", "error");
+            
+            JOptionPane.showMessageDialog(null,
+            "Por favor, complete todos los campos.",
+            "Error",
+            JOptionPane.ERROR_MESSAGE);
+           return; 
+            
+        }else if (apellido.isEmpty()) {
+            txtApellido.putClientProperty("JComponent.outline", "error");
+            JOptionPane.showMessageDialog(null,
+            "Por favor, complete todos los campos.",
+            "Error",
+            JOptionPane.ERROR_MESSAGE);
+        return; 
+            
+        }else if (correo.isEmpty()) {
+            txtCorreo.putClientProperty("JComponent.outline", "error");
+            JOptionPane.showMessageDialog(null,
+            "Por favor, complete todos los campos.",
+            "Error",
+            JOptionPane.ERROR_MESSAGE);
+        return; 
+            
+        }else if (!numero_telefono.matches("\\d+")) {
+            txtTelefono.putClientProperty("JComponent.outline", "error");
+            JOptionPane.showMessageDialog(null,
+            "Este campo solo acepta numeros.",
+            "Error",
+            JOptionPane.ERROR_MESSAGE);
+        return; 
+            
+        }else if (numero_telefono.isEmpty()) {
+            txtTelefono.putClientProperty("JComponent.outline", "error");
+            JOptionPane.showMessageDialog(null,
+            "Por favor, complete todos los campos.",
+            "Error",
+            JOptionPane.ERROR_MESSAGE);
+        return; 
+            
+        }else if (cedula.isEmpty()) {
+            txtCedula.putClientProperty("JComponent.outline", "error");
+            JOptionPane.showMessageDialog(null,
+            "Por favor, complete todos los campos.",
+            "Error",
+            JOptionPane.ERROR_MESSAGE);
+        return; 
+            
+        }else if (!cedula.matches("\\d+")) {
+            txtCedula.putClientProperty("JComponent.outline", "error");
+            JOptionPane.showMessageDialog(null,
+            "Este campo solo acepta numeros",
+            "Error",
+            JOptionPane.ERROR_MESSAGE);
+        return; 
+            
+        }else if (contraseña.isEmpty()) {
+            txtPassword.putClientProperty("JComponent.outline", "error");
+            JOptionPane.showMessageDialog(null,
+            "Por favor, complete todos los campos.",
+            "Error",
+            JOptionPane.ERROR_MESSAGE);
+        return; 
+            
+        }else if (genero.isEmpty()) {
+            JOptionPane.showMessageDialog(null,
+            "Por favor, complete todos los campos.",
+            "Error",
+            JOptionPane.ERROR_MESSAGE);
+        return; 
+            
         }
         //Esto se encarga de encriptar la contraseña
         String contraseñaEncriptada = BCrypt.hashpw(contraseña, BCrypt.gensalt());
@@ -318,9 +571,37 @@ public class PantallaRegistrarse extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_rbtnMasculinoActionPerformed
 
+    private void botonSiguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonSiguienteActionPerformed
+        PantallasRegistro.setSelectedIndex(1);
+    }//GEN-LAST:event_botonSiguienteActionPerformed
+
+    private void botonVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonVolverActionPerformed
+        PantallasRegistro.setSelectedIndex(0);
+    }//GEN-LAST:event_botonVolverActionPerformed
+
+    private void txtDireccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDireccionActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtDireccionActionPerformed
+
+    private void boxSegurosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boxSegurosActionPerformed
+       if (boxSeguros.getSelectedIndex() == 0) {
+                    // Mostrar un mensaje de error si se seleccionó el primer item
+                    JOptionPane.showMessageDialog(null, "¡Debe seleccionar un item válido!", "Error", JOptionPane.ERROR_MESSAGE);
+                }
+    }//GEN-LAST:event_boxSegurosActionPerformed
+
+    private void BoxTipoSangreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BoxTipoSangreActionPerformed
+       if (BoxTipoSangre.getSelectedIndex() == 0) {
+                    // Mostrar un mensaje de error si se seleccionó el primer item
+                    JOptionPane.showMessageDialog(null, "¡Debe seleccionar un item válido!", "Error", JOptionPane.ERROR_MESSAGE);
+                }
+    }//GEN-LAST:event_BoxTipoSangreActionPerformed
+
     /**
      * @param args the command line arguments
      */
+      
+
     public static void main(String args[]) {
         try {
             FlatLightLaf.setup();
@@ -337,15 +618,32 @@ public class PantallaRegistrarse extends javax.swing.JFrame {
             }
         });
     }
+    
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPasswordField Contraseña;
+    private javax.swing.JLabel Aviso;
+    private javax.swing.JComboBox<String> BoxTipoSangre;
+    private com.toedter.calendar.JDateChooser DateFechaNacimiento;
     private javax.swing.JLabel Fondo;
     private javax.swing.JLabel Logo;
+    private javax.swing.JTabbedPane PantallasRegistro;
+    private javax.swing.JButton botonSiguiente;
+    private javax.swing.JButton botonVolver;
+    private javax.swing.JComboBox<String> boxSeguros;
     private javax.swing.JButton btnIniciarSesion;
     private javax.swing.JButton btnRegistrarse;
     private javax.swing.ButtonGroup btngGenero;
     private javax.swing.JLabel eslogan;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSeparator jSeparator2;
     private javax.swing.JLabel lblDoctoresImg;
     private javax.swing.JLabel lblGenero;
     private javax.swing.JLabel lblMensaje1;
@@ -354,13 +652,22 @@ public class PantallaRegistrarse extends javax.swing.JFrame {
     private javax.swing.JLabel lblMensaje4;
     private javax.swing.JLabel lblNombrePantalla;
     private javax.swing.JLabel lblSalir;
+    private javax.swing.JList<String> listaEnfermedades;
+    private javax.swing.JPanel pRegistro2;
+    private javax.swing.JPanel pRegristro1;
     private javax.swing.JPanel plBackground;
     private javax.swing.JRadioButton rbtnFemenino;
     private javax.swing.JRadioButton rbtnMasculino;
+    private javax.swing.JTextField txtAltura;
+    private javax.swing.JTextArea txtAntecedentes;
     private javax.swing.JTextField txtApellido;
     private javax.swing.JTextField txtCedula;
     private javax.swing.JTextField txtCorreo;
+    private javax.swing.JTextField txtDireccion;
     private javax.swing.JTextField txtNombre;
+    private javax.swing.JPasswordField txtPassword;
+    private javax.swing.JTextField txtPeso;
+    private javax.swing.JTextField txtSeguro;
     private javax.swing.JTextField txtTelefono;
     // End of variables declaration//GEN-END:variables
 }
