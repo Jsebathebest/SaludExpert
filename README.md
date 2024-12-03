@@ -1,7 +1,8 @@
 # SaludXpert
 ![Imagen de WhatsApp 2024-12-01 a las 23 14 39_13014f41](https://github.com/user-attachments/assets/2226d1cf-1110-41d6-b1d0-cebbde179bcb)
 
-![Imagen de WhatsApp 2024-12-01 a las 23 14 39_9c54af03](https://github.com/user-attachments/assets/444ef47f-0ffb-49be-9227-fd4865efbd9a)
+![Imagen de WhatsApp 2024-12-01 a las 23 14 39_127aa445](https://github.com/user-attachments/assets/58494db2-9027-46da-8329-c9865429d2ee)
+
 
 
 SaludXpert es un software de gestión de citas médicas
@@ -120,7 +121,7 @@ Puedes usar, modificar y distribuir este software bajo los términos de dicha li
 [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0).
 
 ## Documentacion adicional
-
+La documentación técnica completa generada con Javadoc está disponible en el siguiente enlace:
 
 
   
