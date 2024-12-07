@@ -20,11 +20,10 @@ public class PantallaInicio extends javax.swing.JFrame {
 
     pbThead t1;
     
-    public PantallaInicio() {
-        
-        setIconImage(new ImageIcon(getClass().getResource("/SXP_Logo.png")).getImage()); 
+    public PantallaInicio() { 
        setUndecorated(true);  
        setLocationRelativeTo(null);
+       setIconImage(new ImageIcon(getClass().getResource("/SXP_Logo.png")).getImage());
        initComponents();
         
        BarraInicio.setBackground(new Color(91, 121, 235));
@@ -173,7 +172,6 @@ public class PantallaInicio extends javax.swing.JFrame {
 
     public static void main(String args[]) {
         try {
-            // Establecer el tema MacOS Light
             UIManager.setLookAndFeel(new FlatLightLaf());
         } catch (Exception ex) {
             System.err.println("No se pudo cargar el tema FlatLaf MacOS Light.");

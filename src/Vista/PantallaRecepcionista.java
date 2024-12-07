@@ -25,9 +25,9 @@ public class PantallaRecepcionista extends javax.swing.JFrame {
      */
     public PantallaRecepcionista() {
         
-       setIconImage(new ImageIcon(getClass().getResource("/SXP_Logo.png")).getImage());  
+       //setUndecorated(true);  
        setLocationRelativeTo(null);
-
+       setIconImage(new ImageIcon(getClass().getResource("/SXP_Logo.png")).getImage());
         initComponents();
         Buscador.putClientProperty(FlatClientProperties.PLACEHOLDER_TEXT, "Buscar...");
         Buscador.putClientProperty(FlatClientProperties.TEXT_FIELD_SHOW_CLEAR_BUTTON, true);

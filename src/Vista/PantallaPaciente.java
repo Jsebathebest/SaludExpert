@@ -1,6 +1,8 @@
-
 package Vista;
 
+import Controlador.ControladorAdmin;
+import Controlador.ControladorCitas;
+import Modelo.CitasDAO;
 import com.formdev.flatlaf.FlatClientProperties;
 import com.formdev.flatlaf.FlatLightLaf;
 import com.formdev.flatlaf.extras.FlatSVGIcon;
@@ -28,11 +30,16 @@ public class PantallaPaciente extends javax.swing.JFrame {
      * Creates new form PantallaPaciente
      */
     public PantallaPaciente() {
-        
-       setIconImage(new ImageIcon(getClass().getResource("/SXP_Logo.png")).getImage());  
-       setLocationRelativeTo(null);
-
+        setLocationRelativeTo(null);
+        setIconImage(new ImageIcon(getClass().getResource("/SXP_Logo.png")).getImage());
         initComponents();
+        agregarEventoSeleccionTabla();
+        ControladorAdmin.cargarEspecialidades(combEspecialidades);
+        ControladorAdmin.cargarEspecialidades(jComboBox1);
+        CitasDAO.cargarDoctores(cmbDoctores);
+        ControladorCitas controlCitas = new ControladorCitas();
+        controlCitas.llenarTablaCitas(tblCitas);
+
         Buscador.putClientProperty(FlatClientProperties.PLACEHOLDER_TEXT, "Buscar...");
         Buscador.putClientProperty(FlatClientProperties.TEXT_FIELD_SHOW_CLEAR_BUTTON, true);
         lblFechaActual.setText("Fecha: " + fechaActual());
@@ -40,20 +47,18 @@ public class PantallaPaciente extends javax.swing.JFrame {
         BuscarDoctor.putClientProperty(FlatClientProperties.TEXT_FIELD_SHOW_CLEAR_BUTTON, true);
         BuscareEspe.putClientProperty(FlatClientProperties.PLACEHOLDER_TEXT, "¿Buscas una especialidad en específico?");
         BuscareEspe.putClientProperty(FlatClientProperties.TEXT_FIELD_SHOW_CLEAR_BUTTON, true);
-        
-        lblBienvenida.setBorder(new EmptyBorder(10,30,10,10));
-        lblMisCitas.setBorder(new EmptyBorder(10,30,10,10));
-        lblHistorial.setBorder(new EmptyBorder(10,30,10,10));
-        lblEspecialidades.setBorder(new EmptyBorder(10,30,10,10));
-        lblDoctores.setBorder(new EmptyBorder(10,30,10,10));
-        lblAyuda.setBorder(new EmptyBorder(10,30,10,10));
-        lblInformacionSistema.setBorder(new EmptyBorder(10,30,10,10));
-        lblSalir.setBorder(new EmptyBorder(10,30,10,10));
-                 
-               
+
+        lblBienvenida.setBorder(new EmptyBorder(10, 30, 10, 10));
+        lblMisCitas.setBorder(new EmptyBorder(10, 30, 10, 10));
+        lblHistorial.setBorder(new EmptyBorder(10, 30, 10, 10));
+        lblEspecialidades.setBorder(new EmptyBorder(10, 30, 10, 10));
+        lblDoctores.setBorder(new EmptyBorder(10, 30, 10, 10));
+        lblAyuda.setBorder(new EmptyBorder(10, 30, 10, 10));
+        lblInformacionSistema.setBorder(new EmptyBorder(10, 30, 10, 10));
+        lblSalir.setBorder(new EmptyBorder(10, 30, 10, 10));
+
     }
 
-    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -62,22 +67,20 @@ public class PantallaPaciente extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jLabel21 = new javax.swing.JLabel();
-        jLabel23 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jLabel24 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
-        jLabel25 = new javax.swing.JLabel();
-        jDateChooser1 = new com.toedter.calendar.JDateChooser();
-        jLabel26 = new javax.swing.JLabel();
-        jComboBox2 = new javax.swing.JComboBox<>();
-        jLabel27 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
-        jLabel28 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
-        jLabel29 = new javax.swing.JLabel();
-        jTextField5 = new javax.swing.JTextField();
-        botonAgendar = new javax.swing.JButton();
-        botonCancelar = new javax.swing.JButton();
+        lblNombrePaciente = new javax.swing.JLabel();
+        txtNombrePaciente = new javax.swing.JTextField();
+        lblHoraCita = new javax.swing.JLabel();
+        lblFechaCita = new javax.swing.JLabel();
+        dtcFechaCita = new com.toedter.calendar.JDateChooser();
+        lblNombresDoctores = new javax.swing.JLabel();
+        combHorasCitas = new javax.swing.JComboBox<>();
+        lblMotivoCita = new javax.swing.JLabel();
+        lblNombresEspecialidades = new javax.swing.JLabel();
+        txtMotivoCita = new javax.swing.JTextField();
+        btnAgendarCita = new javax.swing.JButton();
+        btnCancelarAgendaCita = new javax.swing.JButton();
+        cmbDoctores = new javax.swing.JComboBox<>();
+        combEspecialidades = new javax.swing.JComboBox<>();
         Confirmacion = new javax.swing.JDialog();
         jPanel3 = new javax.swing.JPanel();
         jLabel30 = new javax.swing.JLabel();
@@ -188,14 +191,14 @@ public class PantallaPaciente extends javax.swing.JFrame {
         Borrar = new javax.swing.JLabel();
         pDoctores = new javax.swing.JPanel();
         jScrollPane4 = new javax.swing.JScrollPane();
-        jTable3 = new javax.swing.JTable();
+        tblDoctores = new javax.swing.JTable();
         LupaBuscador2 = new javax.swing.JLabel();
         BuscarDoctor = new javax.swing.JTextField();
         jButton2 = new javax.swing.JButton();
         jComboBox1 = new javax.swing.JComboBox<>();
         pCitas = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
+        tblCitas = new javax.swing.JTable();
         txtEstado = new javax.swing.JTextField();
         txtNomPaciente = new javax.swing.JTextField();
         txtMotivo = new javax.swing.JTextField();
@@ -203,7 +206,7 @@ public class PantallaPaciente extends javax.swing.JFrame {
         txtEspecialidad = new javax.swing.JTextField();
         botonAgendarCita = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
+        lbnombrepaciente = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
@@ -248,104 +251,90 @@ public class PantallaPaciente extends javax.swing.JFrame {
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 780, 90));
 
-        jLabel23.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel23.setText("Paciente");
-        jPanel1.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 110, -1, -1));
+        lblNombrePaciente.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        lblNombrePaciente.setText("Paciente");
+        jPanel1.add(lblNombrePaciente, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 110, -1, -1));
+        jPanel1.add(txtNombrePaciente, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 130, 290, 50));
 
-        jTextField1.setOpaque(false);
-        jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 130, 290, 50));
+        lblHoraCita.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        lblHoraCita.setText("Hora");
+        jPanel1.add(lblHoraCita, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 300, -1, -1));
 
-        jLabel24.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel24.setText("Hora");
-        jPanel1.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 300, -1, -1));
-        jPanel1.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 130, 280, 50));
+        lblFechaCita.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        lblFechaCita.setText("Fecha");
+        jPanel1.add(lblFechaCita, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 290, 60, 50));
+        jPanel1.add(dtcFechaCita, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 330, 290, 50));
 
-        jLabel25.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel25.setText("Fecha");
-        jPanel1.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 290, 60, 50));
-        jPanel1.add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 330, 290, 50));
+        lblNombresDoctores.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        lblNombresDoctores.setText("Doctor");
+        jPanel1.add(lblNombresDoctores, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 110, 150, -1));
 
-        jLabel26.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel26.setText("Doctor");
-        jPanel1.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 110, 150, -1));
+        combHorasCitas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "7:00AM", "7:30AM", "8:00AM", "8:30AM", "9:00AM", "9:30AM", "10:00AM", "10:30AM", "11:00AM", "11:30AM", "12:00PM", "12:30PM", "1:00PM", "1:30PM", "2:00PM", "2:30PM", "3:00PM", "3:30PM", "4:00PM", "4:30PM", "5:00PM", "5:30PM", "6:00PM", "6:30PM", "7:00PM", "7:30PM", "8:00PM", "8:30PM", "9:00PM", "9:30PM", "10:00PM" }));
+        combHorasCitas.setSelectedIndex(-1);
+        jPanel1.add(combHorasCitas, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 320, 270, 60));
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jPanel1.add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 320, 270, 60));
+        lblMotivoCita.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        lblMotivoCita.setText("Motivo");
+        jPanel1.add(lblMotivoCita, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 400, -1, -1));
 
-        jLabel27.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel27.setText("Motivo");
-        jPanel1.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 400, -1, -1));
+        lblNombresEspecialidades.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        lblNombresEspecialidades.setText("Especialidad");
+        jPanel1.add(lblNombresEspecialidades, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 210, -1, -1));
 
-        jTextField3.addActionListener(new java.awt.event.ActionListener() {
+        txtMotivoCita.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField3ActionPerformed(evt);
+                txtMotivoCitaActionPerformed(evt);
             }
         });
-        jPanel1.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 230, 270, 50));
+        jPanel1.add(txtMotivoCita, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 430, 630, 120));
 
-        jLabel28.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel28.setText("Especialidad");
-        jPanel1.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 210, -1, -1));
-
-        jTextField4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField4ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 230, 290, 50));
-
-        jLabel29.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel29.setText("Consultorio");
-        jPanel1.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 210, -1, -1));
-
-        jTextField5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField5ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 430, 630, 120));
-
-        botonAgendar.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
-        botonAgendar.setForeground(new java.awt.Color(255, 255, 255));
-        botonAgendar.setText("Agendar Cita");
-        botonAgendar.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnAgendarCita.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
+        btnAgendarCita.setForeground(new java.awt.Color(255, 255, 255));
+        btnAgendarCita.setText("Agendar Cita");
+        btnAgendarCita.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                botonAgendarMouseClicked(evt);
+                btnAgendarCitaMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                botonAgendarMouseEntered(evt);
+                btnAgendarCitaMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                botonAgendarMouseExited(evt);
+                btnAgendarCitaMouseExited(evt);
             }
         });
-        botonAgendar.addActionListener(new java.awt.event.ActionListener() {
+        btnAgendarCita.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botonAgendarActionPerformed(evt);
+                btnAgendarCitaActionPerformed(evt);
             }
         });
-        jPanel1.add(botonAgendar, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 590, 150, 50));
+        jPanel1.add(btnAgendarCita, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 590, 150, 50));
 
-        botonCancelar.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
-        botonCancelar.setForeground(new java.awt.Color(255, 255, 255));
-        botonCancelar.setText("Cancelar ");
-        botonCancelar.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnCancelarAgendaCita.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
+        btnCancelarAgendaCita.setForeground(new java.awt.Color(255, 255, 255));
+        btnCancelarAgendaCita.setText("Cancelar ");
+        btnCancelarAgendaCita.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                botonCancelarMouseClicked(evt);
+                btnCancelarAgendaCitaMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                botonCancelarMouseEntered(evt);
+                btnCancelarAgendaCitaMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                botonCancelarMouseExited(evt);
+                btnCancelarAgendaCitaMouseExited(evt);
             }
         });
-        botonCancelar.addActionListener(new java.awt.event.ActionListener() {
+        btnCancelarAgendaCita.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botonCancelarActionPerformed(evt);
+                btnCancelarAgendaCitaActionPerformed(evt);
             }
         });
-        jPanel1.add(botonCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 590, 140, 50));
+        jPanel1.add(btnCancelarAgendaCita, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 590, 140, 50));
+
+        cmbDoctores.setToolTipText("Doctores");
+        jPanel1.add(cmbDoctores, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 130, 280, 50));
+
+        combEspecialidades.setToolTipText("Especialidades");
+        jPanel1.add(combEspecialidades, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 230, 290, 50));
 
         FormularioCita.getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 780, 740));
 
@@ -457,10 +446,8 @@ public class PantallaPaciente extends javax.swing.JFrame {
 
         Cancelar.getContentPane().add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 500, 240));
 
-        EditarPerfil.setMaximumSize(new java.awt.Dimension(487, 437));
         EditarPerfil.setMinimumSize(new java.awt.Dimension(487, 437));
         EditarPerfil.setModal(true);
-        EditarPerfil.setPreferredSize(new java.awt.Dimension(487, 437));
 
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -1096,7 +1083,7 @@ public class PantallaPaciente extends javax.swing.JFrame {
         pDoctores.setBackground(new java.awt.Color(242, 242, 242));
         pDoctores.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jTable3.setModel(new javax.swing.table.DefaultTableModel(
+        tblDoctores.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -1107,7 +1094,7 @@ public class PantallaPaciente extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane4.setViewportView(jTable3);
+        jScrollPane4.setViewportView(tblDoctores);
 
         pDoctores.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 180, 1020, 520));
 
@@ -1136,7 +1123,8 @@ public class PantallaPaciente extends javax.swing.JFrame {
         });
         pDoctores.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1080, 120, 180, 40));
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar por Especialidad", "Item 2", "Item 3", "Item 4" }));
+        jComboBox1.setSelectedIndex(-1);
+        jComboBox1.setToolTipText("Buscar por Especialidad");
         pDoctores.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 100, 300, 50));
 
         Pantallas.addTab("tab6", pDoctores);
@@ -1144,18 +1132,20 @@ public class PantallaPaciente extends javax.swing.JFrame {
         pCitas.setBackground(new java.awt.Color(242, 242, 242));
         pCitas.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+        tblCitas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Nombre", "Doctor", "Motivo de Consulta", "Estado de Ciita", "Especialidad"
             }
         ));
-        jScrollPane2.setViewportView(jTable2);
+        tblCitas.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblCitasMouseClicked(evt);
+            }
+        });
+        jScrollPane2.setViewportView(tblCitas);
 
         pCitas.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 311, 1000, 400));
 
@@ -1169,7 +1159,12 @@ public class PantallaPaciente extends javax.swing.JFrame {
         txtNomPaciente.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         txtNomPaciente.setForeground(new java.awt.Color(51, 51, 51));
         txtNomPaciente.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        pCitas.add(txtNomPaciente, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 110, 290, 50));
+        txtNomPaciente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNomPacienteActionPerformed(evt);
+            }
+        });
+        pCitas.add(txtNomPaciente, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 100, 290, 50));
 
         txtMotivo.setEditable(false);
         txtMotivo.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
@@ -1211,10 +1206,10 @@ public class PantallaPaciente extends javax.swing.JFrame {
         jLabel3.setText("Estado de la consulta");
         pCitas.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 90, 140, -1));
 
-        jLabel8.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(102, 102, 102));
-        jLabel8.setText("Nombre Paciente");
-        pCitas.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 90, -1, -1));
+        lbnombrepaciente.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
+        lbnombrepaciente.setForeground(new java.awt.Color(102, 102, 102));
+        lbnombrepaciente.setText("Nombre Paciente");
+        pCitas.add(lbnombrepaciente, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 60, 210, 40));
 
         jLabel10.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(102, 102, 102));
@@ -1360,13 +1355,13 @@ public class PantallaPaciente extends javax.swing.JFrame {
     }//GEN-LAST:event_lblBienvenidaMouseClicked
 
     private void lblBienvenidaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblBienvenidaMouseEntered
-        lblBienvenida.setBackground(new Color(42,72,161));
-         
+        lblBienvenida.setBackground(new Color(42, 72, 161));
+
 
     }//GEN-LAST:event_lblBienvenidaMouseEntered
 
     private void lblBienvenidaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblBienvenidaMouseExited
-        lblBienvenida.setBackground(new Color(83,121,235));
+        lblBienvenida.setBackground(new Color(83, 121, 235));
     }//GEN-LAST:event_lblBienvenidaMouseExited
 
     private void lblHistorialMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblHistorialMouseClicked
@@ -1374,26 +1369,26 @@ public class PantallaPaciente extends javax.swing.JFrame {
     }//GEN-LAST:event_lblHistorialMouseClicked
 
     private void lblHistorialMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblHistorialMouseEntered
-        lblHistorial.setBackground(new Color(42,72,161));
+        lblHistorial.setBackground(new Color(42, 72, 161));
     }//GEN-LAST:event_lblHistorialMouseEntered
 
     private void lblHistorialMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblHistorialMouseExited
-        lblHistorial.setBackground(new Color(83,121,235));
+        lblHistorial.setBackground(new Color(83, 121, 235));
     }//GEN-LAST:event_lblHistorialMouseExited
 
     private void lblSalirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblSalirMouseClicked
-        lblSalir.setBackground(new Color(42,72,161));
+        lblSalir.setBackground(new Color(42, 72, 161));
         PantallaInicioSesion inicio = new PantallaInicioSesion();
         inicio.setVisible(true);
         dispose();
     }//GEN-LAST:event_lblSalirMouseClicked
 
     private void lblSalirMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblSalirMouseEntered
-        lblSalir.setBackground(new Color(42,72,161));
+        lblSalir.setBackground(new Color(42, 72, 161));
     }//GEN-LAST:event_lblSalirMouseEntered
 
     private void lblSalirMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblSalirMouseExited
-        lblSalir.setBackground(new Color(83,121,235));
+        lblSalir.setBackground(new Color(83, 121, 235));
     }//GEN-LAST:event_lblSalirMouseExited
 
     private void lblEspecialidadesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblEspecialidadesMouseClicked
@@ -1401,11 +1396,11 @@ public class PantallaPaciente extends javax.swing.JFrame {
     }//GEN-LAST:event_lblEspecialidadesMouseClicked
 
     private void lblEspecialidadesMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblEspecialidadesMouseEntered
-        lblEspecialidades.setBackground(new Color(42,72,161));
+        lblEspecialidades.setBackground(new Color(42, 72, 161));
     }//GEN-LAST:event_lblEspecialidadesMouseEntered
 
     private void lblEspecialidadesMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblEspecialidadesMouseExited
-        lblEspecialidades.setBackground(new Color(83,121,235));
+        lblEspecialidades.setBackground(new Color(83, 121, 235));
     }//GEN-LAST:event_lblEspecialidadesMouseExited
 
     private void lblMisCitasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblMisCitasMouseClicked
@@ -1413,11 +1408,11 @@ public class PantallaPaciente extends javax.swing.JFrame {
     }//GEN-LAST:event_lblMisCitasMouseClicked
 
     private void lblMisCitasMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblMisCitasMouseEntered
-        lblMisCitas.setBackground(new Color(42,72,161));
+        lblMisCitas.setBackground(new Color(42, 72, 161));
     }//GEN-LAST:event_lblMisCitasMouseEntered
 
     private void lblMisCitasMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblMisCitasMouseExited
-        lblMisCitas.setBackground(new Color(83,121,235));
+        lblMisCitas.setBackground(new Color(83, 121, 235));
     }//GEN-LAST:event_lblMisCitasMouseExited
 
     private void lblInformacionSistemaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblInformacionSistemaMouseClicked
@@ -1425,23 +1420,23 @@ public class PantallaPaciente extends javax.swing.JFrame {
     }//GEN-LAST:event_lblInformacionSistemaMouseClicked
 
     private void lblInformacionSistemaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblInformacionSistemaMouseEntered
-        lblInformacionSistema.setBackground(new Color(42,72,161));
+        lblInformacionSistema.setBackground(new Color(42, 72, 161));
     }//GEN-LAST:event_lblInformacionSistemaMouseEntered
 
     private void lblInformacionSistemaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblInformacionSistemaMouseExited
-        lblInformacionSistema.setBackground(new Color(83,121,235));
+        lblInformacionSistema.setBackground(new Color(83, 121, 235));
     }//GEN-LAST:event_lblInformacionSistemaMouseExited
 
     private void lblDoctoresMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblDoctoresMouseClicked
-       Pantallas.setSelectedIndex(4);
+        Pantallas.setSelectedIndex(4);
     }//GEN-LAST:event_lblDoctoresMouseClicked
 
     private void lblDoctoresMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblDoctoresMouseEntered
-       lblDoctores.setBackground(new Color(42,72,161));
+        lblDoctores.setBackground(new Color(42, 72, 161));
     }//GEN-LAST:event_lblDoctoresMouseEntered
 
     private void lblDoctoresMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblDoctoresMouseExited
-        lblDoctores.setBackground(new Color(83,121,235));
+        lblDoctores.setBackground(new Color(83, 121, 235));
     }//GEN-LAST:event_lblDoctoresMouseExited
 
     private void lblAyudaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblAyudaMouseClicked
@@ -1449,11 +1444,11 @@ public class PantallaPaciente extends javax.swing.JFrame {
     }//GEN-LAST:event_lblAyudaMouseClicked
 
     private void lblAyudaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblAyudaMouseEntered
-      lblAyuda.setBackground(new Color(42,72,161));
+        lblAyuda.setBackground(new Color(42, 72, 161));
     }//GEN-LAST:event_lblAyudaMouseEntered
 
     private void lblAyudaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblAyudaMouseExited
-         lblAyuda.setBackground(new Color(83,121,235));
+        lblAyuda.setBackground(new Color(83, 121, 235));
     }//GEN-LAST:event_lblAyudaMouseExited
 
     private void BuscarDoctorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscarDoctorActionPerformed
@@ -1469,7 +1464,7 @@ public class PantallaPaciente extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void botonAgendarCitaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAgendarCitaActionPerformed
-         FormularioCita.setSize(773, 734);
+        FormularioCita.setSize(773, 734);
         FormularioCita.setLocationRelativeTo(null);
         FormularioCita.setVisible(true);
     }//GEN-LAST:event_botonAgendarCitaActionPerformed
@@ -1484,95 +1479,106 @@ public class PantallaPaciente extends javax.swing.JFrame {
         FormularioCita.setVisible(true);
     }//GEN-LAST:event_botonAgendarCitaMouseClicked
 
-    private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
+    private void txtMotivoCitaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMotivoCitaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField3ActionPerformed
+    }//GEN-LAST:event_txtMotivoCitaActionPerformed
 
-    private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField4ActionPerformed
+    private void btnAgendarCitaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAgendarCitaMouseEntered
+        btnAgendarCita.setBackground(new Color(0, 204, 102));
+        btnAgendarCita.setForeground(Color.WHITE);
+    }//GEN-LAST:event_btnAgendarCitaMouseEntered
 
-    private void jTextField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField5ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField5ActionPerformed
+    private void btnAgendarCitaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAgendarCitaMouseExited
+        btnAgendarCita.setBackground(Color.WHITE);
+        btnAgendarCita.setForeground(Color.BLACK);
+    }//GEN-LAST:event_btnAgendarCitaMouseExited
 
-    private void botonAgendarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botonAgendarMouseEntered
-        botonAgendar.setBackground(new Color(0,204,102));
-        botonAgendar.setForeground(Color.WHITE);
-    }//GEN-LAST:event_botonAgendarMouseEntered
+    private void btnCancelarAgendaCitaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCancelarAgendaCitaMouseEntered
+        btnCancelarAgendaCita.setBackground(new Color(255, 51, 102));
+        btnCancelarAgendaCita.setForeground(Color.WHITE);
+    }//GEN-LAST:event_btnCancelarAgendaCitaMouseEntered
 
-    private void botonAgendarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botonAgendarMouseExited
-       botonAgendar.setBackground(Color.WHITE);
-       botonAgendar.setForeground(Color.BLACK);
-    }//GEN-LAST:event_botonAgendarMouseExited
+    private void btnCancelarAgendaCitaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCancelarAgendaCitaMouseExited
+        btnCancelarAgendaCita.setBackground(Color.WHITE);
+        btnCancelarAgendaCita.setForeground(Color.BLACK);
+    }//GEN-LAST:event_btnCancelarAgendaCitaMouseExited
 
-    private void botonCancelarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botonCancelarMouseEntered
-      botonCancelar.setBackground(new Color(255,51,102));
-      botonCancelar.setForeground(Color.WHITE);
-    }//GEN-LAST:event_botonCancelarMouseEntered
-
-    private void botonCancelarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botonCancelarMouseExited
-       botonCancelar.setBackground(Color.WHITE);
-       botonCancelar.setForeground(Color.BLACK);
-    }//GEN-LAST:event_botonCancelarMouseExited
-
-    private void botonAgendarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botonAgendarMouseClicked
+    private void btnAgendarCitaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAgendarCitaMouseClicked
         FormularioCita.setVisible(false);
         Confirmacion.setVisible(true);
-         Confirmacion.setSize(499, 236);
-         Confirmacion.setLocationRelativeTo(null);
-    }//GEN-LAST:event_botonAgendarMouseClicked
+        Confirmacion.setSize(499, 236);
+        Confirmacion.setLocationRelativeTo(null);
+    }//GEN-LAST:event_btnAgendarCitaMouseClicked
 
-    private void botonCancelarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botonCancelarMouseClicked
+    private void btnCancelarAgendaCitaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCancelarAgendaCitaMouseClicked
         FormularioCita.setVisible(false);
         Cancelar.setVisible(true);
         Cancelar.setSize(500, 240);
         Cancelar.setLocationRelativeTo(null);
-    }//GEN-LAST:event_botonCancelarMouseClicked
+    }//GEN-LAST:event_btnCancelarAgendaCitaMouseClicked
 
-    private void botonAgendarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAgendarActionPerformed
-      FormularioCita.setVisible(false);
-      Confirmacion.setSize(500, 240);
-         Confirmacion.setLocationRelativeTo(null);
+    private void btnAgendarCitaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgendarCitaActionPerformed
+        Date fecha = dtcFechaCita.getDate();
+
+        // Obtener los valores de los campos de texto
+        String nombrePaciente = txtNombrePaciente.getText();
+        String nombreDoctor = (String) cmbDoctores.getSelectedItem();
+        String fechaCitaAgendada = (fecha != null)
+                ? new SimpleDateFormat("yyyy-MM-dd").format(fecha)
+                : null;
+        String hora = (String) combHorasCitas.getSelectedItem();
+        String motivoConsulta = txtMotivoCita.getText();
+
+        // Llamar al método de la clase ControladorCitas para agendar la cita
+        ControladorCitas controlador = new ControladorCitas();
+        String mensaje = controlador.agendarCita(nombrePaciente, nombreDoctor, fechaCitaAgendada, hora, motivoConsulta);
+
+        // Mostrar la ventana de confirmación con el mensaje
+        JOptionPane.showMessageDialog(Confirmacion, mensaje);
+
+        // Ocultar el formulario de agendar cita y mostrar el de confirmación
+        FormularioCita.setVisible(false);
+        Confirmacion.setSize(500, 240);
+        Confirmacion.setLocationRelativeTo(null);
         Confirmacion.setVisible(true);
-         
-    }//GEN-LAST:event_botonAgendarActionPerformed
+        controlador.llenarTablaCitas(tblCitas);
+    }//GEN-LAST:event_btnAgendarCitaActionPerformed
 
     private void botonOkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonOkActionPerformed
-              Confirmacion.setVisible(false);
-              FormularioCita.setVisible(false);
+        Confirmacion.setVisible(false);
+        FormularioCita.setVisible(false);
     }//GEN-LAST:event_botonOkActionPerformed
 
     private void abandonarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_abandonarMouseClicked
-      Cancelar.setVisible(false);
-      FormularioCita.setVisible(false);
+        Cancelar.setVisible(false);
+        FormularioCita.setVisible(false);
     }//GEN-LAST:event_abandonarMouseClicked
 
     private void abandonarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_abandonarMouseEntered
-        abandonar.setBackground(new Color(255,51,102));
-      abandonar.setForeground(Color.WHITE);
+        abandonar.setBackground(new Color(255, 51, 102));
+        abandonar.setForeground(Color.WHITE);
     }//GEN-LAST:event_abandonarMouseEntered
 
     private void abandonarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_abandonarMouseExited
-         abandonar.setBackground(Color.WHITE);
-       abandonar.setForeground(Color.BLACK);
+        abandonar.setBackground(Color.WHITE);
+        abandonar.setForeground(Color.BLACK);
     }//GEN-LAST:event_abandonarMouseExited
 
     private void continuarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_continuarMouseClicked
-        
+
         Cancelar.setVisible(false);
         FormularioCita.setVisible(true);
-   
+
     }//GEN-LAST:event_continuarMouseClicked
 
     private void continuarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_continuarMouseEntered
-         continuar.setBackground(new Color(0,204,102));
+        continuar.setBackground(new Color(0, 204, 102));
         continuar.setForeground(Color.WHITE);
     }//GEN-LAST:event_continuarMouseEntered
 
     private void continuarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_continuarMouseExited
         continuar.setBackground(Color.WHITE);
-       continuar.setForeground(Color.BLACK);
+        continuar.setForeground(Color.BLACK);
     }//GEN-LAST:event_continuarMouseExited
 
     private void continuarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_continuarActionPerformed
@@ -1585,20 +1591,20 @@ public class PantallaPaciente extends javax.swing.JFrame {
         FormularioCita.setVisible(false);
     }//GEN-LAST:event_abandonarActionPerformed
 
-    private void botonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCancelarActionPerformed
-         FormularioCita.setVisible(false);
-         Cancelar.setSize(500, 240);
+    private void btnCancelarAgendaCitaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarAgendaCitaActionPerformed
+        FormularioCita.setVisible(false);
+        Cancelar.setSize(500, 240);
         Cancelar.setLocationRelativeTo(null);
         Cancelar.setVisible(true);
-        
-    }//GEN-LAST:event_botonCancelarActionPerformed
+
+    }//GEN-LAST:event_btnCancelarAgendaCitaActionPerformed
 
     private void EditarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_EditarMouseEntered
-      
+
     }//GEN-LAST:event_EditarMouseEntered
 
     private void EditarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_EditarMouseExited
-        
+
     }//GEN-LAST:event_EditarMouseExited
 
     private void EditarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_EditarMouseClicked
@@ -1625,14 +1631,12 @@ public class PantallaPaciente extends javax.swing.JFrame {
 
     private void boxSegurosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boxSegurosActionPerformed
         if (boxSeguros.getSelectedIndex() == 0) {
-            // Mostrar un mensaje de error si se seleccionó el primer item
             JOptionPane.showMessageDialog(null, "¡Debe seleccionar un item válido!", "Error", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_boxSegurosActionPerformed
 
     private void BoxTipoSangreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BoxTipoSangreActionPerformed
         if (BoxTipoSangre.getSelectedIndex() == 0) {
-            // Mostrar un mensaje de error si se seleccionó el primer item
             JOptionPane.showMessageDialog(null, "¡Debe seleccionar un item válido!", "Error", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_BoxTipoSangreActionPerformed
@@ -1650,50 +1654,87 @@ public class PantallaPaciente extends javax.swing.JFrame {
     }//GEN-LAST:event_GuardarEdicionActionPerformed
 
     private void EnviarCorreoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EnviarCorreoActionPerformed
-       String contenido = Correo.getText().trim();
+        String contenido = Correo.getText().trim();
         if (contenido.isEmpty()) {
-             JOptionPane.showMessageDialog(null, "¡No se puede enviar en blanco!", "Error", JOptionPane.ERROR_MESSAGE);
-        }else{
-          
-             JOptionPane.showMessageDialog(null, "Tu correo ha sido enviado");
-        
+            JOptionPane.showMessageDialog(null, "¡No se puede enviar en blanco!", "Error", JOptionPane.ERROR_MESSAGE);
+        } else {
+
+            JOptionPane.showMessageDialog(null, "Tu correo ha sido enviado");
+
         }
-        
-       
+
+
     }//GEN-LAST:event_EnviarCorreoActionPerformed
 
     private void BorrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BorrarMouseClicked
-       Correo.setText("");
+        Correo.setText("");
     }//GEN-LAST:event_BorrarMouseClicked
 
     private void ApuntesPacienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ApuntesPacienteMouseClicked
-       mensaje.setForeground(Color.red);
+        mensaje.setForeground(Color.red);
         mensaje.setText("Lo que escribas aqui se borrara cuando salgas");
-       
+
     }//GEN-LAST:event_ApuntesPacienteMouseClicked
 
-  
-     public static String fechaActual() {
+    private void txtNomPacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomPacienteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNomPacienteActionPerformed
+
+    private void tblCitasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblCitasMouseClicked
+        //TODO add your code here:
+    }//GEN-LAST:event_tblCitasMouseClicked
+
+    private void agregarEventoSeleccionTabla() {
+        tblCitas.getSelectionModel().addListSelectionListener(e -> {
+            if (!e.getValueIsAdjusting() && tblCitas.getSelectedRow() != -1) {
+                cargarDatosDesdeTabla();
+            }
+        });
+    }
+
+    private void cargarDatosDesdeTabla() {
+        // Obtener el índice de la fila seleccionada
+        int filaSeleccionada = tblCitas.getSelectedRow();
+
+        if (filaSeleccionada != -1) {
+            // Obtener los datos de la fila seleccionada
+            String nombrePaciente = tblCitas.getValueAt(filaSeleccionada, 0).toString();
+            String nombreCompletoDoctor = tblCitas.getValueAt(filaSeleccionada, 1).toString();
+            String estadoCita = tblCitas.getValueAt(filaSeleccionada, 2).toString();
+            String motivoConsulta = tblCitas.getValueAt(filaSeleccionada, 3).toString();
+            String especialidad = tblCitas.getValueAt(filaSeleccionada, 4).toString();
+
+            // Cargar los valores en los campos de texto
+            txtNomPaciente.setText(nombrePaciente);
+            txtNombreDoctor.setText(nombreCompletoDoctor);
+            txtEstado.setText(estadoCita);
+            txtMotivo.setText(motivoConsulta);
+            txtEspecialidad.setText(especialidad);
+        }
+    }
+
+    public static String fechaActual() {
         Date fecha = new Date();
         SimpleDateFormat formatoFecha = new SimpleDateFormat("dd / MM / YYYY");
 
         return formatoFecha.format(fecha);
     }
+
     public static void main(String args[]) {
-       try {
-            
-          FlatLightLaf.setup();
-          UIManager.put("Component.innerFocusWidth", 2);
-          //UIManager.put("TextComponent.arc", 999);
-           
+        try {
+
+            FlatLightLaf.setup();
+            UIManager.put("Component.innerFocusWidth", 2);
+            //UIManager.put("TextComponent.arc", 999);
+
         } catch (Exception ex) {
             System.err.println("No se pudo cargar el tema FlatLaf MacOS Light.");
             ex.printStackTrace();
         }
-       
-       UIManager.put("TabbedPane.tabInsets", new Insets(10, 20, 10, 20)); 
+
+        UIManager.put("TabbedPane.tabInsets", new Insets(10, 20, 10, 20));
         UIManager.put("TabbedPane.tabAreaInsets", new Insets(10, 10, 10, 10));
-         
+
         java.awt.EventQueue.invokeLater(() -> {
             new PantallaPaciente().setVisible(true);
         });
@@ -1746,20 +1787,22 @@ public class PantallaPaciente extends javax.swing.JFrame {
     private javax.swing.JLabel avatar;
     private javax.swing.JPanel bg;
     private javax.swing.JPanel bgBlanco;
-    private javax.swing.JButton botonAgendar;
     private javax.swing.JButton botonAgendarCita;
-    private javax.swing.JButton botonCancelar;
     private javax.swing.JButton botonOk;
     private javax.swing.JComboBox<String> boxSeguros;
+    private javax.swing.JButton btnAgendarCita;
+    private javax.swing.JButton btnCancelarAgendaCita;
+    private javax.swing.JComboBox<String> cmbDoctores;
+    private javax.swing.JComboBox<String> combEspecialidades;
+    private javax.swing.JComboBox<String> combHorasCitas;
     private javax.swing.JButton continuar;
+    private com.toedter.calendar.JDateChooser dtcFechaCita;
     private javax.swing.JPanel header;
     private javax.swing.JLabel icono;
     private javax.swing.JPanel infoPacienteAzul;
     private javax.swing.JPanel infoPacienteBlanco;
     private javax.swing.JButton jButton2;
     private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
-    private com.toedter.calendar.JDateChooser jDateChooser1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -1775,13 +1818,6 @@ public class PantallaPaciente extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
-    private javax.swing.JLabel jLabel23;
-    private javax.swing.JLabel jLabel24;
-    private javax.swing.JLabel jLabel25;
-    private javax.swing.JLabel jLabel26;
-    private javax.swing.JLabel jLabel27;
-    private javax.swing.JLabel jLabel28;
-    private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel31;
@@ -1809,7 +1845,6 @@ public class PantallaPaciente extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel51;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
@@ -1831,25 +1866,25 @@ public class PantallaPaciente extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTable jTable2;
-    private javax.swing.JTable jTable3;
     private javax.swing.JTable jTable4;
     private javax.swing.JTable jTable5;
     private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
     private javax.swing.JLabel lblAyuda;
     private javax.swing.JLabel lblBienvenida;
     private javax.swing.JLabel lblDoctores;
     private javax.swing.JLabel lblEspecialidades;
     private javax.swing.JLabel lblFechaActual;
+    private javax.swing.JLabel lblFechaCita;
     private javax.swing.JLabel lblHistorial;
+    private javax.swing.JLabel lblHoraCita;
     private javax.swing.JLabel lblInformacionSistema;
     private javax.swing.JLabel lblMisCitas;
+    private javax.swing.JLabel lblMotivoCita;
+    private javax.swing.JLabel lblNombrePaciente;
+    private javax.swing.JLabel lblNombresDoctores;
+    private javax.swing.JLabel lblNombresEspecialidades;
     private javax.swing.JLabel lblSalir;
+    private javax.swing.JLabel lbnombrepaciente;
     private javax.swing.JLabel mensaje;
     private javax.swing.JPanel pAyuda;
     private javax.swing.JPanel pBienvenida2;
@@ -1867,10 +1902,14 @@ public class PantallaPaciente extends javax.swing.JFrame {
     private javax.swing.JTable tablaCanceladas1;
     private javax.swing.JScrollPane tablaPendiente;
     private javax.swing.JTable tablaReprogramadas;
+    private javax.swing.JTable tblCitas;
+    private javax.swing.JTable tblDoctores;
     private javax.swing.JTextField txtEspecialidad;
     private javax.swing.JTextField txtEstado;
     private javax.swing.JTextField txtMotivo;
+    private javax.swing.JTextField txtMotivoCita;
     private javax.swing.JTextField txtNomPaciente;
     private javax.swing.JTextField txtNombreDoctor;
+    public javax.swing.JTextField txtNombrePaciente;
     // End of variables declaration//GEN-END:variables
 }

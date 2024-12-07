@@ -1,7 +1,10 @@
 package Vista;
 
-import Modelo.IniciarSesionDAO;
 import Controlador.ControladorUsuario;
+import Modelo.IniciarSesionDAO;
+
+import Modelo.PacienteDAO;
+
 import com.formdev.flatlaf.FlatClientProperties;
 import com.formdev.flatlaf.FlatLightLaf;
 import com.formdev.flatlaf.extras.FlatSVGIcon;
@@ -26,10 +29,8 @@ public class PantallaInicioSesion extends javax.swing.JFrame {
         initComponents();
 
         txtCorreo.putClientProperty(FlatClientProperties.PLACEHOLDER_TEXT, "Ingrese su Email");
-        //lblEmail.putClientProperty("JComponent.roundRect", true);
         txtCorreo.putClientProperty(FlatClientProperties.TEXT_FIELD_SHOW_CLEAR_BUTTON, true);
         txtContraseña.putClientProperty(FlatClientProperties.PLACEHOLDER_TEXT, "Ingrese su contraseña");
-        // lblContraseña.putClientProperty("JComponent.roundRect", true);
         txtContraseña.putClientProperty(FlatClientProperties.STYLE, "showRevealButton:true");
 
     }
@@ -82,7 +83,7 @@ public class PantallaInicioSesion extends javax.swing.JFrame {
                 botonregistrarseActionPerformed(evt);
             }
         });
-        jPanel1.add(botonregistrarse, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 530, 80, 20));
+        jPanel1.add(botonregistrarse, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 530, 80, 20));
 
         jLabel4.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(153, 153, 153));
@@ -200,24 +201,18 @@ public class PantallaInicioSesion extends javax.swing.JFrame {
     }//GEN-LAST:event_botonregistrarseActionPerformed
 
     private void botoninicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botoninicioActionPerformed
-        // Código que permite el login y la validación
         IniciarSesionDAO login = new IniciarSesionDAO();
-        ControladorUsuario control = new ControladorUsuario();
-
         String correo = txtCorreo.getText().trim();
         String contraseñaIngresada = txtContraseña.getText().trim();
 
-        // Verificar si el correo existe y obtener la contraseña encriptada
         String contraseñaEncriptada = login.obtenerContraseñaEncriptada(correo);
-
         if (contraseñaEncriptada == null) {
-            // El correo no existe
+
             JOptionPane.showMessageDialog(this, "El correo ingresado no está registrado.", "Error", JOptionPane.ERROR_MESSAGE);
         } else if (BCrypt.checkpw(contraseñaIngresada, contraseñaEncriptada)) {
-            // La contraseña es correcta
+
             JOptionPane.showMessageDialog(this, "¡Inicio de sesión exitoso!");
 
-            // Redirigir a la pantalla correspondiente según el dominio del correo
             if (correo.endsWith("@doctor.saludxpert.com")) {
                 new PantallaDoctores().setVisible(true);
             } else if (correo.endsWith("@recepcionista.saludxpert.com")) {
@@ -227,11 +222,11 @@ public class PantallaInicioSesion extends javax.swing.JFrame {
             } else {
                 new PantallaPaciente().setVisible(true);
             }
-            this.dispose(); // Cerrar ventana actual
+            this.dispose();
         } else {
-            // La contraseña es incorrecta
             JOptionPane.showMessageDialog(this, "Contraseña incorrecta. Intente nuevamente.", "Error", JOptionPane.ERROR_MESSAGE);
         }
+
     }//GEN-LAST:event_botoninicioActionPerformed
 
     private void botoninicioMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botoninicioMouseEntered
@@ -267,7 +262,6 @@ public class PantallaInicioSesion extends javax.swing.JFrame {
 
             FlatLightLaf.setup();
             UIManager.put("Component.innerFocusWidth", 2);
-//            UIManager.put("TextComponent.arc", 999);
 
         } catch (Exception ex) {
             System.err.println("No se pudo cargar el tema FlatLaf MacOS Light.");
