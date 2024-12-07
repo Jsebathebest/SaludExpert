@@ -1,119 +1,173 @@
 package Modelo;
 
-import java.util.Date;
-
 /**
- *
- * @author Sebastian
+ * La clase {@code Citas} representa una cita médica dentro del sistema de gestión
+ * de citas. Contiene información sobre el paciente, el doctor, la fecha, la hora,
+ * el motivo de la consulta y la especialidad asociada a la cita.
  */
 public class Citas {
-    
-    //Crear atributos
-    int idCita; // Clave primaria
-    int idPaciente;// Relación con Paciente
-    int idDoctor;// Relación con Doctores
-    Date fecha;
-    Date fechaCitaAgendada;
+
+    // Atributos de la clase
+    int idCita;
+    int idPaciente;
+    int idDoctor;
+    String fecha;
     String hora;
     String motivoConsulta;
-    int doctorAsignado;
-    String estado; //Agendada, Cancelada, etc.
+    int id_especialidad;
 
-    // Crear constructor
-    public Citas(){}
+    /**
+     * Constructor por defecto. Crea una nueva instancia de {@code Citas} sin inicializar sus atributos.
+     */
+    public Citas() {}
 
-    // Llenar constructor
-    public Citas( int idCita,
-    int idPaciente,
-    int idDoctor,
-    Date fecha,
-    Date fechaCitaAgendada,
-    String hora,
-    String motivoConsulta,
-    int doctorAsignado,
-    String estado){
+    /**
+     * Constructor que inicializa una nueva instancia de {@code Citas} con los parámetros proporcionados.
+     *
+     * @param idCita        el identificador único de la cita.
+     * @param idPaciente    el identificador único del paciente que tiene la cita.
+     * @param idDoctor      el identificador único del doctor asignado a la cita.
+     * @param id_especialidad el identificador de la especialidad médica asociada a la cita.
+     * @param fecha         la fecha en la que se llevará a cabo la cita (en formato String).
+     * @param hora          la hora en la que se llevará a cabo la cita (en formato String).
+     * @param motivoConsulta el motivo de la consulta que solicita el paciente.
+     */
+    public Citas(int idCita, int idPaciente, int idDoctor, int id_especialidad, 
+                 String fecha, String hora, String motivoConsulta) {
         this.idCita = idCita;
         this.idPaciente = idPaciente;
         this.idDoctor = idDoctor;
         this.fecha = fecha;
-        this.fechaCitaAgendada = fechaCitaAgendada;
         this.hora = hora;
         this.motivoConsulta = motivoConsulta;
-        this.doctorAsignado = doctorAsignado;
-        this.estado = estado;
+        this.id_especialidad = id_especialidad;
     }
-    
-    //Agregar Getters y Setters
 
+    // Getters y Setters
+
+    /**
+     * Obtiene el identificador único de la cita.
+     *
+     * @return el identificador de la cita.
+     */
     public int getIdCita() {
         return idCita;
     }
 
+    /**
+     * Establece el identificador único de la cita.
+     *
+     * @param idCita el identificador de la cita.
+     */
     public void setIdCita(int idCita) {
         this.idCita = idCita;
     }
 
+    /**
+     * Obtiene el identificador único del paciente que tiene la cita.
+     *
+     * @return el identificador del paciente.
+     */
     public int getIdPaciente() {
         return idPaciente;
     }
 
+    /**
+     * Establece el identificador único del paciente que tiene la cita.
+     *
+     * @param idPaciente el identificador del paciente.
+     */
     public void setIdPaciente(int idPaciente) {
         this.idPaciente = idPaciente;
     }
 
+    /**
+     * Obtiene el identificador único del doctor asignado a la cita.
+     *
+     * @return el identificador del doctor.
+     */
     public int getIdDoctor() {
         return idDoctor;
     }
 
+    /**
+     * Establece el identificador único del doctor asignado a la cita.
+     *
+     * @param idDoctor el identificador del doctor.
+     */
     public void setIdDoctor(int idDoctor) {
         this.idDoctor = idDoctor;
     }
 
-    public Date getFecha() {
+    /**
+     * Obtiene la fecha de la cita.
+     *
+     * @return la fecha de la cita en formato String.
+     */
+    public String getFecha() {
         return fecha;
     }
 
-    public void setFecha(Date fecha) {
+    /**
+     * Establece la fecha de la cita.
+     *
+     * @param fecha la fecha de la cita.
+     */
+    public void setFecha(String fecha) {
         this.fecha = fecha;
     }
 
-    public Date getFechaCitaAgendada() {
-        return fechaCitaAgendada;
-    }
-
-    public void setFechaCitaAgendada(Date fechaCitaAgendada) {
-        this.fechaCitaAgendada = fechaCitaAgendada;
-    }
-
+    /**
+     * Obtiene la hora de la cita.
+     *
+     * @return la hora de la cita en formato String.
+     */
     public String getHora() {
         return hora;
     }
 
+    /**
+     * Establece la hora de la cita.
+     *
+     * @param hora la hora de la cita.
+     */
     public void setHora(String hora) {
         this.hora = hora;
     }
 
+    /**
+     * Obtiene el motivo de la consulta.
+     *
+     * @return el motivo de la consulta.
+     */
     public String getMotivoConsulta() {
         return motivoConsulta;
     }
 
+    /**
+     * Establece el motivo de la consulta.
+     *
+     * @param motivoConsulta el motivo de la consulta.
+     */
     public void setMotivoConsulta(String motivoConsulta) {
         this.motivoConsulta = motivoConsulta;
     }
 
-    public int getDoctorAsignado() {
-        return doctorAsignado;
+    /**
+     * Obtiene el identificador de la especialidad médica asociada a la cita.
+     *
+     * @return el identificador de la especialidad médica.
+     */
+    public int getId_especialidad() {
+        return id_especialidad;
     }
 
-    public void setDoctorAsignado(int doctorAsignado) {
-        this.doctorAsignado = doctorAsignado;
-    }
-
-    public String getEstado() {
-        return estado;
-    }
-
-    public void setEstado(String estado) {
-        this.estado = estado;
+    /**
+     * Establece el identificador de la especialidad médica asociada a la cita.
+     *
+     * @param id_especialidad el identificador de la especialidad médica.
+     */
+    public void setId_especialidad(int id_especialidad) {
+        this.id_especialidad = id_especialidad;
     }
 }

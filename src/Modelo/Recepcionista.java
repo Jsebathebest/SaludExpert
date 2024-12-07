@@ -1,28 +1,44 @@
 package Modelo;
 
 /**
- *
+ * Representa un recepcionista dentro del sistema.
+ * Contiene información personal y de contacto del recepcionista.
+ * 
  * @author Sebastian
  */
 public class Recepcionista {
 
-    //Crear atributos
-    int idRecepcionista; //Autogenerado
-    String nombres;
-    String apellidos;
-    String correoElectronico; //Lleva nascara
-    String telefono; //Lleva mascara
-    String genero; //Femenino/Masculino
-    int edad;
-    String cedula; 
-    String fechaRegistro;
-    String contraseña;
+    private int idRecepcionista;
+    private String nombres;
+    private String apellidos;
+    private String correoElectronico;
+    private String telefono;
+    private String genero;
+    private int edad;
+    private String cedula;
+    private String fechaRegistro;
+    private String contraseña;
 
-    //Crear constructor vacio
+    /**
+     * Constructor vacío de la clase Recepcionista.
+     */
     public Recepcionista() {
     }
 
-    //Llenar constructor
+    /**
+     * Constructor con parámetros para inicializar los atributos del recepcionista.
+     * 
+     * @param idRecepcionista el ID del recepcionista.
+     * @param nombres el nombre del recepcionista.
+     * @param apellidos los apellidos del recepcionista.
+     * @param correoElectronico el correo electrónico del recepcionista.
+     * @param telefono el teléfono del recepcionista.
+     * @param genero el género del recepcionista.
+     * @param edad la edad del recepcionista.
+     * @param cedula la cédula del recepcionista.
+     * @param fechaRegistro la fecha de registro del recepcionista.
+     * @param contraseña la contraseña del recepcionista.
+     */
     public Recepcionista(int idRecepcionista, String nombres, String apellidos, String correoElectronico,
             String telefono, String genero, int edad, String cedula, String fechaRegistro, String contraseña) {
         this.idRecepcionista = idRecepcionista;
@@ -37,7 +53,6 @@ public class Recepcionista {
         this.contraseña = contraseña;
     }
 
-    //Crear Getters y Setters
     public int getIdRecepcionista() {
         return idRecepcionista;
     }
@@ -117,5 +132,4 @@ public class Recepcionista {
     public void setContraseña(String contraseña) {
         this.contraseña = contraseña;
     }
-
 }

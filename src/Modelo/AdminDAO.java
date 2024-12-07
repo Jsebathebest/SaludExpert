@@ -8,9 +8,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * La clase AdminDAO gestiona las operaciones de acceso a datos para las
+ * La clase {@code AdminDAO} gestiona las operaciones de acceso a datos para las
  * entidades relacionadas con el sistema médico, incluyendo Doctores,
- * Recepcionistas y Especialidades.
+ * Recepcionistas y Especialidades. Proporciona métodos para agregar, eliminar,
+ * actualizar y listar estas entidades desde la base de datos.
  */
 public class AdminDAO {
 
@@ -23,7 +24,7 @@ public class AdminDAO {
      * Agrega un nuevo doctor a la base de datos.
      *
      * @param d un objeto de tipo {@link Doctores} que contiene la información
-     * del doctor.
+     * del doctor a agregar.
      * @return un entero indicando el éxito de la operación (1 si tuvo éxito).
      */
     public int agregarDoctor(Doctores d) {
@@ -151,6 +152,12 @@ public class AdminDAO {
         return listaRecepcionistas;
     }
 
+    /**
+     * Elimina un doctor de la base de datos.
+     *
+     * @param id el identificador único del doctor a eliminar.
+     * @return un entero indicando si la operación fue exitosa (1) o no (0).
+     */
     public int eliminarDoctor(int id) {
         int r = 0;
 
@@ -171,6 +178,12 @@ public class AdminDAO {
         return r;
     }
 
+    /**
+     * Elimina un recepcionista de la base de datos.
+     *
+     * @param id el identificador único del recepcionista a eliminar.
+     * @return un entero indicando si la operación fue exitosa (1) o no (0).
+     */
     public int eliminarRecepcionista(int id) {
 
         int r = 0;
@@ -192,6 +205,13 @@ public class AdminDAO {
         return r;
     }
 
+    /**
+     * Actualiza los datos de un doctor en la base de datos.
+     *
+     * @param d un objeto de tipo {@link Doctores} que contiene la nueva
+     * información del doctor a actualizar.
+     * @return un entero indicando si la operación fue exitosa (1) o no (0).
+     */
     public int actualizarDoctor(Doctores d) {
 
         int r = 0;
@@ -229,6 +249,13 @@ public class AdminDAO {
         return r;
     }
 
+    /**
+     * Actualiza los datos de un recepcionista en la base de datos.
+     *
+     * @param r un objeto de tipo {@link Recepcionista} que contiene la nueva
+     * información del recepcionista a actualizar.
+     * @return un entero indicando si la operación fue exitosa (1) o no (0).
+     */
     public int actualizarRecepcionista(Recepcionista r) {
         int resultado = 0;
 
@@ -263,6 +290,14 @@ public class AdminDAO {
         return resultado;
     }
 
+    /**
+     * Busca doctores en la base de datos utilizando un término de búsqueda.
+     *
+     * @param valorBuscar un texto para buscar en los campos del doctor (nombre,
+     * apellidos, especialidad, teléfono, correo y cédula).
+     * @return una lista de objetos {@link Doctores} que coinciden con la
+     * búsqueda.
+     */
     public List<Doctores> buscarDoctores(String valorBuscar) {
         String sql = "SELECT id_doctor, nombre, apellidos, especialidad, telefono, correo, Cedula "
                 + "FROM doctores WHERE nombre LIKE ? "
@@ -296,6 +331,13 @@ public class AdminDAO {
         return listaDoctores;
     }
 
+    /**
+     * Obtiene un doctor de la base de datos según su identificador único.
+     *
+     * @param id el identificador único del doctor.
+     * @return un objeto {@link Doctores} que contiene la información del
+     * doctor.
+     */
     public Doctores obtenerDoctorPorId(int id) {
         Doctores doctor = null;
 
@@ -337,6 +379,14 @@ public class AdminDAO {
         return doctor;
     }
 
+    /**
+     * Obtiene un recepcionista de la base de datos según su identificador
+     * único.
+     *
+     * @param id el identificador único del recepcionista.
+     * @return un objeto {@link Recepcionista} que contiene la información del
+     * recepcionista.
+     */
     public Recepcionista obtenerRecepcionistaPorId(int id) {
         Recepcionista recep = null;
 

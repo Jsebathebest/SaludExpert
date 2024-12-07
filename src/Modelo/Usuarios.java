@@ -1,12 +1,11 @@
 package Modelo;
 
 /**
- *
- * @author Sebastian
+ * Clase que representa un usuario con atributos como nombre, apellido, cédula, correo, etc.
  */
 public class Usuarios {
 
-    //Crear atributos
+    // Atributos
     int idUser;
     String nombre;
     String apellido;
@@ -17,20 +16,27 @@ public class Usuarios {
     String contraseña;
     String rol;
 
-    // Crear constructor
+    /**
+     * Constructor vacío.
+     */
     public Usuarios() {
     }
 
-    //Llenar constructor
-    public Usuarios(int idUser,
-            String nombre,
-            String apellido,
-            String cedula,
-            String correo,
-            String genero,
-            String numeroTelefono,
-            String contraseña,
-            String rol) {
+    /**
+     * Constructor con todos los atributos necesarios para crear un objeto Usuario.
+     * 
+     * @param idUser Identificador del usuario.
+     * @param nombre Nombre del usuario.
+     * @param apellido Apellido del usuario.
+     * @param cedula Cédula de identificación del usuario.
+     * @param correo Correo electrónico del usuario.
+     * @param genero Género del usuario.
+     * @param numeroTelefono Número de teléfono del usuario.
+     * @param contraseña Contraseña del usuario.
+     * @param rol Rol del usuario en el sistema.
+     */
+    public Usuarios(int idUser, String nombre, String apellido, String cedula, String correo, String genero, 
+                    String numeroTelefono, String contraseña, String rol) {
         this.idUser = idUser;
         this.nombre = nombre;
         this.apellido = apellido;
@@ -42,7 +48,7 @@ public class Usuarios {
         this.rol = rol;
     }
 
-    //Agregar Getters y setters
+    // Getters y Setters
     public int getIdUser() {
         return idUser;
     }
@@ -114,5 +120,4 @@ public class Usuarios {
     public void setRol(String rol) {
         this.rol = rol;
     }
-
 }

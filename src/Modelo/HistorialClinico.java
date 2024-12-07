@@ -3,30 +3,41 @@ package Modelo;
 import java.util.Date;
 
 /**
- *
- * @author sebas
+ * La clase {@code HistorialClinico} almacena información detallada sobre el historial médico
+ * de un paciente, incluyendo datos de consultas, diagnósticos, exámenes realizados y tratamientos prescritos.
  */
 public class HistorialClinico {
 
-    //Crear atributos
-    int idHistorialClinico;
-    int idPaciente;// Relación con Paciente
-    Date fechaConsulta;
-    String diagnostico;
-    String examenesRealizados;
-    String tratamientoPreescrito;
+    // Atributos de la clase
+    int idHistorialClinico;        // Identificador único del historial clínico
+    int idPaciente;                // Relación con el paciente (referencia a la tabla Paciente)
+    Date fechaConsulta;            // Fecha de la consulta médica
+    String diagnostico;            // Diagnóstico dado al paciente en la consulta
+    String examenesRealizados;     // Exámenes realizados durante la consulta
+    String tratamientoPreescrito;  // Tratamiento prescrito al paciente
 
-    //Crear constructor
-    public HistorialClinico() {
-    }
+    /**
+     * Constructor vacío para la clase {@code HistorialClinico}.
+     * Este constructor crea una instancia sin inicializar atributos.
+     */
+    public HistorialClinico() {}
 
-    //Llenar constructor
+    /**
+     * Constructor que inicializa los atributos de la clase {@code HistorialClinico}.
+     *
+     * @param idHistorialClinico    Identificador único del historial clínico
+     * @param idPaciente            Identificador del paciente relacionado
+     * @param fechaConsulta         Fecha de la consulta médica
+     * @param diagnostico           Diagnóstico dado al paciente
+     * @param examenesRealizados    Exámenes realizados al paciente
+     * @param tratamientoPreescrito Tratamiento prescrito para el paciente
+     */
     public HistorialClinico(int idHistorialClinico,
-            int idPaciente,
-            Date fechaConsulta,
-            String diagnostico,
-            String examenesRealizados,
-            String tratamientoPreescrito) {
+                            int idPaciente,
+                            Date fechaConsulta,
+                            String diagnostico,
+                            String examenesRealizados,
+                            String tratamientoPreescrito) {
         this.idHistorialClinico = idHistorialClinico;
         this.idPaciente = idPaciente;
         this.fechaConsulta = fechaConsulta;
@@ -34,9 +45,8 @@ public class HistorialClinico {
         this.examenesRealizados = examenesRealizados;
         this.tratamientoPreescrito = tratamientoPreescrito;
     }
-    
-    //Agregar Getters y Setters
 
+    // Métodos Getters y Setters
     public int getIdHistorialClinico() {
         return idHistorialClinico;
     }
@@ -84,5 +94,4 @@ public class HistorialClinico {
     public void setTratamientoPreescrito(String tratamientoPreescrito) {
         this.tratamientoPreescrito = tratamientoPreescrito;
     }
-    
 }

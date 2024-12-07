@@ -4,7 +4,8 @@ import java.sql.*;
 
 /**
  * Clase UsuariosDAO.
- * Proporciona métodos para interactuar con la base de datos relacionados con la tabla 'users'.
+ * Esta clase proporciona métodos para interactuar con la base de datos relacionados con la tabla 'users'.
+ * Permite realizar operaciones como agregar usuarios a la base de datos.
  */
 public class UsuariosDAO {
 
@@ -18,7 +19,7 @@ public class UsuariosDAO {
      * Método para agregar un nuevo usuario a la base de datos.
      *
      * @param u Un objeto de tipo Usuarios que contiene la información del usuario a agregar.
-     * @return Un valor entero (1 si se ejecuta correctamente, aunque no se verifica el éxito real en este caso).
+     * @return Un valor entero. Retorna 1 si la operación fue exitosa, aunque no se valida el éxito real en este caso.
      */
     public int agregar(Usuarios u) {
 

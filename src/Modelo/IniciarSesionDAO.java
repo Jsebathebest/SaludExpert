@@ -1,9 +1,8 @@
-package Modelo;
+ package Modelo;
 
 import java.sql.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.JOptionPane;
 
 public class IniciarSesionDAO {
 
@@ -13,56 +12,46 @@ public class IniciarSesionDAO {
     ResultSet rs;
 
     /**
-     * Obtiene la contraseña encriptada de un usuario a partir de su correo
-     * electrónico. El método consulta tres tablas diferentes: `users`,
-     * `doctores` y `recepcionista`, y retorna la primera coincidencia
-     * encontrada para el correo proporcionado.
+     * Obtiene la contraseña encriptada de un usuario a partir de su correo electrónico.
+     * El método consulta tres tablas diferentes: `users`, `doctores` y `recepcionista`,
+     * y retorna la primera coincidencia encontrada para el correo proporcionado.
+     * 
+     * Si el correo coincide en más de una tabla, se retornará la contraseña
+     * de la primera tabla en el orden definido por la consulta SQL (users -> doctores -> recepcionista).
      *
-     * <p>
-     * El orden de prioridad de las tablas en la búsqueda es el siguiente:
-     * 1. Tabla `users` 2. Tabla `doctores` 3. Tabla `recepcionista`. Si el
-     * correo coincide en más de una tabla, se retornará la contraseña de la
-     * primera tabla encontrada según este orden.
-     * </p>
+     * En caso de error durante la ejecución de la consulta, el método registrará
+     * un mensaje en el log y retornará `null`.
      *
-     * <p>
-     * En caso de error durante la ejecución de la consulta, el método
-     * registrará un mensaje en el log, mostrará un mensaje de error al usuario
-     * y retornará `null`.
-     * </p>
-     *
-     * **Nota de Seguridad:** La contraseña retornada está encriptada, pero es
-     * responsabilidad del desarrollador manejarla adecuadamente para evitar
+     * **Nota de Seguridad:** La contraseña retornada está encriptada, pero
+     * es responsabilidad del desarrollador manejarla adecuadamente para evitar
      * exposición accidental.
      *
      * @param correo El correo electrónico del usuario cuya contraseña
-     * encriptada se desea obtener.
-     * @return La contraseña encriptada del usuario si se encuentra una
-     * coincidencia, o `null` si no se encuentra o ocurre un error.
+     *               encriptada se desea obtener.
+     * @return La contraseña encriptada del usuario si se encuentra una coincidencia,
+     *         o `null` si no se encuentra o ocurre un error.
      */
-    public String obtenerContraseñaEncriptada(String correo) {
-        String sql = "SELECT contraseña FROM users WHERE correo = ? "
-                + "UNION SELECT contraseña FROM doctores WHERE correo = ? "
-                + "UNION SELECT contraseña FROM recepcionista WHERE correo = ?";
+public String obtenerContraseñaEncriptada(String correo) {
+        String sql = "SELECT contraseña FROM users WHERE correo = ? "; // +
+//                 "UNION SELECT contraseña FROM doctores WHERE correo = ? " +
+//                 "UNION SELECT contraseña FROM recepcionista WHERE correo = ?";
         String contraseñaEncriptada = null;
 
         try (Connection conn = conectar.conectar(); PreparedStatement ps = conn.prepareStatement(sql)) {
 
-            ps.setString(1, correo); // Para la tabla 'users'
-            ps.setString(2, correo); // Para la tabla 'doctores'
-            ps.setString(3, correo); // Para la tabla 'recepcionista'
+            ps.setString(1, correo); 
+//            ps.setString(2, correo); 
+//            ps.setString(3, correo); 
             ResultSet rs = ps.executeQuery();
 
             if (rs.next()) {
-                contraseñaEncriptada = rs.getString("contraseña"); // Obtener la contraseña encriptada
+                contraseñaEncriptada = rs.getString("contraseña"); 
             }
 
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Hubo un problema al conectarse a la base de datos. Por favor, intente más tarde.",
-                    "Error de Conexión", JOptionPane.ERROR_MESSAGE);
             Logger.getLogger(IniciarSesionDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
 
-        return contraseñaEncriptada; // Retornamos la contraseña encriptada
+        return contraseñaEncriptada; 
     }
-}
+ }

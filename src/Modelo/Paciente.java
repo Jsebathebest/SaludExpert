@@ -3,50 +3,79 @@ package Modelo;
 import java.util.Date;
 
 /**
- *
- * @author Sebastian
+ * La clase {@code Paciente} representa la información personal y médica de los pacientes
+ * dentro del sistema de gestión médica. Contiene datos relacionados con su contacto, historial
+ * médico y detalles de su seguro médico.
  */
 public class Paciente {
 
-    //Crear atributos
-    int idPaciente;//Unico, autogenerado, Primary Key
-    String nombre;
-    String apellido;
-    String numeroTelefono; //Lleva mascara
-    String tipoSangre;
-    String numeroEmergencia; //Lleva mascara
-    String correo; //Lleva mascara
-    String cedula; //Unico
-    Date fechaRegistro; //Lleva mascara (sugerencia)
-    Date fechaNacimiento; //Lleva mascara (sugerencia)
-    String genero; //Femenino/Masculino
-    String direccionFisica;
-    String nombreSeguro;
-    String codigoSeguro;
-    String enfermedades;
-    String antecedentesMedicos;
+    // Atributos de la clase
+    int idPaciente;               // Identificador único del paciente (autogenerado)
+    String nombre;                // Nombre del paciente
+    String apellido;              // Apellido del paciente
+    String numeroTelefono;        // Número de teléfono del paciente
+    String tipoSangre;            // Tipo de sangre del paciente
+    String numeroEmergencia;      // Número de emergencia del paciente
+    String correo;                // Correo electrónico del paciente
+    String cedula;                // Cédula única del paciente
+    Date fechaRegistro;           // Fecha de registro del paciente en el sistema
+    String fechaNacimiento;       // Fecha de nacimiento del paciente
+    String genero;                // Género del paciente (Femenino o Masculino)
+    String direccionFisica;       // Dirección física del paciente
+    String nombreSeguro;          // Nombre del seguro médico del paciente
+    String codigoSeguro;          // Código del seguro médico del paciente
+    String enfermedades;          // Enfermedades conocidas del paciente
+    String antecedentesMedicos;   // Antecedentes médicos del paciente
+    double peso;                  // Peso del paciente en kilogramos
+    int estatura;                 // Estatura del paciente en centímetros
+    String contraseña;            // Contraseña para el acceso del paciente al sistema
 
-    //Crear constructor vacio
-    public Paciente() {
-    }
+    /**
+     * Constructor vacío para la clase {@code Paciente}.
+     * Este constructor crea una instancia sin inicializar atributos.
+     */
+    public Paciente() {}
 
-    //Llenar constructor
+    /**
+     * Constructor que inicializa los atributos de la clase {@code Paciente}.
+     *
+     * @param idPaciente          Identificador único del paciente
+     * @param nombre              Nombre del paciente
+     * @param apellido            Apellido del paciente
+     * @param numeroTelefono      Número de teléfono del paciente
+     * @param tipoSangre          Tipo de sangre del paciente
+     * @param numeroEmergencia    Número de emergencia del paciente
+     * @param correo              Correo electrónico del paciente
+     * @param cedula              Cédula única del paciente
+     * @param fechaNacimiento     Fecha de nacimiento del paciente
+     * @param genero              Género del paciente (Femenino o Masculino)
+     * @param direccionFisica     Dirección física del paciente
+     * @param nombreSeguro        Nombre del seguro médico del paciente
+     * @param codigoSeguro        Código del seguro médico del paciente
+     * @param enfermedades        Enfermedades conocidas del paciente
+     * @param antecedentesMedicos Antecedentes médicos del paciente
+     * @param peso                Peso del paciente en kilogramos
+     * @param estatura            Estatura del paciente en centímetros
+     * @param contraseña          Contraseña para el acceso del paciente
+     */
     public Paciente(int idPaciente, 
-            String nombre, 
-            String apellido, 
-            String numeroTelefono, 
-            String tipoSangre,
-            String numeroEmergencia, 
-            String correo, 
-            String cedula, 
-            Date fechaRegistro, 
-            Date fechaNacimiento,
-            String genero, 
-            String direccionFisica, 
-            String nombreSeguro, 
-            String codigoSeguro,
-            String enfermedades, 
-            String antecedentesMedicos) {
+                    String nombre, 
+                    String apellido, 
+                    String numeroTelefono, 
+                    String tipoSangre,
+                    String numeroEmergencia, 
+                    String correo, 
+                    String cedula,  
+                    String fechaNacimiento,
+                    String genero, 
+                    String direccionFisica, 
+                    String nombreSeguro, 
+                    String codigoSeguro,
+                    String enfermedades, 
+                    String antecedentesMedicos,
+                    double peso,
+                    int estatura,
+                    String contraseña) {
         this.idPaciente = idPaciente;
         this.nombre = nombre;
         this.apellido = apellido;
@@ -55,7 +84,6 @@ public class Paciente {
         this.numeroEmergencia = numeroEmergencia;
         this.correo = correo;
         this.cedula = cedula;
-        this.fechaRegistro = fechaRegistro;
         this.fechaNacimiento = fechaNacimiento;
         this.genero = genero;
         this.direccionFisica = direccionFisica;
@@ -63,8 +91,11 @@ public class Paciente {
         this.codigoSeguro = codigoSeguro;
         this.enfermedades = enfermedades;
         this.antecedentesMedicos = antecedentesMedicos;
+        this.peso = peso;
+        this.estatura = estatura;
+        this.contraseña = contraseña;
     }
-
+    
     //agregar Getters y Setters
     public int getIdPaciente() {
         return idPaciente;
@@ -138,14 +169,6 @@ public class Paciente {
         this.fechaRegistro = fechaRegistro;
     }
 
-    public Date getFechaNacimiento() {
-        return fechaNacimiento;
-    }
-
-    public void setFechaNacimiento(Date fechaNacimiento) {
-        this.fechaNacimiento = fechaNacimiento;
-    }
-
     public String getGenero() {
         return genero;
     }
@@ -193,5 +216,35 @@ public class Paciente {
     public void setAntecedentesMedicos(String antecedentesMedicos) {
         this.antecedentesMedicos = antecedentesMedicos;
     }
+      public double getPeso() {
+        return peso;
+    }
 
+    public void setPeso(double peso) {
+        this.peso = peso;
+    }
+
+    public int getEstatura() {
+        return estatura;
+    }
+
+    public void setEstatura(int estatura) {
+        this.estatura = estatura;
+    }
+
+    public String getContraseña() {
+        return contraseña;
+    }
+
+    public void setContraseña(String contraseña) {
+        this.contraseña = contraseña;
+    }
+
+    public String getFechaNacimiento() {
+        return fechaNacimiento;
+    }
+
+    public void setFechaNacimiento(String fechaNacimiento) {
+        this.fechaNacimiento = fechaNacimiento;
+    }
 }
