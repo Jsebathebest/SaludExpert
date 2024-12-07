@@ -102,6 +102,24 @@ public class ControladorAdmin {
 
         return resultado;
     }
+    
+    public int eliminarRecepcionistas(int idRecepcionista) {
+        int resultado = 0;
+
+        try {
+            resultado = aDAO.eliminarRecepcionista(idRecepcionista);
+            if (resultado == 1) {
+                JOptionPane.showMessageDialog(pAdmin, "¡Recepcionistas eliminado exitosamente!");
+            } else {
+                JOptionPane.showMessageDialog(pAdmin, "No se pudo eliminar la recepcionista.", "Error", JOptionPane.ERROR_MESSAGE);
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(pAdmin, "Error al intentar eliminar la recepcionista: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        }
+
+        return resultado;
+    }
+
 
     /**
      * Busca doctores que coincidan con un valor dado y actualiza la tabla.
@@ -165,6 +183,16 @@ public class ControladorAdmin {
             JOptionPane.showMessageDialog(pAdmin, "Error al actualizar el doctor.", "Error", JOptionPane.ERROR_MESSAGE);
         }
     }
+    
+    /**
+     * Actualiza la información de una recepcionista seleccionada en la tabla.
+     * 
+     * @param nombre Nuevo nombre de la recepcionista.
+     * @param apellido Nuevo apellido de la recepcionista.
+     * @param telefono Nuevo teléfono de la recepcionista.
+     * @param correo Nuevo correo electrónico de la recepcionista.
+     * @param cedula Nueva cédula de la recepcionista.
+     */
     public void actualizarRecepcionista(String nombre, String apellido, String telefono, String correo, String cedula) {
         int filaSeleccionada = pAdmin.tablaRecep.getSelectedRow();
 
@@ -212,6 +240,7 @@ public class ControladorAdmin {
             JOptionPane.showMessageDialog(pAdmin, "No se encontró al doctor con el ID proporcionado.", "Error", JOptionPane.ERROR_MESSAGE);
         }
     }
+
     /**
      * Edita una recepcionista, cargando sus datos desde la base de datos hacia los campos del formulario.
      * 

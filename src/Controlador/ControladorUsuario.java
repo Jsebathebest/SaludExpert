@@ -5,39 +5,36 @@ import Modelo.UsuariosDAO;
 import javax.swing.JOptionPane;
 
 /**
- * Controlador para la gestión de usuarios en el sistema.
- * Este controlador valida los campos ingresados por el usuario, interactúa
- * con el modelo de datos (Usuarios y UsuariosDAO) y maneja las interacciones
- * relacionadas con la creación y validación de usuarios.
- *
+ * Controlador para gestionar la lógica de validación y almacenamiento de usuarios.
+ * Este controlador interactúa con el modelo de usuarios (Usuarios y UsuariosDAO)
+ * y proporciona validaciones para los campos de usuario.
  */
 public class ControladorUsuario {
 
-    private UsuariosDAO uDAO;
+    private UsuariosDAO uDAO; // Objeto DAO para operaciones de usuarios en la base de datos.
 
     /**
-     * Constructor predeterminado. Inicializa el DAO de usuarios.
+     * Constructor predeterminado que inicializa el DAO para usuarios.
      */
     public ControladorUsuario() {
         this.uDAO = new UsuariosDAO();
     }
 
     /**
-     * Valida los campos de un formulario de usuario.
+     * Valida los campos proporcionados para la creación de un nuevo usuario.
      * 
      * @param nombre Nombre del usuario.
      * @param apellido Apellido del usuario.
      * @param correo Correo electrónico del usuario.
      * @param numeroTelefono Número de teléfono del usuario.
-     * @param cedula Cédula del usuario.
+     * @param cedula Cédula de identidad del usuario.
      * @param contraseña Contraseña del usuario.
      * @param genero Género del usuario.
-     * @return true si todos los campos son válidos, false de lo contrario.
+     * @return true si todos los campos son válidos, false si alguno es inválido.
      */
     public boolean validarCampos(String nombre, String apellido, String correo,
-            String numeroTelefono, String cedula, String contraseña, String genero) {
+                                  String numeroTelefono, String cedula, String contraseña, String genero) {
 
-        // Validar cada campo individualmente
         if (!validarNombre(nombre)) {
             return false;
         }
@@ -60,14 +57,14 @@ public class ControladorUsuario {
             return false;
         }
 
-        return true; // Todos los campos son válidos
+        return true; // Todos los campos son válidos.
     }
 
     /**
-     * Valida el nombre del usuario.
+     * Valida que el nombre no sea nulo ni vacío.
      * 
-     * @param nombre Nombre del usuario.
-     * @return true si el nombre no está vacío, false de lo contrario.
+     * @param nombre Nombre del usuario a validar.
+     * @return true si el nombre es válido, false si es inválido.
      */
     private boolean validarNombre(String nombre) {
         if (nombre == null || nombre.trim().isEmpty()) {
@@ -79,10 +76,10 @@ public class ControladorUsuario {
     }
 
     /**
-     * Valida el apellido del usuario.
+     * Valida que el apellido no sea nulo ni vacío.
      * 
-     * @param apellido Apellido del usuario.
-     * @return true si el apellido no está vacío, false de lo contrario.
+     * @param apellido Apellido del usuario a validar.
+     * @return true si el apellido es válido, false si es inválido.
      */
     private boolean validarApellido(String apellido) {
         if (apellido == null || apellido.trim().isEmpty()) {
@@ -94,10 +91,11 @@ public class ControladorUsuario {
     }
 
     /**
-     * Valida el correo electrónico del usuario.
+     * Valida que el correo no sea nulo, vacío y tenga el formato adecuado.
+     * También verifica que el correo no pertenezca a dominios no permitidos.
      * 
-     * @param correo Correo electrónico del usuario.
-     * @return true si el correo es válido, false de lo contrario.
+     * @param correo Correo electrónico del usuario a validar.
+     * @return true si el correo es válido, false si es inválido.
      */
     private boolean validarCorreo(String correo) {
         if (correo == null || correo.trim().isEmpty()) {
@@ -121,10 +119,10 @@ public class ControladorUsuario {
     }
 
     /**
-     * Valida el número de teléfono del usuario.
+     * Valida que el número de teléfono contenga solo números y no esté vacío.
      * 
-     * @param numeroTelefono Número de teléfono del usuario.
-     * @return true si el número de teléfono es válido, false de lo contrario.
+     * @param numeroTelefono Número de teléfono del usuario a validar.
+     * @return true si el número de teléfono es válido, false si es inválido.
      */
     private boolean validarTelefono(String numeroTelefono) {
         if (numeroTelefono == null || numeroTelefono.trim().isEmpty()) {
@@ -141,10 +139,10 @@ public class ControladorUsuario {
     }
 
     /**
-     * Valida la cédula del usuario.
+     * Valida que la cédula no sea nula, vacía y contenga solo números.
      * 
-     * @param cedula Cédula del usuario.
-     * @return true si la cédula es válida, false de lo contrario.
+     * @param cedula Cédula de identidad del usuario a validar.
+     * @return true si la cédula es válida, false si es inválida.
      */
     private boolean validarCedula(String cedula) {
         if (cedula == null || cedula.trim().isEmpty()) {
@@ -161,10 +159,10 @@ public class ControladorUsuario {
     }
 
     /**
-     * Valida la contraseña del usuario.
+     * Valida que la contraseña no sea nula ni vacía.
      * 
-     * @param contraseña Contraseña del usuario.
-     * @return true si la contraseña no está vacía, false de lo contrario.
+     * @param contraseña Contraseña del usuario a validar.
+     * @return true si la contraseña es válida, false si es inválida.
      */
     private boolean validarContraseña(String contraseña) {
         if (contraseña == null || contraseña.trim().isEmpty()) {
@@ -176,10 +174,10 @@ public class ControladorUsuario {
     }
 
     /**
-     * Valida el género del usuario.
+     * Valida que el género sea "Femenino" o "Masculino".
      * 
-     * @param genero Género del usuario.
-     * @return true si el género es "Masculino" o "Femenino", false de lo contrario.
+     * @param genero Género del usuario a validar.
+     * @return true si el género es válido, false si es inválido.
      */
     private boolean validarGenero(String genero) {
         if (genero == null || genero.trim().isEmpty()) {
@@ -196,13 +194,13 @@ public class ControladorUsuario {
     }
 
     /**
-     * Guarda un usuario en la base de datos.
+     * Guarda un nuevo usuario en la base de datos utilizando el DAO.
      * 
-     * @param usuario Objeto usuario a guardar.
+     * @param usuario El objeto Usuario que contiene los datos a guardar.
      */
     public void guardarUsuario(Usuarios usuario) {
         if (uDAO != null) {
-            uDAO.agregar(usuario);
+            uDAO.agregar(usuario); // Llama al método agregar del DAO para insertar al usuario.
             JOptionPane.showMessageDialog(null,
                     "¡Datos de " + usuario.getNombre() + " capturados exitosamente!",
                     "Confirmación",
